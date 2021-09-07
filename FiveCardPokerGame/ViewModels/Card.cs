@@ -8,5 +8,18 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class Card
     {
+            /// <summary>
+            /// Type of card
+            /// </summary>
+            public string Type { get; set; }
+            /// <summary>
+            /// Color of card
+            /// </summary>
+            public string Suit { get; set; }
+            /// <summary>
+            /// Value of card
+            /// </summary>
+            public int Rank { get; set; }
+ 
     }
 }
