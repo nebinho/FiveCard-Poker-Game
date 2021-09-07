@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBlock Text="Develop" FontSize="100"/>
         <TextBlock Text="HEJSAN" FontSize="25" Foreground="Black"/>
+        <TextBlock Text="TJENA" FontSize="25" Foreground="DeepSkyBlue" Margin="5,35,-5,-35"/>
     </Grid>
 </Window>
