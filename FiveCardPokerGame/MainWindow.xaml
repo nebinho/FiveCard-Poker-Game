@@ -7,9 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Develop" FontSize="100"/>
-        <TextBlock Text="HEJSAN" FontSize="25" Foreground="Black"/>
-        <TextBlock FontSize="25" Foreground="DeepSkyBlue" Margin="5,35,-5,-35"><Run Text="TJENA"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="147,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="YO"/></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        
+            
+            <TextBlock Text="Develop" FontSize="25" Grid.Column="1"/>
+            <TextBlock Text="HEJSAN" FontSize="25" Foreground="Black" Grid.Column="2"/>
+            <TextBlock Grid.Column="0" FontSize="25" Foreground="DeepSkyBlue" Text="Tjena"/>
+        
     </Grid>
 </Window>
