@@ -12,25 +12,41 @@ namespace FiveCardPokerGame.ViewModels
         private static readonly Random random = new Random();
         DeckOfCards deckOfCards = new DeckOfCards();
         ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
-        
+        int NumberOfCards = 52;
             
-        private void GetFiveCards()
+        private int GetFiveCards()
         {
-            int tja = 52;
+            
             for (int i = 0; i < 5; i++)
             {
-                var magicNumber = random.Next(tja);
+                var magicNumber = random.Next(NumberOfCards);
                 Hand.Add(deckOfCards.Cards[magicNumber]);
                 deckOfCards.Cards.RemoveAt(magicNumber);
-                tja--;
+                NumberOfCards--;
                 
             }
+            return NumberOfCards;
         }
+        private void ThrowCardsFromHand()
+        {
+            Hand.RemoveAt(1);
+            Hand.RemoveAt(3);
+            for (int i = 0; i < 2; i++)
+            {
+                var magicNumber = random.Next(NumberOfCards);
+                Hand.Add(deckOfCards.Cards[magicNumber]);
+                deckOfCards.Cards.RemoveAt(magicNumber);
+                NumberOfCards--;
+
+            }
+        }
+        
 
         
         public GameViewModel()
         {
             GetFiveCards();
+            ThrowCardsFromHand();
         }
     }
 }
