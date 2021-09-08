@@ -13,6 +13,7 @@ namespace FiveCardPokerGame
         {
             
             InitializeComponent();
+            DataContext = new MainViewModel();
             GameViewModel game = new GameViewModel();
         }
         
