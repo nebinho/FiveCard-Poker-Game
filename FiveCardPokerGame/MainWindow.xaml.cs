@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using FiveCardPokerGame.ViewModels;
+using System.Windows;
 
 namespace FiveCardPokerGame
 {
@@ -7,9 +8,13 @@ namespace FiveCardPokerGame
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
+            
             InitializeComponent();
+            DeckOfCards deckOfCards = new DeckOfCards();
         }
+        
     }
 }

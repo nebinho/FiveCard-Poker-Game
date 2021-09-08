@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.ViewModels
         private static readonly Random random = new Random();
         public List<Card> Cards { get; set; }
 
-        public Deck()
+        public DeckOfCards()
         {
             FillDeckWithCards();
         }
