@@ -10,6 +10,6 @@ namespace FiveCardPokerGame.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class BaseViewModel
     {
-
+        
     }
 }

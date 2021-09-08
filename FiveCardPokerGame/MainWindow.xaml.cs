@@ -13,7 +13,7 @@ namespace FiveCardPokerGame
         {
             
             InitializeComponent();
-            DeckOfCards deckOfCards = new DeckOfCards();
+            GameViewModel game = new GameViewModel();
         }
         
     }

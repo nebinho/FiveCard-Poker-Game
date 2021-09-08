@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiveCardPokerGame.ViewModels
 {
-    public class DeckOfCards
+    public class DeckOfCards : BaseViewModel
     {
         private static readonly Random random = new Random();
         public List<Card> Cards { get; set; }

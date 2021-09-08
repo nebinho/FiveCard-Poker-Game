@@ -8,5 +8,6 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class PlayerViewModel : BaseViewModel
     {
+
     }
 }
