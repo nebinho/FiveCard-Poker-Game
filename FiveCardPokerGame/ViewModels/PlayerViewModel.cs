@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiveCardPokerGame.ViewModels
 {
-    public class GameViewModel
+    public class PlayerViewModel
     {
-
     }
 }
