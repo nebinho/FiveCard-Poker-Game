@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.ViewModels
 {
@@ -13,6 +14,7 @@ namespace FiveCardPokerGame.ViewModels
         DeckOfCards deckOfCards = new DeckOfCards();
         ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         int NumberOfCards = 52;
+        public PlayerViewModel P1 { get; set; } = new Player();
             
         private int GetFiveCards()
         {
