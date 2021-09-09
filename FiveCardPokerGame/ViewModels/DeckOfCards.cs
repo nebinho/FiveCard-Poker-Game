@@ -13,10 +13,10 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
 
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
-
+        public PokerHands pokerHands = new PokerHands();
         public List<Card> Cards { get; set; }
         
-
+        
         int NumberOfCards = 52;
 
 
@@ -51,9 +51,17 @@ namespace FiveCardPokerGame.ViewModels
             } while (Hand.Count <= 4);
             this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
             bool check = EvaluateHand.IsPair(this.Hand);
+            WhatPokerHand(check);
+            
         }
+        public void WhatPokerHand(bool check)
+        {
+            if (check == true)
+            {
+                pokerHands.pokerHand = PokerHands.PokerHand.Pair;
                 
-
+            }
         }
     }
+}
 

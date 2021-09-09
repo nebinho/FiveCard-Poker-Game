@@ -26,7 +26,7 @@ namespace FiveCardPokerGame.ViewModels
             bool higherPair = (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
             return lowPair || lowerMiddlePair || higherMiddlePair || higherPair;
-                
+            
         }
 
         
