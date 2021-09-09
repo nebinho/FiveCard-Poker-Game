@@ -17,7 +17,7 @@ namespace FiveCardPokerGame.ViewModels
         }
         public enum Value
         {   
-            Ace,
+            
             Two,
             Three,
             Four,
@@ -30,6 +30,7 @@ namespace FiveCardPokerGame.ViewModels
             Jack,
             Queen,
             King,
+            Ace,
         }
         public Suit Cardsuit { get; set; }
         public Value Cardvalue { get; set; }
