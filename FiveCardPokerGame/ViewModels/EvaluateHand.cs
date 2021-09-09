@@ -15,8 +15,6 @@ namespace FiveCardPokerGame.ViewModels
 
         }
 
-
-
         public static bool IsPair(ObservableCollection<Card> hand)
         {
 
@@ -29,35 +27,9 @@ namespace FiveCardPokerGame.ViewModels
 
             return lowPair || lowerMiddlePair || higherMiddlePair || higherPair;
                 
-                //Hand.GroupBy(h => h.Cardvalue).Where(g => g.Count() == 2).Count() == 1;
-
         }
 
-        //public static bool isPair(ObservableCollection<Card> Hand)
-        //{
-        //    foreach (var card in Hand)
-        //    {
-        //        if (card.Cardvalue == )
-        //        {
-        //            return true;
-        //        }
-
-        //    }
-
-
-
-        //    return Hand.GroupBy(h => h.Cardvalue).Where(g => g.Count() == 2).Count() == 1;
-
-
-        //    bool firstTwoCard = Hand[0].Cardvalue == Hand[1].Cardvalue;
-
-        //    Hand.OrderBy(h => h.Cardvalue);
-
-        //    return false;
-
-        //    return false;
-        //}
-
+        
 
     }
 }
