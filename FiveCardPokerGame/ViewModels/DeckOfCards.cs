@@ -10,14 +10,16 @@ namespace FiveCardPokerGame.ViewModels
     public class DeckOfCards : Card
     {
         private static readonly Random random = new Random();
-
-        ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
-        
+
+        public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
 
         public List<Card> Cards { get; set; }
-        int NumberOfCards = 52;
         
+
+        int NumberOfCards = 52;
+
+
         public DeckOfCards()
         {
             SetUpDeck();
@@ -41,15 +43,17 @@ namespace FiveCardPokerGame.ViewModels
         {
             do
             {
-                int MagicNumber = random.Next(52);
+                int MagicNumber = random.Next(NumberOfCards);
                 var newCard = Deck[MagicNumber];
                 Hand.Add(newCard);
                 Deck.RemoveAt(MagicNumber);
                 NumberOfCards--;
             } while (Hand.Count <= 4);
             this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
+            bool check = EvaluateHand.IsPair(this.Hand);
         }
+                
 
+        }
     }
-}
 
