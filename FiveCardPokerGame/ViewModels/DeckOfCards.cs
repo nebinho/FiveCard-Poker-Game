@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.ViewModels
     {
         private static readonly Random random = new Random();
 
-        ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
+        public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         
 
@@ -41,13 +41,13 @@ namespace FiveCardPokerGame.ViewModels
         {
             do
             {
-                int MagicNumber = random.Next(52);
-                var newCard = Deck[MagicNumber];
+                int randomNr = random.Next(NumberOfCards);
+                var newCard = Deck[randomNr];
                 Hand.Add(newCard);
-                Deck.RemoveAt(MagicNumber);
+                Deck.RemoveAt(randomNr);
                 NumberOfCards--;
-            } while (Hand.Count<=4);
-          this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
+            } while (Hand.Count <= 4);
+            this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
         }
 
     }

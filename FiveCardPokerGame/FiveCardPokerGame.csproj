@@ -7,7 +7,59 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <None Remove="Resources\Images Cards\10C.png" />
+    <None Remove="Resources\Images Cards\10D.png" />
+    <None Remove="Resources\Images Cards\10H.png" />
+    <None Remove="Resources\Images Cards\10S.png" />
+    <None Remove="Resources\Images Cards\2C.png" />
+    <None Remove="Resources\Images Cards\2D.png" />
+    <None Remove="Resources\Images Cards\2H.png" />
+    <None Remove="Resources\Images Cards\2S.png" />
+    <None Remove="Resources\Images Cards\3C.png" />
+    <None Remove="Resources\Images Cards\3D.png" />
+    <None Remove="Resources\Images Cards\3H.png" />
+    <None Remove="Resources\Images Cards\3S.png" />
+    <None Remove="Resources\Images Cards\4C.png" />
+    <None Remove="Resources\Images Cards\4D.png" />
+    <None Remove="Resources\Images Cards\4H.png" />
+    <None Remove="Resources\Images Cards\4S.png" />
+    <None Remove="Resources\Images Cards\5C.png" />
+    <None Remove="Resources\Images Cards\5D.png" />
+    <None Remove="Resources\Images Cards\5H.png" />
+    <None Remove="Resources\Images Cards\5S.png" />
+    <None Remove="Resources\Images Cards\6C.png" />
+    <None Remove="Resources\Images Cards\6D.png" />
+    <None Remove="Resources\Images Cards\6H.png" />
+    <None Remove="Resources\Images Cards\6S.png" />
+    <None Remove="Resources\Images Cards\7C.png" />
+    <None Remove="Resources\Images Cards\7D.png" />
+    <None Remove="Resources\Images Cards\7H.png" />
+    <None Remove="Resources\Images Cards\7S.png" />
+    <None Remove="Resources\Images Cards\8C.png" />
+    <None Remove="Resources\Images Cards\8D.png" />
+    <None Remove="Resources\Images Cards\8H.png" />
+    <None Remove="Resources\Images Cards\8S.png" />
+    <None Remove="Resources\Images Cards\9C.png" />
+    <None Remove="Resources\Images Cards\9D.png" />
+    <None Remove="Resources\Images Cards\9H.png" />
+    <None Remove="Resources\Images Cards\9S.png" />
+    <None Remove="Resources\Images Cards\AC.png" />
+    <None Remove="Resources\Images Cards\AD.png" />
+    <None Remove="Resources\Images Cards\AH.png" />
+    <None Remove="Resources\Images Cards\AS.png" />
+    <None Remove="Resources\Images Cards\JC.png" />
+    <None Remove="Resources\Images Cards\JD.png" />
+    <None Remove="Resources\Images Cards\JH.png" />
+    <None Remove="Resources\Images Cards\JS.png" />
+    <None Remove="Resources\Images Cards\KC.png" />
+    <None Remove="Resources\Images Cards\KD.png" />
+    <None Remove="Resources\Images Cards\KH.png" />
+    <None Remove="Resources\Images Cards\KS.png" />
+    <None Remove="Resources\Images Cards\QC.png" />
+    <None Remove="Resources\Images Cards\QD.png" />
+    <None Remove="Resources\Images Cards\QH.png" />
+    <None Remove="Resources\Images Cards\QS.png" />
+    <None Remove="Resources\Images Cards\red_back.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +68,66 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images Cards\10C.png" />
+    <Resource Include="Resources\Images Cards\10D.png" />
+    <Resource Include="Resources\Images Cards\10H.png" />
+    <Resource Include="Resources\Images Cards\10S.png" />
+    <Resource Include="Resources\Images Cards\2C.png" />
+    <Resource Include="Resources\Images Cards\2D.png" />
+    <Resource Include="Resources\Images Cards\2H.png" />
+    <Resource Include="Resources\Images Cards\2S.png" />
+    <Resource Include="Resources\Images Cards\3C.png" />
+    <Resource Include="Resources\Images Cards\3D.png" />
+    <Resource Include="Resources\Images Cards\3H.png" />
+    <Resource Include="Resources\Images Cards\3S.png" />
+    <Resource Include="Resources\Images Cards\4C.png" />
+    <Resource Include="Resources\Images Cards\4D.png" />
+    <Resource Include="Resources\Images Cards\4H.png" />
+    <Resource Include="Resources\Images Cards\4S.png" />
+    <Resource Include="Resources\Images Cards\5C.png" />
+    <Resource Include="Resources\Images Cards\5D.png" />
+    <Resource Include="Resources\Images Cards\5H.png" />
+    <Resource Include="Resources\Images Cards\5S.png" />
+    <Resource Include="Resources\Images Cards\6C.png" />
+    <Resource Include="Resources\Images Cards\6D.png" />
+    <Resource Include="Resources\Images Cards\6H.png" />
+    <Resource Include="Resources\Images Cards\6S.png" />
+    <Resource Include="Resources\Images Cards\7C.png" />
+    <Resource Include="Resources\Images Cards\7D.png" />
+    <Resource Include="Resources\Images Cards\7H.png" />
+    <Resource Include="Resources\Images Cards\7S.png" />
+    <Resource Include="Resources\Images Cards\8C.png" />
+    <Resource Include="Resources\Images Cards\8D.png" />
+    <Resource Include="Resources\Images Cards\8H.png" />
+    <Resource Include="Resources\Images Cards\8S.png" />
+    <Resource Include="Resources\Images Cards\9C.png" />
+    <Resource Include="Resources\Images Cards\9D.png" />
+    <Resource Include="Resources\Images Cards\9H.png" />
+    <Resource Include="Resources\Images Cards\9S.png" />
+    <Resource Include="Resources\Images Cards\AC.png" />
+    <Resource Include="Resources\Images Cards\AD.png" />
+    <Resource Include="Resources\Images Cards\AH.png" />
+    <Resource Include="Resources\Images Cards\AS.png" />
+    <Resource Include="Resources\Images Cards\JC.png" />
+    <Resource Include="Resources\Images Cards\JD.png" />
+    <Resource Include="Resources\Images Cards\JH.png" />
+    <Resource Include="Resources\Images Cards\JS.png" />
+    <Resource Include="Resources\Images Cards\KC.png" />
+    <Resource Include="Resources\Images Cards\KD.png" />
+    <Resource Include="Resources\Images Cards\KH.png" />
+    <Resource Include="Resources\Images Cards\KS.png" />
+    <Resource Include="Resources\Images Cards\QC.png" />
+    <Resource Include="Resources\Images Cards\QD.png" />
+    <Resource Include="Resources\Images Cards\QH.png" />
+    <Resource Include="Resources\Images Cards\QS.png" />
+    <Resource Include="Resources\Images Cards\red_back.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>
