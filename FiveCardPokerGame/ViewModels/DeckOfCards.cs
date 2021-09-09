@@ -21,7 +21,7 @@ namespace FiveCardPokerGame.ViewModels
         public DeckOfCards()
         {
             SetUpDeck();
-            DealHand();
+            DealCards();
         }
 
         public void SetUpDeck()
@@ -37,20 +37,17 @@ namespace FiveCardPokerGame.ViewModels
            
         }
 
-        public void DealHand()
+        public void DealCards()
         {
-            
-            for (int i = 0; i < 5; i++)
+            do
             {
                 int MagicNumber = random.Next(52);
                 var newCard = Deck[MagicNumber];
                 Hand.Add(newCard);
                 Deck.RemoveAt(MagicNumber);
                 NumberOfCards--;
-            }
-            this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
-            
-
+            } while (Hand.Count<=4);
+          this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
         }
 
     }
