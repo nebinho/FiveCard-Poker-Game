@@ -8,17 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="HotPink">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>  
-            </Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ItemsControl ItemsSource="{Binding Deck.Hand}" Grid.Column="0" Grid.Row="0">
+        <ItemsControl ItemsSource="{Binding Deck.Hand}" Grid.Column="1" Grid.Row="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="5" Rows="5" MinHeight="500" MinWidth="150"/>
