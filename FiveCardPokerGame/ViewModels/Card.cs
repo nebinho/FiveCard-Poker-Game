@@ -18,7 +18,7 @@ namespace FiveCardPokerGame.ViewModels
         public enum Value
         {   
             
-            Two,
+            Two ,
             Three,
             Four,
             Five,
