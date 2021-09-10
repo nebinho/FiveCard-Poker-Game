@@ -126,8 +126,4 @@
     <Resource Include="Resources\Images Cards\red_back.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
 </Project>

@@ -13,6 +13,8 @@ namespace FiveCardPokerGame.ViewModels
     {
         public ObservableCollection<CardOne> PresentedCard { get; set; } = new ObservableCollection<CardOne>();
 
+       
+
         public PlayerViewModel()
         {
             CardOne cardOne = new CardOne();
