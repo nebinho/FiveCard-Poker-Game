@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveCardPokerGame.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public BaseViewModel CurrentViewModel { get; set; } = new GameViewModel();
+        public BaseViewModel CurrentViewModel { get; set; } = new BaseViewModel();
     }
 }

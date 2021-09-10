@@ -13,13 +13,7 @@ namespace FiveCardPokerGame.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class BaseViewModel
     {
-        private BaseViewModel selectedViewModel;
-        
-        public BaseViewModel SelectedViewModel
-        {
-            get { return selectedViewModel; }
-            set { selectedViewModel = value; }
-        }
+        public BaseViewModel SelectedViewModel { get; set; }
 
         public ICommand UpdateViewCommand { get; set; }
 

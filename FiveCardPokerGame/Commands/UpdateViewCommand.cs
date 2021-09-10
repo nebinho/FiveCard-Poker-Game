@@ -27,15 +27,10 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "CardOneView")
+            if (parameter.ToString() == "GameViewModel")
             {
-                mainViewModel.SelectedViewModel = new CardOneView();
+                mainViewModel.SelectedViewModel = new GameViewModel();
             }
-
-            //else if (parameter.ToString() == "CardView")
-            //{
-            //    mainViewModel.SelectedViewModel = new CardView();
-            //}
         }
 
     }

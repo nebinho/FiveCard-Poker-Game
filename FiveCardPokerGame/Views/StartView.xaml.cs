@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FiveCardPokerGame.Views.CardViews
+namespace FiveCardPokerGame.Views
 {
     /// <summary>
-    /// Interaction logic for CardOne.xaml
+    /// Interaction logic for StartView.xaml
     /// </summary>
-    public partial class CardOne : UserControl
+    public partial class StartView : UserControl
     {
-        public CardOne()
+        public StartView()
         {
             InitializeComponent();
         }

@@ -17,10 +17,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>           
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Column="1" Grid.Row="2">
-            <Button Command="{Binding UpdateViewCommand}" CommandParameter="CardOneView"  Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
-        </StackPanel>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        
     </Grid>
 </UserControl>
