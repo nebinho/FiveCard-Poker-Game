@@ -50,7 +50,10 @@ namespace FiveCardPokerGame.ViewModels
                 NumberOfCards--;
             } while (Hand.Count <= 4);
             this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
-            bool check = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
+
+            bool check2 = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
+            //bool check = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
+
             //bool check = EvaluateHand.IsThree(this.Hand);
             //bool check = EvaluateHand.IsPair(this.Hand);
             //WhatPokerHand(check);
