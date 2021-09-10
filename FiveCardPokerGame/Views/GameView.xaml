@@ -17,6 +17,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>           
         </Grid.RowDefinitions>
-        
+        <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" Grid.Column="1" Grid.Row="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>

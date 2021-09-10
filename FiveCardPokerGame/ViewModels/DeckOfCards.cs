@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveCardPokerGame.Views;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
+        public ObservableCollection<CardView> CardViews { get; set; } = new ObservableCollection<CardView>();
         
         
 
@@ -23,6 +25,7 @@ namespace FiveCardPokerGame.ViewModels
         {
             SetUpDeck();
             DealCards();
+            Skapaskit();
         }
 
         public void SetUpDeck()
@@ -49,6 +52,15 @@ namespace FiveCardPokerGame.ViewModels
                 
             } while (Hand.Count <= 4);
             this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
+        }
+
+        public void Skapaskit()
+        {
+            foreach (var item in Hand)
+            {
+                var tjo = new CardView();
+                CardViews.Add(tjo);
+            }
         }
 
     }
