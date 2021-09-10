@@ -49,7 +49,7 @@ namespace FiveCardPokerGame.ViewModels
                 Deck.RemoveAt(MagicNumber);
                 NumberOfCards--;
             } while (Hand.Count <= 4);
-            this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
+            //this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
 
             bool check2 = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
             //bool check = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
