@@ -17,7 +17,7 @@ namespace FiveCardPokerGame.ViewModels
         public List<Card> Cards { get; set; }
         
         
-        int NumberOfCards = 52;
+        
 
 
         public DeckOfCards()
@@ -43,11 +43,10 @@ namespace FiveCardPokerGame.ViewModels
         {
             do
             {
-                int MagicNumber = random.Next(NumberOfCards);
+                int MagicNumber = random.Next(Deck.Count);
                 var newCard = Deck[MagicNumber];
                 Hand.Add(newCard);
                 Deck.RemoveAt(MagicNumber);
-                NumberOfCards--;
             } while (Hand.Count <= 4);
             bool check2 = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);            
             
