@@ -17,8 +17,16 @@ namespace FiveCardPokerGame.ViewModels
         }
         public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // om denna alltid kollar först den metoden som är värd mest poäng så kanske det funkar?
         {
-            if (IsFlush(hand) && IsStraight(hand))
+            
+            if (IsFlush(hand)&& IsStraight(hand)) // kollar om man fått färg och stege och sedan om stegen är tio till ess = Royal Flush
             {
+                if (IsRoyalFlush(hand))
+                {
+                    pokerHands.pokerHand = PokerHands.PokerHand.RoyalFlush;
+                    return true;
+                } 
+            }
+            if (IsFlush(hand) && IsStraight(hand)) // kollar om man har fått färg och stege och då får man färgstege
                 pokerHands.pokerHand = PokerHands.PokerHand.StraightFlush;
                 return true;
             }
@@ -27,26 +35,27 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.pokerHand = PokerHands.PokerHand.FourOfAKind;
                 return true;
             }
-            if (IsPair(hand) && IsThree(hand))
+            if (IsPair(hand) && IsThree(hand)) // kollar om man fått kåk
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.FullHouse;
                 return true;
-            }
-            if (IsFlush(hand))
+            } 
+            if (IsFlush(hand)) // kollar om man fått färg
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.Flush;
                 return true;
             }
-            if (IsStraight(hand))
+            if (IsStraight(hand)) // kollar om man fått stege
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.Straight;
                 return true;
             }
-            if (IsThree(hand))
+            if (IsThree(hand)) // kollar om man fått tretal
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
                 return true;
             }
+            if (IsPair(hand)) // kollar om man fått ett par
             if (IsTwoPair(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
@@ -115,6 +124,13 @@ namespace FiveCardPokerGame.ViewModels
                         (int)hand[4].Cardsuit == (int)hand[0].Cardsuit;
 
             return asd;
+        }
+        public static bool IsRoyalFlush(ObservableCollection<Card> hand)
+        {
+            hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
+            bool aaa = hand[0].Cardvalue == Value.Ten && hand[1].Cardvalue == Value.Jack && hand[2].Cardvalue == Value.Queen && hand[3].Cardvalue == Value.King && hand[4].Cardvalue == Value.Ace;
+            
+            return aaa;
         }
 
         public static bool IsFourOfAKind(ObservableCollection<Card> hand)
