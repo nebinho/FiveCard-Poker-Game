@@ -49,8 +49,7 @@ namespace FiveCardPokerGame.ViewModels
                 Deck.RemoveAt(MagicNumber);
                 NumberOfCards--;
             } while (Hand.Count <= 4);
-            bool check2 = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);
-            
+            bool check2 = EvaluateHand.CheckPokerHand(this.Hand, pokerHands);            
             
         }
         

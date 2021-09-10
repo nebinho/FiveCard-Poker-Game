@@ -9,27 +9,28 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class EvaluateHand : DeckOfCards
     {
-        
-        
+
+
         public EvaluateHand()
         {
 
         }
         public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // om denna alltid kollar först den metoden som är värd mest poäng så kanske det funkar?
         {
-            
-            if (IsFlush(hand)&& IsStraight(hand)) // kollar om man fått färg och stege och sedan om stegen är tio till ess = Royal Flush
+
+            if (IsFlush(hand) && IsStraight(hand)) // kollar om man fått färg och stege och sedan om stegen är tio till ess = Royal Flush
             {
                 if (IsRoyalFlush(hand))
                 {
                     pokerHands.pokerHand = PokerHands.PokerHand.RoyalFlush;
                     return true;
-                } 
+                }
             }
             if (IsFlush(hand) && IsStraight(hand)) // kollar om man har fått färg och stege och då får man färgstege
+            {
                 pokerHands.pokerHand = PokerHands.PokerHand.StraightFlush;
                 return true;
-            }
+            }                  
             if (IsFourOfAKind(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.FourOfAKind;
@@ -39,7 +40,7 @@ namespace FiveCardPokerGame.ViewModels
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.FullHouse;
                 return true;
-            } 
+            }
             if (IsFlush(hand)) // kollar om man fått färg
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.Flush;
@@ -55,7 +56,6 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
                 return true;
             }
-            if (IsPair(hand)) // kollar om man fått ett par
             if (IsTwoPair(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
@@ -66,15 +66,14 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.pokerHand = PokerHands.PokerHand.Pair;
                 return true;
             }
+
             return false;
-
-
         }
 
         public static bool IsPair(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
-            bool pair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue || 
+            bool pair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue ||
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue || (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
             return pair;
@@ -84,7 +83,7 @@ namespace FiveCardPokerGame.ViewModels
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool twoPair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[2].Cardvalue == (int)hand[3].Cardvalue ||
-                        (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[3].Cardvalue == (int)hand[4].Cardvalue || 
+                        (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[3].Cardvalue == (int)hand[4].Cardvalue ||
                         (int)hand[1].Cardvalue == (int)hand[2].Cardvalue && (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
             return twoPair;
@@ -114,7 +113,6 @@ namespace FiveCardPokerGame.ViewModels
                             (int)hand[3].Cardvalue % 13 == (int)hand[4].Cardvalue % 13 - 1;
 
             return straight;
-            
         }
 
         public static bool IsFlush(ObservableCollection<Card> hand)
@@ -125,11 +123,12 @@ namespace FiveCardPokerGame.ViewModels
 
             return asd;
         }
+
         public static bool IsRoyalFlush(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool aaa = hand[0].Cardvalue == Value.Ten && hand[1].Cardvalue == Value.Jack && hand[2].Cardvalue == Value.Queen && hand[3].Cardvalue == Value.King && hand[4].Cardvalue == Value.Ace;
-            
+
             return aaa;
         }
 
@@ -137,12 +136,11 @@ namespace FiveCardPokerGame.ViewModels
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool fourOfAKind = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[1].Cardvalue == (int)hand[2].Cardvalue &&
-                        (int)hand[2].Cardvalue == (int)hand[3].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue && 
+                        (int)hand[2].Cardvalue == (int)hand[3].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue &&
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue &&
                         (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
             return fourOfAKind;
-        }      
-
+        }
     }
 }
