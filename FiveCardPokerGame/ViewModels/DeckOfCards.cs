@@ -25,7 +25,7 @@ namespace FiveCardPokerGame.ViewModels
         {
             SetUpDeck();
             DealCards();
-            Skapaskit();
+            CreateCardViews();
         }
 
         public void SetUpDeck()
@@ -54,12 +54,12 @@ namespace FiveCardPokerGame.ViewModels
             this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
         }
 
-        public void Skapaskit()
+        public void CreateCardViews()
         {
             foreach (var item in Hand)
             {
-                var tjo = new CardView();
-                CardViews.Add(tjo);
+                var cardView = new CardView();
+                CardViews.Add(cardView);
             }
         }
 
