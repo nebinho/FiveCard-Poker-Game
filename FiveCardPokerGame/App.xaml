@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FiveCardPokerGame"
+             xmlns:views="clr-namespace:FiveCardPokerGame.Views"
+             xmlns:viewModels="clr-namespace:FiveCardPokerGame.ViewModels"
+             
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModels:BaseViewModel}">
+            <views:StartView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:GameViewModel}">
+            <views:GameView/>
+        </DataTemplate>
+        
     </Application.Resources>
 </Application>
