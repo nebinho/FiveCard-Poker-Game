@@ -12,7 +12,7 @@ using static FiveCardPokerGame.ViewModels.Card;
 namespace FiveCardPokerGame.Converter
 {
     
-    public class IntToImgCon : IValueConverter
+    public class SuitToImgCon : IValueConverter
     {
         
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

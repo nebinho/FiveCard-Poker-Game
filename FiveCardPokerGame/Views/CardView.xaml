@@ -9,22 +9,23 @@
              d:DesignHeight="1200" d:DesignWidth="800">
                 
     <UserControl.Resources>
-        <asd:IntToImgCon x:Key="IntToImgCon"/>
+        <asd:SuitToImgCon x:Key="IntToImgCon"/>
         <asd:ValueToImgCon x:Key="ValueToImgCon"/>
     </UserControl.Resources>
     
     <Border BorderBrush="Black" BorderThickness="10">
 
         <Grid Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <Image Grid.Column="1" Source="{Binding GetCardValue, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ValueToImgCon} }">
+            <Image Grid.Row="1" Source="{Binding GetCardValue, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ValueToImgCon} }">
                 
             </Image>
-            <Image Grid.Column="0" Source="{Binding GetCardSuit, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource IntToImgCon}}">
+            <Image Grid.Row="0" Source="{Binding GetCardSuit, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource IntToImgCon}}">
                 
             </Image>
         </Grid>
