@@ -19,7 +19,7 @@ namespace FiveCardPokerGame.Views
     /// <summary>
     /// Interaction logic for CardView.xaml
     /// </summary>
-    public partial class CardView : UserControl
+    public partial class CardView : CardGame
     {
 
 
@@ -27,15 +27,7 @@ namespace FiveCardPokerGame.Views
 
 
 
-        public Suit CurrentSuit
-        {
-            get { return (Suit)GetValue(CurrentSuitProperty); }
-            set { SetValue(CurrentSuitProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for CurrentSuit.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CurrentSuitProperty =
-            DependencyProperty.Register("CurrentSuit", typeof(Suit), typeof(CardView), new PropertyMetadata(Suit.Hearts));
+        
 
 
 
