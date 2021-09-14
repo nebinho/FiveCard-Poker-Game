@@ -17,6 +17,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+        <!--<StackPanel>
+            <Image Source="C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png">
+                
+            </Image>
+        </StackPanel>-->
         <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
+    <!--<StackPanel>
+        <Image Source="ImagesCards/Clubs Ace.png">
+            
+        </Image>-->
+    <!--</StackPanel>-->
 </Window>

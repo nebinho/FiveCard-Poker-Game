@@ -20,7 +20,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public List<Card> Cards { get; set; }
         
-        
+
         public DeckOfCards()
         {
             SetUpDeck();
@@ -59,9 +59,12 @@ namespace FiveCardPokerGame.ViewModels
             foreach (var item in Hand)
             {
                 var cardView = new CardView();
+                /*cardView.CurrentSuit = Card.Suit.Clubs*/;
+                
                 CardViews.Add(cardView);
             }
         }
+        
 
     }
 }

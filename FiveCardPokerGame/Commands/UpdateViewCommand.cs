@@ -27,6 +27,7 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
+            
             if (parameter.ToString() == "GameViewModel")
             {
                 mainViewModel.SelectedViewModel = new GameViewModel();
