@@ -22,14 +22,14 @@ namespace FiveCardPokerGame.Converter
                 switch (value)
                 {
                     case Suit.Clubs:
-                        return new Uri(@"C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png", UriKind.Relative);
+                        return new Uri(@"/Resources/Images Cards/Clubs Ace.png", UriKind.Relative);
 
                     case Suit.Hearts:
-                        return new Uri(@"C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png", UriKind.Relative);
+                        return new Uri(@"/Resources/Images Cards/Clubs Ace.png", UriKind.Relative);
                     case Suit.Diamonds:
-                        return new Uri(@"C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png", UriKind.Relative);
+                        return new Uri(@"/Resources/Images Cards/Clubs Ace.png", UriKind.Relative);
                     case Suit.Spades:
-                        return new Uri(@"C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png", UriKind.Relative);
+                        return new Uri(@"/Resources/Images Cards/Clubs Ace.png", UriKind.Relative);
                     default:
                         break;
                 }
