@@ -10,21 +10,31 @@
                 
     <UserControl.Resources>
         <asd:IntToImgCon x:Key="IntToImgCon"/>
+        <asd:ValueToImgCon x:Key="ValueToImgCon"/>
     </UserControl.Resources>
+    
     <Border BorderBrush="Black" BorderThickness="10">
 
-        <!--<Grid Background="White">
-            <Image Source="{Binding CurrentSuit, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource IntToImgCon} }">
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Source="{Binding GetCardValue, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ValueToImgCon} }">
                 
             </Image>
-        </Grid>-->
-        <Grid Background="White">
+            <Image Grid.Column="0" Source="{Binding GetCardSuit, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource IntToImgCon}}">
+                
+            </Image>
+        </Grid>
+        <!--<Grid Background="White">
 
             <Image Source="C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png">
                     
             </Image>
             
-        </Grid>
+        </Grid>-->
         
     </Border>
 </local:CardGame>

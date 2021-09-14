@@ -10,21 +10,21 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class DeckOfCards : BaseViewModel
     {
-        private static readonly Random random = new Random();
+        private static readonly Random random = new();
 
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; } = new ObservableCollection<CardView>();
         
-        public PokerHands pokerHands = new PokerHands();
+        public PokerHands pokerHands = new();
         public List<Card> Cards { get; set; }
+        
         
 
         public DeckOfCards()
         {
             SetUpDeck();
             DealCards();
-
             CreateCardViews();
         }
 
@@ -56,7 +56,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public void CreateCardViews()
         {
-            foreach (var item in Hand)
+            foreach (Card card in Hand)
             {
                 var cardView = new CardView();
                 /*cardView.CurrentSuit = Card.Suit.Clubs*/;

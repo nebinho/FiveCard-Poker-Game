@@ -126,4 +126,8 @@
     <Resource Include="Resources\Images Cards\x red_back.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>
