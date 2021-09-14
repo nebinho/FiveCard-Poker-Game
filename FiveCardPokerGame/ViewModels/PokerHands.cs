@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace FiveCardPokerGame.ViewModels
 {
-    public enum PokerHands 
+    public class PokerHands : BaseViewModel
     {
-        HighCard = 1,
-        Pair,
-        TwoPair,
-        ThreeOfAKind,
-        Straight,
-        Flush,
-        FullHouse,
-        FourOfAKind,
-        StraightFlush,
-        RoyalFlush,
+        public enum PokerHand
+        {
+            HighCard,
+            Pair,
+            TwoPair,
+            ThreeOfAKind,
+            Straight,
+            Flush,
+            FullHouse,
+            FourOfAKind,
+            StraightFlush,
+            RoyalFlush,
 
+        }
+
+        public PokerHand pokerHand { get; set; }
     }
+
 }
