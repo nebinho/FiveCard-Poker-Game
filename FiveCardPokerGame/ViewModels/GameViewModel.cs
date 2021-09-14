@@ -10,16 +10,15 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class GameViewModel : BaseViewModel
     {
-
         public PlayerViewModel P1 { get; set; } = new Player();
 
-        
+        public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
 
-        
         public GameViewModel()
         {
             
            
         }
+        
     }
 }

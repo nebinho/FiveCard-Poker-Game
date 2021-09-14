@@ -4,10 +4,15 @@
              xmlns:local="clr-namespace:FiveCardPokerGame"
              xmlns:views="clr-namespace:FiveCardPokerGame.Views"
              xmlns:viewModels="clr-namespace:FiveCardPokerGame.ViewModels"
+             
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <DataTemplate DataType="{x:Type viewModels:BaseViewModel}">
+            <views:StartView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:GameViewModel}">
             <views:GameView/>
         </DataTemplate>
+        
     </Application.Resources>
 </Application>

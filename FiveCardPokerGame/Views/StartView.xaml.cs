@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FiveCardPokerGame.Views
 {
     /// <summary>
-    /// Interaction logic for HandView.xaml
+    /// Interaction logic for StartView.xaml
     /// </summary>
-    public partial class HandView : UserControl
+    public partial class StartView : UserControl
     {
-        public HandView()
+        public StartView()
         {
             InitializeComponent();
         }
