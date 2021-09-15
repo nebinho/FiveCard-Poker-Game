@@ -40,12 +40,13 @@ namespace FiveCardPokerGame.Views
                 DragDrop.DoDragDrop(this, new DataObject(DataFormats.Serializable, this), DragDropEffects.Move);               
             }
         }
-         
 
+        
 
         public CardView()
         {
             InitializeComponent();
+            
         }
     }
 }
