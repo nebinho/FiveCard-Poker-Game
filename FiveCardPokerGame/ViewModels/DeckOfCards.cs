@@ -14,7 +14,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
-        public ObservableCollection<CardView> CardViews { get; set; } = new ObservableCollection<CardView>();
+        public ObservableCollection<CardView> CardViews { get; set; }
         
         public PokerHands pokerHands = new PokerHands();
         public List<Card> Cards { get; set; }
@@ -26,7 +26,7 @@ namespace FiveCardPokerGame.ViewModels
             SetUpDeck();
             DealCards();
             SetScore();
-            ThrowCard();
+            
             CreateCardViews();
 
         }
@@ -64,6 +64,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public void CreateCardViews()
         {
+            CardViews = new();
             foreach (Card card in Hand)
             {
                 var cardView = new CardView();
@@ -71,15 +72,18 @@ namespace FiveCardPokerGame.ViewModels
 
                 CardViews.Add(cardView);
             }
+            
         }
 
+        
 
 
-        public void ThrowCard()
+
+        public void ThrowCard(int cardViewNumber)
         {
-            int throwC = 1;
-            this.Hand.RemoveAt(throwC);
+            Hand.RemoveAt(cardViewNumber);
             DealCards();
+            CreateCardViews();
 
         }
 

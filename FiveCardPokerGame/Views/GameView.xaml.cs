@@ -55,6 +55,7 @@ namespace FiveCardPokerGame.Views
                 if (!dropZone.Children.Contains(cardView))
                 {
                     GameViewModel gameViewModel = (GameViewModel)DataContext;
+                    gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
                     gameViewModel.DeckOfCards.CardViews.Remove(cardView);
                     myCards.Children.Remove(cardView);
                     dropZone.Children.Add(cardView);

@@ -32,7 +32,7 @@
         </StackPanel>
 
 
-        <Canvas Grid.Row="2" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Black">
+        <Canvas Grid.Row="1" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Black">
             
         </Canvas>
     </Grid>
