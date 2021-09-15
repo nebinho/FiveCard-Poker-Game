@@ -5,28 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveCardPokerGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Five Card Poker" Height="600" Width="800">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <!--<StackPanel>
-            <Image Source="C:\Users\keeew\Source\Repos\SUP21_Grupp2\FiveCardPokerGame\Resources\Images Cards\Clubs Ace.png">
-                
-            </Image>
-        </StackPanel>-->
         <ContentControl Content="{Binding CurrentViewModel}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-    </Grid>
-    <!--<StackPanel>
-        <Image Source="ImagesCards/Clubs Ace.png">
-            
-        </Image>-->
-    <!--</StackPanel>-->
+    </Grid> 
 </Window>

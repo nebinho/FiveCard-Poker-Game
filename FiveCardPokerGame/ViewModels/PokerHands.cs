@@ -8,9 +8,13 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class PokerHands : BaseViewModel
     {
+        public PokerHands()
+        {
+            
+            
+        }
         public enum PokerHand
         {
-            HighCard,
             Pair,
             TwoPair,
             ThreeOfAKind,
@@ -20,10 +24,13 @@ namespace FiveCardPokerGame.ViewModels
             FourOfAKind,
             StraightFlush,
             RoyalFlush,
-
         }
 
+        public int Score { get; set; }
+
+
         public PokerHand pokerHand { get; set; }
+
     }
 
 }
