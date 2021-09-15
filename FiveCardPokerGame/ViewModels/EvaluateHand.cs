@@ -77,6 +77,8 @@ namespace FiveCardPokerGame.ViewModels
             bool pair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue ||
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue || (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
+
+
             return pair;
         }
 

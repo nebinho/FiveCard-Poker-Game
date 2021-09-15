@@ -17,7 +17,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public PlayerViewModel()
         {
-            StartView startView = new StartView();
+            StartView startView = new();
             PresentedCard.Add(startView);
         }
        
