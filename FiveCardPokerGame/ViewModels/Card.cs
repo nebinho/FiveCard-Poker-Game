@@ -35,7 +35,12 @@ namespace FiveCardPokerGame.ViewModels
         public Suit Cardsuit { get; set; }
         public Value Cardvalue { get; set; }
 
-       
+        public override string ToString()
+        {
+            return $"{Cardsuit} {Cardvalue}";
+        }
+
+
 
         /// <summary>
         /// Type of card

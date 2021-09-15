@@ -51,19 +51,28 @@ namespace FiveCardPokerGame.ViewModels
                 Deck.RemoveAt(randomNr);
                 
             } while (Hand.Count <= 4);
-            this.Hand = new ObservableCollection<Card>(Hand.OrderBy(o => o.Cardvalue));
+
+            //CardGame.GetCardProperty
+            
+            EvaluateHand.CheckPokerHand(Hand, pokerHands);
+            
+            
+
         }
+        
 
         public void CreateCardViews()
         {
             foreach (Card card in Hand)
             {
                 var cardView = new CardView();
-                /*cardView.CurrentSuit = Card.Suit.Clubs*/;
-                
+                cardView.GetCard = card;
+
                 CardViews.Add(cardView);
             }
         }
+
+        
         
     }
 }
