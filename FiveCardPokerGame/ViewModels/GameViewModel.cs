@@ -1,9 +1,11 @@
-﻿using System;
+﻿using FiveCardPokerGame.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.ViewModels
@@ -14,11 +16,11 @@ namespace FiveCardPokerGame.ViewModels
 
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
 
+        public ICommand RemoveCardCommand { get; set; }
+
         public GameViewModel()
         {
-            
-           
-        }
-        
+            RemoveCardCommand = new RemoveCardCommand(this);           
+        }     
     }
 }

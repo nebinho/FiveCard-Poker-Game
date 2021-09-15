@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveCardPokerGame.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,34 @@ namespace FiveCardPokerGame.Views
         {
             InitializeComponent();
         }
+
+        private void card_DragOver(object sender, DragEventArgs e)
+        {            
+            object data = e.Data.GetData(DataFormats.Serializable);
+            if (data is CardView cardView)
+            {
+                Point dropPosition = e.GetPosition(dropZone);
+                Canvas.SetLeft(cardView, dropPosition.X);
+                Canvas.SetTop(cardView, dropPosition.Y);
+                if (!dropZone.Children.Contains(cardView))
+                {
+                    GameViewModel gameViewModel = (GameViewModel)DataContext;
+                    gameViewModel.DeckOfCards.CardViews.Remove(cardView);
+                    myCards.Children.Remove(cardView);
+                    dropZone.Children.Add(cardView);
+                }
+               
+            }
+        }
+        private void card_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Source is CardView cardView)
+            {
+                var left = Canvas.GetLeft(cardView);
+                var top = Canvas.GetTop(cardView);
+                var viewModel = (GameViewModel)DataContext;
+            }
+        }
+
     }
 }
