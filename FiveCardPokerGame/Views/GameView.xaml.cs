@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveCardPokerGame.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,27 @@ namespace FiveCardPokerGame.Views
     /// </summary>
     public partial class GameView : UserControl
     {
+
+
+
+        public string SetScore
+        {
+            get { return (string)GetValue(SetScoreProperty); }
+            set { SetValue(SetScoreProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SetScore.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SetScoreProperty =
+            DependencyProperty.Register("SetScore", typeof(string), typeof(GameView), new PropertyMetadata("0"));
+
+        
+
+
+
         public GameView()
         {
             InitializeComponent();
+            
         }
     }
 }
