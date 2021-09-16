@@ -58,7 +58,8 @@ namespace FiveCardPokerGame.Views
                     gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
                     gameViewModel.DeckOfCards.CardViews.Remove(cardView);
                     myCards.Children.Remove(cardView);
-                    dropZone.Children.Add(cardView);
+                    gameViewModel.DeckOfCards.ThrownCards.Add(cardView);
+                    //dropZone.Children.Add(cardView);
                 }
                
             }

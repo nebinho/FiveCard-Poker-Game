@@ -15,6 +15,7 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; }
+        public ObservableCollection<CardView> ThrownCards { get; set; } = new();
         
         public PokerHands pokerHands = new PokerHands();
         public List<Card> Cards { get; set; }

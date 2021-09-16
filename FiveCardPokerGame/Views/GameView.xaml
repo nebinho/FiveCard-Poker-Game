@@ -32,8 +32,14 @@
         </Canvas>
 
 
-        <Canvas Grid.Row="1" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Black">
-            
+        <Canvas Grid.Row="1" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
+            <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
         </Canvas>
     </Grid>
 </UserControl>
