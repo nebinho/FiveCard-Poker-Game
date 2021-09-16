@@ -27,7 +27,10 @@ namespace FiveCardPokerGame.ViewModels
         }
 
         public int Score { get; set; }
-
+        public override string ToString()
+        {
+            return $"{Score}";
+        }
 
         public PokerHand pokerHand { get; set; }
 

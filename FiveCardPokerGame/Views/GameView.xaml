@@ -32,7 +32,7 @@
         </Canvas>
         <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" Content="Dra kort" FontSize="25" Grid.Column="2" Grid.Row="4"/>
 
-        <Canvas Grid.Row="1" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
+        <Canvas Grid.Row="2" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
             <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -41,5 +41,9 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </Canvas>
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <Label Content="Dina nuvarande poäng är just nu:" FontSize="10" HorizontalAlignment="Center"/>
+            <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="10" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </UserControl>
