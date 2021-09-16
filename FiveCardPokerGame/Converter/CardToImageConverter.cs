@@ -22,11 +22,11 @@ namespace FiveCardPokerGame.Converter
             {
                 
                 return new Uri(@"/Resources/Images Cards/" + value.ToString()+ ".png", UriKind.Relative);
-               
-               
+                               
             }
             return null;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

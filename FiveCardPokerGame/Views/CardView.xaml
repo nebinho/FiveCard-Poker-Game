@@ -16,9 +16,9 @@
 
     <Border BorderBrush="#014022" BorderThickness="1" Margin="5">
 
-        <Grid Background="#014022">          
+        <Grid Background="#014022">
 
-            <Image Grid.Row="0" Source="{Binding GetCard, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource CardToImageConverter}}">
+            <Image Grid.Row="0"Source="{Binding GetCard, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource CardToImageConverter}}">
                 
             </Image>
         </Grid>
