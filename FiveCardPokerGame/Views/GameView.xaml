@@ -21,15 +21,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>           
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="myCards">
-            <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" HorizontalAlignment="Center">
+        <Canvas Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="myCards">
+            <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5" Rows="1" MinHeight="89" MinWidth="64" Margin="3"/>
+                    <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>            
         </ItemsControl>
-        </StackPanel>
+        </Canvas>
 
 
         <Canvas Grid.Row="1" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Black">

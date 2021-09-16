@@ -82,8 +82,8 @@ namespace FiveCardPokerGame.ViewModels
         public void ThrowCard(int cardViewNumber)
         {
             Hand.RemoveAt(cardViewNumber);
-            DealCards();
-            CreateCardViews();
+            //DealCards();
+            //CreateCardViews();
 
         }
 
