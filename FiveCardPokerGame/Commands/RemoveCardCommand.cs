@@ -27,6 +27,7 @@ namespace FiveCardPokerGame.Commands
         {
             var cardView = (CardView)parameter;
             gameViewModel.DeckOfCards.CardViews.Remove(cardView);
+            
         }
     }
 }

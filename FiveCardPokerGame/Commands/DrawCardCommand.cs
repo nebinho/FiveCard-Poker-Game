@@ -26,6 +26,7 @@ namespace FiveCardPokerGame.Commands
         {
             gameViewModel.DeckOfCards.DealCards();
             gameViewModel.DeckOfCards.CreateCardViews();
+            gameViewModel.DeckOfCards.ThrownCards.Clear();
         }
     }
 }

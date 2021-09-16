@@ -52,9 +52,9 @@ namespace FiveCardPokerGame.Views
                 Point dropPosition = e.GetPosition(dropZone);
                 Canvas.SetLeft(cardView, dropPosition.X);
                 Canvas.SetTop(cardView, dropPosition.Y);
-                if (!dropZone.Children.Contains(cardView))
+                GameViewModel gameViewModel = (GameViewModel)DataContext;
+                if (!gameViewModel.DeckOfCards.ThrownCards.Contains(cardView))
                 {
-                    GameViewModel gameViewModel = (GameViewModel)DataContext;
                     gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
                     gameViewModel.DeckOfCards.CardViews.Remove(cardView);
                     myCards.Children.Remove(cardView);
