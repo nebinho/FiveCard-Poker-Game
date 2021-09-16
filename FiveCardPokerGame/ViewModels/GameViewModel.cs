@@ -24,7 +24,7 @@ namespace FiveCardPokerGame.ViewModels
         public GameViewModel()
         {
             RemoveCardCommand = new RemoveCardCommand(this);
-            DrawCardCommand = new DrawCardCommand(this);
+            DrawCardCommand = new DrawCardCommand(this);           
         }     
     }
 }

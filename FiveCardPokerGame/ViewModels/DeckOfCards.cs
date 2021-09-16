@@ -19,17 +19,13 @@ namespace FiveCardPokerGame.ViewModels
         
         public PokerHands PokerHands { get; set; } = new PokerHands();
         public List<Card> Cards { get; set; }
-        
-        
+        public GameView gameView { get; set; } = new GameView();
 
         public DeckOfCards()
         {
             SetUpDeck();
-            DealCards();
-            
-            
+            DealCards();           
             CreateCardViews();
-
         }
 
         public void SetUpDeck()
@@ -41,12 +37,11 @@ namespace FiveCardPokerGame.ViewModels
                     var newcard = new Card { Cardsuit = s, Cardvalue = v };
                     Deck.Add(newcard);
                 }
-            }
-           
+            }           
         }
 
         public void DealCards()
-        {
+        {           
             do
             {
                 int randomNr = random.Next(Deck.Count);
@@ -54,15 +49,9 @@ namespace FiveCardPokerGame.ViewModels
                 Hand.Add(newCard);
                 Deck.RemoveAt(randomNr);
                 
-            } while (Hand.Count <= 4);
-
-            //CardGame.GetCardProperty
-            
+            } while (Hand.Count <= 4);        
             EvaluateHand.CheckPokerHand(Hand, PokerHands);
-            
-
-        }
-        
+        }        
 
         public void CreateCardViews()
         {
@@ -73,21 +62,16 @@ namespace FiveCardPokerGame.ViewModels
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
-            }
-            
+            }            
         }
-
-        
-
-
 
         public void ThrowCard(int cardViewNumber)
         {
-            Hand.RemoveAt(cardViewNumber);
+            Hand.RemoveAt(cardViewNumber);         
             //DealCards();
             //CreateCardViews();
-
         }
+
     }
 }
 

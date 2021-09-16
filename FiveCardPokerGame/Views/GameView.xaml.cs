@@ -24,9 +24,21 @@ namespace FiveCardPokerGame.Views
     {
         public GameView()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
+
+        public GameViewModel gameVM { get; set; }
+        public bool IsButtonEnabled
+        {
+            get { return (bool)GetValue(IsButtonEnabledProperty); }
+            set { SetValue(IsButtonEnabledProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsButtonEnabled.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsButtonEnabledProperty =
+            DependencyProperty.Register("IsButtonEnabled", typeof(bool), typeof(GameView), new PropertyMetadata(false));
+
+
         // @"/Resources/Images Cards/Clubs Two.png"
         private void card_DragOver(object sender, DragEventArgs e)
         {            
@@ -44,10 +56,24 @@ namespace FiveCardPokerGame.Views
                     myCards.Children.Remove(cardView);
                     gameViewModel.DeckOfCards.ThrownCards.Add(cardView);
                     //dropZone.Children.Add(cardView);
+                    IsButtonEnabledLol(gameViewModel);
                 }
-               
             }
         }
+
+        public void IsButtonEnabledLol(GameViewModel gameViewModel)
+        {         
+            if (gameViewModel.DeckOfCards.Hand.Count <5)
+            {
+                DrawNewCards.IsEnabled = true; 
+            }
+
+            else
+            {
+                DrawNewCards.IsEnabled = false;
+            }
+        }
+
         private void card_Drop(object sender, DragEventArgs e)
         {
             if (e.Source is CardView cardView)
@@ -55,8 +81,7 @@ namespace FiveCardPokerGame.Views
                 var left = Canvas.GetLeft(cardView);
                 var top = Canvas.GetTop(cardView);
                 var viewModel = (GameViewModel)DataContext;
-            }
+            }            
         }
-
     }
 }

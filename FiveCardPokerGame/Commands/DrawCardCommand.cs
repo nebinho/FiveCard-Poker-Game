@@ -1,4 +1,5 @@
 ﻿using FiveCardPokerGame.ViewModels;
+using FiveCardPokerGame.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace FiveCardPokerGame.Commands
     public class DrawCardCommand : ICommand
     {
         private GameViewModel gameViewModel;
-        
 
         public DrawCardCommand(GameViewModel gameViewModel)
         {
