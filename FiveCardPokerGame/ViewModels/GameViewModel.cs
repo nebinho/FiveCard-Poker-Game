@@ -10,7 +10,7 @@ using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.ViewModels
 {
-    public class GameViewModel : BaseViewModel
+    public partial class GameViewModel : BaseViewModel
     {
         public PlayerViewModel P1 { get; set; } = new Player();
 
@@ -18,9 +18,12 @@ namespace FiveCardPokerGame.ViewModels
 
         public ICommand RemoveCardCommand { get; set; }
 
+        public ICommand DrawCardCommand { get; set; }
+
         public GameViewModel()
         {
-            RemoveCardCommand = new RemoveCardCommand(this);           
+            RemoveCardCommand = new RemoveCardCommand(this);
+            DrawCardCommand = new DrawCardCommand(this);
         }     
     }
 }
