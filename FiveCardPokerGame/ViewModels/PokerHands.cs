@@ -15,6 +15,7 @@ namespace FiveCardPokerGame.ViewModels
         }
         public enum PokerHand
         {
+            Nothing,
             Pair,
             TwoPair,
             ThreeOfAKind,

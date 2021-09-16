@@ -69,7 +69,7 @@ namespace FiveCardPokerGame.ViewModels
             }
             if (IsTwoPair(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
+                pokerHands.pokerHand = PokerHands.PokerHand.TwoPair;
                 pokerHands.Score = 10;
                 return true;
             }
@@ -79,7 +79,8 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.Score = 5;
                 return true;
             }
-
+            pokerHands.pokerHand = PokerHands.PokerHand.Nothing;
+            pokerHands.Score = 0;
             return false;
 
         }
