@@ -35,30 +35,6 @@ namespace FiveCardPokerGame.Views
             DependencyProperty.Register("GetCard", typeof(Card), typeof(CardView), new PropertyMetadata(new Card()));
 
 
-
-        //public Card CardHeight
-        //{
-        //    get { return (Card)GetValue(CardHeightProperty); }
-        //    set { SetValue(CardHeightProperty, value); }
-        //}
-
-        //// Using a DependencyProperty as the backing store for CardHeight.  This enables animation, styling, binding, etc...
-        //public static readonly DependencyProperty CardHeightProperty =
-        //    DependencyProperty.Register("CardHeight", typeof(Card), typeof(CardView), new PropertyMetadata(712));
-
-
-
-        //public Card CardWidth
-        //{
-        //    get { return (Card)GetValue(CardWidthProperty); }
-        //    set { SetValue(CardWidthProperty, value); }
-        //}
-
-        //// Using a DependencyProperty as the backing store for CardWidth.  This enables animation, styling, binding, etc...
-        //public static readonly DependencyProperty CardWidthProperty =
-        //    DependencyProperty.Register("CardWidth", typeof(Card), typeof(CardView), new PropertyMetadata(512));
-
-
         protected void MoveCard(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

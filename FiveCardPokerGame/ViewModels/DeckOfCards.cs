@@ -19,7 +19,7 @@ namespace FiveCardPokerGame.ViewModels
         
         public PokerHands PokerHands { get; set; } = new PokerHands();
         public List<Card> Cards { get; set; }
-        public GameView gameView { get; set; } = new GameView();
+        
 
         public DeckOfCards()
         {
@@ -51,6 +51,7 @@ namespace FiveCardPokerGame.ViewModels
                 
             } while (Hand.Count <= 4);        
             EvaluateHand.CheckPokerHand(Hand, PokerHands);
+            IsHandFiveOrLess();
         }        
 
         public void CreateCardViews()
@@ -62,14 +63,25 @@ namespace FiveCardPokerGame.ViewModels
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
-            }            
+            }        
+            
         }
 
         public void ThrowCard(int cardViewNumber)
         {
-            Hand.RemoveAt(cardViewNumber);         
-            //DealCards();
-            //CreateCardViews();
+            Hand.RemoveAt(cardViewNumber);
+            IsHandFiveOrLess();
+            
+        }
+
+        public bool IsHandFiveOrLess()
+        {
+            
+            if (Hand.Count < 5)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

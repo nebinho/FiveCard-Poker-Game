@@ -14,9 +14,9 @@
         <asd:CardToImageConverter x:Key="CardToImageConverter"/>
     </UserControl.Resources>
 
-    <Border BorderBrush="#014022" BorderThickness="1" Margin="5">
+    <Border>
 
-        <Grid Background="#014022">
+        <Grid >
 
             <Image Grid.Row="0" Source="{Binding GetCard, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource CardToImageConverter}}">
                 
