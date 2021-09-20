@@ -10,7 +10,11 @@ namespace FiveCardPokerGame.Data
 {
     public class PlayerDb
     {
-
+        //public PlayerDb()
+        //{
+        //    GetPlayers();
+        //}
+        List<Player> Players { get; set; } 
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 
         #region Read
@@ -74,5 +78,39 @@ namespace FiveCardPokerGame.Data
             }
         }
         #endregion
+
+        public List<Player> GetPlayers()
+        {
+            string stmt = "select * from player order by name asc";
+
+            try
+            {
+                using var conn = new NpgsqlConnection(connectionString);
+                conn.Open();
+                using var command = new NpgsqlCommand(stmt, conn);
+                using var reader = command.ExecuteReader();
+
+                Player player = null;
+                Players = new List<Player>();
+
+                
+                while (reader.Read())
+                {
+                    player = new Player
+                    {
+                        Name = (string)reader["name"]
+                    };
+                    Players.Add(player);
+                }
+
+                return Players;
+
+            }
+            catch (PostgresException ex)
+            {
+                string errorcode = ex.SqlState;
+                throw new Exception("FFELLL", ex);
+            }
+        }
     }
 }

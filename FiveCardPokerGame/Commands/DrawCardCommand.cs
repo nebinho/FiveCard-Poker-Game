@@ -12,7 +12,7 @@ namespace FiveCardPokerGame.Commands
     public class DrawCardCommand : ICommand
     {
         private GameViewModel gameViewModel;
-        private GameView gameView;
+        //private GameView gameView;
 
         public DrawCardCommand(GameViewModel gameViewModel)
         {
