@@ -20,16 +20,30 @@ namespace FiveCardPokerGame.ViewModels
         public ICommand RemoveCardCommand { get; set; }
 
         public ICommand DrawCardCommand { get; set; }
+        public string IsCardEnabled { get; set; }
 
         public int NumberOfDraws { get; set; }
 
+        public string CardEnabler()
+        {
+            if (DeckOfCards.IsHandFiveOrLess() == true)
+            {
+                return IsCardEnabled = "/Resources/ImagesCards/xCardBack.png";
 
+            }
+            else
+            {
+                return IsCardEnabled = "/Resources/ImagesCards/xCardBackDisabled.png";
+
+            }
+        }
 
         public GameViewModel()
         {
             
             RemoveCardCommand = new RemoveCardCommand(this);
-            DrawCardCommand = new DrawCardCommand(this);           
+            DrawCardCommand = new DrawCardCommand(this);
+            IsCardEnabled = CardEnabler();
             
         }
 
