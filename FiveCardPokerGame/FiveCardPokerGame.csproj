@@ -67,6 +67,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Npgsql" Version="5.0.10" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -124,10 +125,6 @@
     <Resource Include="Resources\Images Cards\Hearts Queen.png" />
     <Resource Include="Resources\Images Cards\Spades Queen.png" />
     <Resource Include="Resources\Images Cards\x Card Back.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

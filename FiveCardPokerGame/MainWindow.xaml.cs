@@ -1,4 +1,5 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.ViewModels;
 using System.Windows;
 
 namespace FiveCardPokerGame
@@ -17,6 +18,7 @@ namespace FiveCardPokerGame
             DeckOfCards deckOfCards = new DeckOfCards();
             EvaluateHand evaluateHand = new EvaluateHand();
             GameViewModel game = new GameViewModel();
+            PlayerDb playerDb = new PlayerDb();
         }
         
     }
