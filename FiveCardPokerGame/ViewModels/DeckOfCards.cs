@@ -94,6 +94,18 @@ namespace FiveCardPokerGame.ViewModels
             return true;
         }
 
+        public Card Card(CardView cardView)
+        {
+            var suit = cardView.GetCard.Cardsuit;
+            var value = cardView.GetCard.Cardvalue;
+
+            Card card = new Card
+            {
+                Cardsuit = suit,
+                Cardvalue = value
+            };
+            return card;
+        }
     }
 }
 

@@ -21,7 +21,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>           
         </Grid.RowDefinitions>
-        <Canvas Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="myCards">
+        <Canvas Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
             <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
