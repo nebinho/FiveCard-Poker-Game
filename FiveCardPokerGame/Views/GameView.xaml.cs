@@ -1,6 +1,7 @@
 ﻿using FiveCardPokerGame.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,56 +22,52 @@ namespace FiveCardPokerGame.Views
     /// </summary>
     public partial class GameView : UserControl
     {
-
-
-
-        public string SetScore
-        {
-            get { return (string)GetValue(SetScoreProperty); }
-            set { SetValue(SetScoreProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for SetScore.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SetScoreProperty =
-            DependencyProperty.Register("SetScore", typeof(string), typeof(GameView), new PropertyMetadata("0"));
-
-        
-
-
-
         public GameView()
         {
             InitializeComponent();
             
         }
-
         private void card_DragOver(object sender, DragEventArgs e)
-        {            
+        {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
-            if (data is CardView cardView)
+
+            if (gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard() == true) //Man får bara flytta kort om man har byten kvar.
             {
-                Point dropPosition = e.GetPosition(dropZone);
-                Canvas.SetLeft(cardView, dropPosition.X);
-                Canvas.SetTop(cardView, dropPosition.Y);
-                if (!dropZone.Children.Contains(cardView))
+                if (data is CardView cardView)
                 {
-                    GameViewModel gameViewModel = (GameViewModel)DataContext;
-                    gameViewModel.DeckOfCards.CardViews.Remove(cardView);
-                    myCards.Children.Remove(cardView);
-                    dropZone.Children.Add(cardView);
+                    Point dropPosition = e.GetPosition(dropZone);
+                    Canvas.SetLeft(cardView, dropPosition.X);
+                    Canvas.SetTop(cardView, dropPosition.Y);
+                    if (!gameViewModel.DeckOfCards.ThrownCards.Contains(cardView))
+                    {
+                        gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
+                        gameViewModel.DeckOfCards.CardViews.Remove(cardView);
+                        myCards.Children.Remove(cardView);
+                        gameViewModel.DeckOfCards.ThrownCards.Add(cardView);
+                    }
                 }
-               
+                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
+                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();  //Kallar på metoden för att kolla antal byten.              
+            }
+
+            else
+            {
+                MessageBox.Show("Du har förbrukat dina byten"); //Försöker man ändå att slänga kort får man upp en ruta om att man inte får.
             }
         }
+
+        
+
         private void card_Drop(object sender, DragEventArgs e)
         {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
             if (e.Source is CardView cardView)
             {
                 var left = Canvas.GetLeft(cardView);
                 var top = Canvas.GetTop(cardView);
-                var viewModel = (GameViewModel)DataContext;
-            }
+                var viewModel = (GameViewModel)DataContext;                
+            }    
         }
-
     }
 }

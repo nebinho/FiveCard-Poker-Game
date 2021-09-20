@@ -9,11 +9,12 @@ using System.Windows.Input;
 
 namespace FiveCardPokerGame.Commands
 {
-    public class RemoveCardCommand : ICommand
+    public class DrawCardCommand : ICommand
     {
         private GameViewModel gameViewModel;
+        private GameView gameView;
 
-        public RemoveCardCommand(GameViewModel gameViewModel)
+        public DrawCardCommand(GameViewModel gameViewModel)
         {
             this.gameViewModel = gameViewModel;
         }
@@ -25,8 +26,10 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
-            var cardView = (CardView)parameter;
-            gameViewModel.DeckOfCards.CardViews.Remove(cardView);
+            gameViewModel.DeckOfCards.DealCards();
+            gameViewModel.DeckOfCards.CreateCardViews();
+            gameViewModel.DeckOfCards.ThrownCards.Clear();
+            gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
             
         }
     }
