@@ -14,21 +14,20 @@ namespace FiveCardPokerGame.ViewModels
 
         public ObservableCollection<Card> Deck { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
-        public ObservableCollection<CardView> CardViews { get; set; } = new ObservableCollection<CardView>();
+        public ObservableCollection<CardView> CardViews { get; set; }
+        public ObservableCollection<CardView> ThrownCards { get; set; } = new();
         
-        public PokerHands pokerHands = new PokerHands();
-        public List<Card> Cards { get; set; }
-        
-        
+        public PokerHands PokerHands { get; set; } = new PokerHands();
+        public List<Card> Cards { get; set; }        
+        public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
+
+        private GameViewModel gameViewModel;
 
         public DeckOfCards()
         {
             SetUpDeck();
-            DealCards();
-            SetScore();
-            ThrowCard();
+            DealCards();           
             CreateCardViews();
-
         }
 
         public void SetUpDeck()
@@ -40,12 +39,11 @@ namespace FiveCardPokerGame.ViewModels
                     var newcard = new Card { Cardsuit = s, Cardvalue = v };
                     Deck.Add(newcard);
                 }
-            }
-           
+            }           
         }
 
         public void DealCards()
-        {
+        {           
             do
             {
                 int randomNr = random.Next(Deck.Count);
@@ -53,41 +51,47 @@ namespace FiveCardPokerGame.ViewModels
                 Hand.Add(newCard);
                 Deck.RemoveAt(randomNr);
                 
-            } while (Hand.Count <= 4);
-
-            //CardGame.GetCardProperty
-            
-            EvaluateHand.CheckPokerHand(Hand, pokerHands);          
-
-        }
-        
+            } while (Hand.Count <= 4);        
+            EvaluateHand.CheckPokerHand(Hand, PokerHands);
+            IsHandFiveOrLess();
+            NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
+        }        
 
         public void CreateCardViews()
         {
+            CardViews = new();
             foreach (Card card in Hand)
             {
                 var cardView = new CardView();
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
+            }        
+            
+        }
+
+        public void ThrowCard(int cardViewNumber)
+        {
+            Hand.RemoveAt(cardViewNumber);
+            IsHandFiveOrLess();            
+        }
+
+        public bool IsHandFiveOrLess()
+        {          
+            if (Hand.Count < 5)
+            {
+                return true;
             }
+            return false;
         }
 
-
-
-        public void ThrowCard()
+        public bool CanDrawNewCard() //Metod för att kolla så man inte får för många byten
         {
-            int throwC = 1;
-            this.Hand.RemoveAt(throwC);
-            DealCards();
-
-        }
-
-        public void SetScore()
-        {
-            var gameView = new GameView();
-
-            gameView.SetScore = pokerHands.Score.ToString();
+            if (NumberOfThrows >= 4)
+            {
+                return false;      
+            }
+            return true;
         }
 
     }

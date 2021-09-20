@@ -29,9 +29,11 @@ namespace FiveCardPokerGame.Views
             set { SetValue(GetCardProperty, value); }
         }
 
+
         // Using a DependencyProperty as the backing store for GetSuit.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty GetCardProperty =
             DependencyProperty.Register("GetCard", typeof(Card), typeof(CardView), new PropertyMetadata(new Card()));
+
 
         protected void MoveCard(object sender, MouseEventArgs e)
         {
