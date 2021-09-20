@@ -13,12 +13,15 @@ namespace FiveCardPokerGame.ViewModels
     {
         public ObservableCollection<StartView> PresentedCard { get; set; } = new ObservableCollection<StartView>();
 
-       
+
 
         public PlayerViewModel()
         {
             StartView startView = new();
             PresentedCard.Add(startView);
+           
+
+
         }
        
     }
