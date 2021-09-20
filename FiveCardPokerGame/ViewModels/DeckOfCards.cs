@@ -18,8 +18,10 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<CardView> ThrownCards { get; set; } = new();
         
         public PokerHands PokerHands { get; set; } = new PokerHands();
-        public List<Card> Cards { get; set; }
-        
+        public List<Card> Cards { get; set; }        
+        public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
+
+        private GameViewModel gameViewModel;
 
         public DeckOfCards()
         {
@@ -52,6 +54,7 @@ namespace FiveCardPokerGame.ViewModels
             } while (Hand.Count <= 4);        
             EvaluateHand.CheckPokerHand(Hand, PokerHands);
             IsHandFiveOrLess();
+            NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
         }        
 
         public void CreateCardViews()
@@ -70,18 +73,25 @@ namespace FiveCardPokerGame.ViewModels
         public void ThrowCard(int cardViewNumber)
         {
             Hand.RemoveAt(cardViewNumber);
-            IsHandFiveOrLess();
-            
+            IsHandFiveOrLess();            
         }
 
         public bool IsHandFiveOrLess()
-        {
-            
+        {          
             if (Hand.Count < 5)
             {
                 return true;
             }
             return false;
+        }
+
+        public bool CanDrawNewCard() //Metod för att kolla så man inte får för många byten
+        {
+            if (NumberOfThrows >= 4)
+            {
+                return false;      
+            }
+            return true;
         }
 
     }

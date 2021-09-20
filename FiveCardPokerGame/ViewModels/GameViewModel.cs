@@ -20,14 +20,17 @@ namespace FiveCardPokerGame.ViewModels
         public ICommand RemoveCardCommand { get; set; }
 
         public ICommand DrawCardCommand { get; set; }
-        
-        
+
+        public int NumberOfDraws { get; set; }
+
+
 
         public GameViewModel()
         {
             
             RemoveCardCommand = new RemoveCardCommand(this);
             DrawCardCommand = new DrawCardCommand(this);           
+            
         }
 
     }

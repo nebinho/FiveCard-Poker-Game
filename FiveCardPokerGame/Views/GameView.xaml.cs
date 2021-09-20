@@ -28,26 +28,33 @@ namespace FiveCardPokerGame.Views
             
         }
         private void card_DragOver(object sender, DragEventArgs e)
-        {            
+        {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
-            if (data is CardView cardView)
+
+            if (gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard() == true) //Man får bara flytta kort om man har byten kvar.
             {
-                Point dropPosition = e.GetPosition(dropZone);
-                Canvas.SetLeft(cardView, dropPosition.X);
-                Canvas.SetTop(cardView, dropPosition.Y);
-                if (!gameViewModel.DeckOfCards.ThrownCards.Contains(cardView))
+                if (data is CardView cardView)
                 {
-                    gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
-                    gameViewModel.DeckOfCards.CardViews.Remove(cardView);
-                    myCards.Children.Remove(cardView);
-                    gameViewModel.DeckOfCards.ThrownCards.Add(cardView);
-                    
-                   
-                    
+                    Point dropPosition = e.GetPosition(dropZone);
+                    Canvas.SetLeft(cardView, dropPosition.X);
+                    Canvas.SetTop(cardView, dropPosition.Y);
+                    if (!gameViewModel.DeckOfCards.ThrownCards.Contains(cardView))
+                    {
+                        gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
+                        gameViewModel.DeckOfCards.CardViews.Remove(cardView);
+                        myCards.Children.Remove(cardView);
+                        gameViewModel.DeckOfCards.ThrownCards.Add(cardView);
+                    }
                 }
+                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
+                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();  //Kallar på metoden för att kolla antal byten.              
             }
-            gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
+
+            else
+            {
+                MessageBox.Show("Du har förbrukat dina byten"); //Försöker man ändå att slänga kort får man upp en ruta om att man inte får.
+            }
         }
 
         
@@ -59,11 +66,8 @@ namespace FiveCardPokerGame.Views
             {
                 var left = Canvas.GetLeft(cardView);
                 var top = Canvas.GetTop(cardView);
-                var viewModel = (GameViewModel)DataContext;
-                
-            }
-            
+                var viewModel = (GameViewModel)DataContext;                
+            }    
         }
-
     }
 }
