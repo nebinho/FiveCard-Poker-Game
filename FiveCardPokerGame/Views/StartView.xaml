@@ -10,19 +10,29 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Column="1" Grid.Row="2">
+        <StackPanel Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3">
             <Button Command="{Binding UpdateViewCommand}" CommandParameter="GameViewModel"  Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
         </StackPanel>
-        <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="25" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtNumberOfDraws" Grid.Row="1" Grid.Column="1" Height="20" Width="30" Text="{Binding NumberOfDraws}"/>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="25" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>        
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
     </Grid>
 </UserControl>

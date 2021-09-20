@@ -55,9 +55,7 @@ namespace FiveCardPokerGame.Views
             {
                 MessageBox.Show("Du har förbrukat dina byten"); //Försöker man ändå att slänga kort får man upp en ruta om att man inte får.
             }
-        }
-
-        
+        }        
 
         private void card_Drop(object sender, DragEventArgs e)
         {
@@ -68,6 +66,37 @@ namespace FiveCardPokerGame.Views
                 var top = Canvas.GetTop(cardView);
                 var viewModel = (GameViewModel)DataContext;                
             }    
+        }
+
+        private void myCards_DragOver(object sender, DragEventArgs e)
+        {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
+            object data = e.Data.GetData(DataFormats.Serializable);
+
+            if (data is CardView cardView)
+            {
+                if (!gameViewModel.DeckOfCards.CardViews.Contains(cardView))
+                {
+                    gameViewModel.DeckOfCards.ThrownCards.Remove(cardView);
+                    gameViewModel.DeckOfCards.CardViews.Add(cardView);
+                    gameViewModel.DeckOfCards.Hand.Add(gameViewModel.DeckOfCards.Card(cardView));
+
+                    gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
+    
+                }
+
+            }
+        }
+
+        private void myCards_Drop(object sender, DragEventArgs e)
+        {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
+            if (e.Source is CardView cardView)
+            {
+                var left = Canvas.GetLeft(cardView);
+                var top = Canvas.GetTop(cardView);
+                var viewModel = (GameViewModel)DataContext;
+            }
         }
     }
 }
