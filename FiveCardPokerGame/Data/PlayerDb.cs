@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using FiveCardPokerGame.ViewModels;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Data
 {
-    public class PlayerDb
+    public class PlayerDb : BaseViewModel
     {
 
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";

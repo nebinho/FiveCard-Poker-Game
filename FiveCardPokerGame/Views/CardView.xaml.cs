@@ -20,7 +20,7 @@ namespace FiveCardPokerGame.Views
     /// <summary>
     /// Interaction logic for CardView.xaml
     /// </summary>
-    public partial class CardView : UserControl
+    public partial class CardView : MasterGameView
     {
 
         public Card GetCard

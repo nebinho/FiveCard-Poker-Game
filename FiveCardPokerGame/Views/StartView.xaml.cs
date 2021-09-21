@@ -18,7 +18,7 @@ namespace FiveCardPokerGame.Views
     /// <summary>
     /// Interaction logic for StartView.xaml
     /// </summary>
-    public partial class StartView : UserControl
+    public partial class StartView : MasterGameView
     {
         public StartView()
         {

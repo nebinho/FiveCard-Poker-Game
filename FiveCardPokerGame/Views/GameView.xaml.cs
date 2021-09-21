@@ -20,7 +20,7 @@ namespace FiveCardPokerGame.Views
     /// <summary>
     /// Interaction logic for GameView.xaml
     /// </summary>
-    public partial class GameView : UserControl
+    public partial class GameView : MasterGameView
     {
         public GameView()
         {
@@ -53,7 +53,6 @@ namespace FiveCardPokerGame.Views
 
                 gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
             }
-
             else
             {
                 //MessageBox.Show("Du har förbrukat dina byten"); //Försöker man ändå att slänga kort får man upp en ruta om att man inte får.
