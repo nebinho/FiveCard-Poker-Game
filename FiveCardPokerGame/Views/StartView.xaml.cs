@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveCardPokerGame.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace FiveCardPokerGame.Views
     /// </summary>
     public partial class StartView : MasterGameView
     {
+        
         public StartView()
         {
             InitializeComponent();
+
+            
         }
+        
     }
 }

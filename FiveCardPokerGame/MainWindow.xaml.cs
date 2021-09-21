@@ -1,5 +1,6 @@
 ﻿using FiveCardPokerGame.Data;
 using FiveCardPokerGame.ViewModels;
+using FiveCardPokerGame.Views;
 using System.Windows;
 
 namespace FiveCardPokerGame
@@ -19,6 +20,7 @@ namespace FiveCardPokerGame
             EvaluateHand evaluateHand = new EvaluateHand();
             GameViewModel game = new GameViewModel();
             PlayerDb playerDb = new PlayerDb();
+            StartView startView = new StartView();
         }
         
     }

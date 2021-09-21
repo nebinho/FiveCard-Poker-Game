@@ -32,6 +32,12 @@
         <StackPanel Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3">
             <Button Command="{Binding UpdateViewCommand}" CommandParameter="GameViewModel"  Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
         </StackPanel>
+        <ListBox  ItemsSource="{Binding Players}" Name="playerlist" Grid.Column="6" Grid.Row="3">
+            
+        </ListBox>
+        <Button x:Name="getplayers" Grid.Column="6" Grid.Row="4" Command="{Binding GetPlayerCommand}">
+            
+        </Button>
         <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="25" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>        
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
     </Grid>

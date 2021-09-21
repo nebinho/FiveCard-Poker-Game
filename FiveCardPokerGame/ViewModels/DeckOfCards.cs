@@ -61,6 +61,8 @@ namespace FiveCardPokerGame.ViewModels
             NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
             //playerDb.CreatePlayer(Player);
             //playerDb.UpdateHighScore(Player);
+            playerDb.GetPlayers();
+
         }        
 
         public void CreateCardViews()
