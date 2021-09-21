@@ -59,7 +59,7 @@ namespace FiveCardPokerGame.ViewModels
             //Player.HighScore = PokerHands.Score;
             IsHandFiveOrLess();
             NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
-            playerDb.CreatePlayer(Player);
+            //playerDb.CreatePlayer(Player);
             //playerDb.UpdateHighScore(Player);
         }        
 
@@ -86,8 +86,10 @@ namespace FiveCardPokerGame.ViewModels
         {          
             if (Hand.Count < 5)
             {
+                
                 return true;
             }
+            
             return false;
         }
 
@@ -112,6 +114,7 @@ namespace FiveCardPokerGame.ViewModels
             };
             return card;
         }
+        
     }
 }
 
