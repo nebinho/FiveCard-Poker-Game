@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FiveCardPokerGame"
         mc:Ignorable="d"
-        Title="Five Card Poker" Height="450" Width="800">
+        Title="Five Card Poker" Height="800" Width="1280">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>

@@ -61,7 +61,7 @@
     <None Remove="Resources\ImagesCards\Spades Two.png" />
     <None Remove="Resources\ImagesCards\xCardBack.png" />
     <None Remove="Resources\ImagesCards\xCardBackDisabled.png" />
-    <None Remove="Resources\Images\PokerTable.png" />
+    <None Remove="Resources\Images\Table.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -128,7 +128,7 @@
     <Resource Include="Resources\ImagesCards\Spades Queen.png" />
     <Resource Include="Resources\ImagesCards\xCardBack.png" />
     <Resource Include="Resources\ImagesCards\xCardBackDisabled.png" />
-    <Resource Include="Resources\Images\PokerTable.png" />
+    <Resource Include="Resources\Images\Table.png" />
   </ItemGroup>
 
 </Project>

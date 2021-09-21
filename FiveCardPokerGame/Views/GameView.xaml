@@ -8,10 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Images/PokerTable.png"/>
+            <ImageBrush ImageSource="/Resources/Images/Table.png"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -32,41 +38,48 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        
-        <Canvas Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
-            <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" >
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </Canvas>
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="2" Margin="1">
+
+            <Canvas x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
+                <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Canvas>
+        </Border>
 
 
-        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" FontSize="25"  IsEnabled="{Binding IsButtonEnabled}" Grid.Column="4" Grid.Row="6"  Grid.RowSpan="3">
+        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="{Binding IsCardEnabled}" Stretch="Uniform" x:Name="imgBack"></Image>
                 </ControlTemplate>
             </Button.Template>
-        </Button>
+        </Button>       
 
-        <Button x:Name="brnFinishGame" Content="Jag är klar" Grid.Row="7" Grid.Column="7"/>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="1">
+            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent">
+                <TextBlock Text="THROW CARDS HERE" Canvas.Left="54" Canvas.Top="30" FontSize="25"/>
+                <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Canvas>
+        </Border>
 
-
-        <Canvas Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
-            <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </Canvas>
-        <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Label Content="Dina nuvarande poäng är just nu:" FontSize="10" HorizontalAlignment="Center"/>
-            <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="10" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="5" >
+            <Label Content="Current score:" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Black"/>
+            <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Black"/>
         </StackPanel>
+
+        <Button x:Name="btnDone" Content="Finish game" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" Margin="5"/>
+
     </Grid>
 </local:MasterGameView>
