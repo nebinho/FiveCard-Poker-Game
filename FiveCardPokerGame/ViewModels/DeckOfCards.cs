@@ -21,17 +21,18 @@ namespace FiveCardPokerGame.ViewModels
         //public Player Player { get; set; } = new Player();
 
         public PokerHands PokerHands { get; set; } = new PokerHands();
-        public List<Card> Cards { get; set; }        
+        public List<Card> Cards { get; set; }
+        public int SelectedDifficulty { get; set; }
         public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
         //public PlayerDb playerDb { get; set; } = new PlayerDb();
-        private GameViewModel gameViewModel;
+       
 
         public DeckOfCards()
         {
             SetUpDeck();
             DealCards();           
             CreateCardViews();
-            NumberOfThrows = Global.Difficulty;
+            SelectedDifficulty = Global.Difficulty;
         }
 
         public void SetUpDeck()
@@ -98,7 +99,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public bool CanDrawNewCard() //Metod för att kolla så man inte får för många byten
         {
-            if (NumberOfThrows >= NumberOfThrows)
+            if (NumberOfThrows >= SelectedDifficulty+1)
             {
                 return false;      
             }

@@ -13,12 +13,11 @@ namespace FiveCardPokerGame.Commands
 {
     class UpdateViewCommand : ICommand
     {
-        private readonly BaseViewModel mainViewModel;
-        
+        private PlayerDb playerDb;
 
-        public UpdateViewCommand(BaseViewModel mainViewModel)
+        public UpdateViewCommand(PlayerDb playerDb)
         {
-            this.mainViewModel = mainViewModel;
+            this.playerDb = playerDb;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -30,12 +29,10 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
+            Global.Difficulty = playerDb.SelectedDifficulty;
+            Global.MyPlayer = playerDb.SelectedPlayer;
+            playerDb.SelectedViewModel = new GameViewModel();
             
-            if (parameter.ToString() == "GameViewModel")
-            {
-                mainViewModel.SelectedViewModel = new GameViewModel();
-                
-            }
         }
 
     }

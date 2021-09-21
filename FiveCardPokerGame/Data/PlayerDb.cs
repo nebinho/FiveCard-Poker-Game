@@ -18,26 +18,18 @@ namespace FiveCardPokerGame.Data
         public PlayerDb()
         {
             GetPlayers();
-
-            SetPlayerCommand = new SetPlayerCommand(this);
-            SetGameDifficultyCommand = new SetGameDifficultyCommand(this);
+            UpdateViewCommand = new UpdateViewCommand(this);
 
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
-        public ICommand SetPlayerCommand { get; set; }
-        public ICommand SetGameDifficultyCommand { get; set; }
         public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
         public int SelectedDifficulty { get; set; }
-        
-        public void ExecuteChange()
-        {
-            SetPlayerCommand.Execute(SelectedPlayer);
-            SetGameDifficultyCommand.Execute(SelectedDifficulty);
-            UpdateViewCommand.Execute(this);
+        public BaseViewModel SelectedViewModel { get; set; }
+        public ICommand UpdateViewCommand { get; set; }
 
-        }
-        
+
+
 
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 
