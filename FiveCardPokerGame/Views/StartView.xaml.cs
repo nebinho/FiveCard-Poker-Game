@@ -21,13 +21,27 @@ namespace FiveCardPokerGame.Views
     /// </summary>
     public partial class StartView : MasterGameView
     {
-        
+        //public readonly PlayerDb PlayerDb;
         public StartView()
         {
             InitializeComponent();
+            
 
+        }
+
+        private void getplayers_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+                //MessageBox.Show($"{PlayerDb.SelectedPlayer}");
             
         }
-        
+
+        //private void playerlist_DropDownOpened(object sender, EventArgs e)
+        //{
+        //    playerlist.ItemsSource = null;
+        //    playerlist.ItemsSource = PlayerDb.GetPlayers();
+        //    playerlist.UpdateLayout();
+        //}
     }
 }

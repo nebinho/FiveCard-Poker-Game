@@ -18,12 +18,12 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; }
         public ObservableCollection<CardView> ThrownCards { get; set; } = new();
-        public Player Player { get; set; } = new Player();
+        //public Player Player { get; set; } = new Player();
 
         public PokerHands PokerHands { get; set; } = new PokerHands();
         public List<Card> Cards { get; set; }        
         public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
-        public PlayerDb playerDb = new PlayerDb();
+        //public PlayerDb playerDb { get; set; } = new PlayerDb();
         private GameViewModel gameViewModel;
 
         public DeckOfCards()
@@ -61,7 +61,7 @@ namespace FiveCardPokerGame.ViewModels
             NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
             //playerDb.CreatePlayer(Player);
             //playerDb.UpdateHighScore(Player);
-            playerDb.GetPlayers();
+             //var test = playerDb.GetPlayers();
 
         }        
 

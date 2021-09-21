@@ -12,7 +12,7 @@ namespace FiveCardPokerGame.ViewModels
 {
     public partial class GameViewModel : BaseViewModel
     {
-        public PlayerViewModel P1 { get; set; } = new Player();
+        //public PlayerViewModel P1 { get; set; } = new Player();
 
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
         public bool IsButtonEnabled { get; set; }
