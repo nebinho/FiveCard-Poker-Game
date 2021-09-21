@@ -18,7 +18,8 @@ namespace FiveCardPokerGame.Views
         public CardView CardView { get; set; }
         public GameView GameView { get; set; }
         public StartView StartView { get; set; }
-        
+        //public ICommand SetPlayerCommand { get; set; }
+
         //public Player Player { get; set; } = new Player();
         public MasterGameView()
         {

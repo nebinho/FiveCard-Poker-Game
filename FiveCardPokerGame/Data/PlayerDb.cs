@@ -1,4 +1,5 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Commands;
+using FiveCardPokerGame.ViewModels;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Data
@@ -16,10 +18,26 @@ namespace FiveCardPokerGame.Data
         public PlayerDb()
         {
             GetPlayers();
-            
+
+            SetPlayerCommand = new SetPlayerCommand(this);
+            SetGameDifficultyCommand = new SetGameDifficultyCommand(this);
+
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
+        public ICommand SetPlayerCommand { get; set; }
+        public ICommand SetGameDifficultyCommand { get; set; }
+        public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
+        public int SelectedDifficulty { get; set; }
+        
+        public void ExecuteChange()
+        {
+            SetPlayerCommand.Execute(SelectedPlayer);
+            SetGameDifficultyCommand.Execute(SelectedDifficulty);
+            UpdateViewCommand.Execute(this);
+
+        }
+        
 
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 

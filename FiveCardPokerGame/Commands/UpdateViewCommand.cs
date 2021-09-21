@@ -14,7 +14,7 @@ namespace FiveCardPokerGame.Commands
     class UpdateViewCommand : ICommand
     {
         private readonly BaseViewModel mainViewModel;
-        private readonly PlayerDb playerDB;
+        
 
         public UpdateViewCommand(BaseViewModel mainViewModel)
         {

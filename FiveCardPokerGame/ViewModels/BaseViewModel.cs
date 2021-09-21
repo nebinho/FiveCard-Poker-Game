@@ -21,6 +21,8 @@ namespace FiveCardPokerGame.ViewModels
         public Player Player { get; set; }
         public ICommand UpdateViewCommand { get; set; }
 
+        //public ICommand SetPlayerCommand { get; set; }
+
         public BaseViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);

@@ -31,6 +31,7 @@ namespace FiveCardPokerGame.ViewModels
             SetUpDeck();
             DealCards();           
             CreateCardViews();
+            NumberOfThrows = Global.Difficulty;
         }
 
         public void SetUpDeck()
@@ -97,7 +98,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public bool CanDrawNewCard() //Metod för att kolla så man inte får för många byten
         {
-            if (NumberOfThrows >= 4)
+            if (NumberOfThrows >= NumberOfThrows)
             {
                 return false;      
             }
