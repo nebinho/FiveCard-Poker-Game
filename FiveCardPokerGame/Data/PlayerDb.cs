@@ -18,7 +18,7 @@ namespace FiveCardPokerGame.Data
         public PlayerDb()
         {
             GetPlayers();
-            UpdateViewCommand = new UpdateViewCommand(this);
+            UpdateViewCommandAndSaveData = new UpdateViewCommandAndSaveData(this);
 
         }
         public ObservableCollection<Player> Players { get; set; }
@@ -26,7 +26,7 @@ namespace FiveCardPokerGame.Data
         public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
         public int SelectedDifficulty { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
-        public ICommand UpdateViewCommand { get; set; }
+        public ICommand UpdateViewCommandAndSaveData { get; set; }
 
 
 

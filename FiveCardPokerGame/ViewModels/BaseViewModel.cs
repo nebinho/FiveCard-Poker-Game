@@ -19,13 +19,13 @@ namespace FiveCardPokerGame.ViewModels
         
         //public PlayerDb PlayerDb { get; set; } = new PlayerDb();
         public Player Player { get; set; }
-        //public ICommand UpdateViewCommand { get; set; }
+        //public ICommand UpdateViewCommandAndSaveData { get; set; }
 
         //public ICommand SetPlayerCommand { get; set; }
 
         public BaseViewModel()
         {
-            //UpdateViewCommand = new UpdateViewCommand(this);
+            //UpdateViewCommandAndSaveData = new UpdateViewCommandAndSaveData(this);
             
         }
 
