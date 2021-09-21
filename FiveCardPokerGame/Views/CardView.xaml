@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FiveCardPokerGame.Views.CardView"
+﻿<local:MasterGameView x:Class="FiveCardPokerGame.Views.CardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
              x:Name="card"
              mc:Ignorable="d" 
              d:DesignHeight="712" d:DesignWidth="512">
-                
+
     <UserControl.Resources>
         <asd:CardToImageConverter x:Key="CardToImageConverter"/>
     </UserControl.Resources>
@@ -19,9 +19,9 @@
         <Grid >
 
             <Image Grid.Row="0" Source="{Binding GetCard, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource CardToImageConverter}}">
-                
+
             </Image>
         </Grid>
 
     </Border>
-</UserControl>
+</local:MasterGameView>

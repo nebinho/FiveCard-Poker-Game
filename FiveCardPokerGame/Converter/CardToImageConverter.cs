@@ -22,7 +22,7 @@ namespace FiveCardPokerGame.Converter
             if (value is Card && value != null)
             {
 
-                return imageBit = new BitmapImage(new Uri(@"/Resources/Images Cards/" + value.ToString() + ".png", UriKind.Relative));
+                return imageBit = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
                     
                                
             }

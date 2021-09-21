@@ -1,10 +1,12 @@
-﻿using FiveCardPokerGame.Views;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.ViewModels
 {
@@ -16,11 +18,12 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; }
         public ObservableCollection<CardView> ThrownCards { get; set; } = new();
-        
+        public Player Player { get; set; } = new Player();
+
         public PokerHands PokerHands { get; set; } = new PokerHands();
         public List<Card> Cards { get; set; }        
         public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
-
+        public PlayerDb playerDb = new PlayerDb();
         private GameViewModel gameViewModel;
 
         public DeckOfCards()
@@ -53,8 +56,11 @@ namespace FiveCardPokerGame.ViewModels
                 
             } while (Hand.Count <= 4);        
             EvaluateHand.CheckPokerHand(Hand, PokerHands);
+            //Player.HighScore = PokerHands.Score;
             IsHandFiveOrLess();
             NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
+            //playerDb.CreatePlayer(Player);
+            //playerDb.UpdateHighScore(Player);
         }        
 
         public void CreateCardViews()
@@ -80,8 +86,10 @@ namespace FiveCardPokerGame.ViewModels
         {          
             if (Hand.Count < 5)
             {
+                
                 return true;
             }
+            
             return false;
         }
 
@@ -94,6 +102,19 @@ namespace FiveCardPokerGame.ViewModels
             return true;
         }
 
+        public Card Card(CardView cardView)
+        {
+            var suit = cardView.GetCard.Cardsuit;
+            var value = cardView.GetCard.Cardvalue;
+
+            Card card = new Card
+            {
+                Cardsuit = suit,
+                Cardvalue = value
+            };
+            return card;
+        }
+        
     }
 }
 

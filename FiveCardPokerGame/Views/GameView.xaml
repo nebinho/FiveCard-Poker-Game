@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FiveCardPokerGame.Views.GameView"
+﻿<local:MasterGameView x:Class="FiveCardPokerGame.Views.GameView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,13 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#014022">        
+    <Grid Background="#014022">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -19,20 +23,35 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>           
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" x:Name="myCards">
+        <Canvas Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
             <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}" >
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>            
-        </ItemsControl>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
         </Canvas>
-        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" Content="Dra kort" FontSize="25" Grid.Column="2" Grid.Row="4" IsEnabled="{Binding IsButtonEnabled}"/>
 
-        <Canvas Grid.Row="2" Grid.Column="1" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
+
+        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" FontSize="25"  IsEnabled="{Binding IsButtonEnabled}" Grid.Column="4" Grid.Row="6"  Grid.RowSpan="3">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="{Binding IsCardEnabled}" Stretch="Uniform" x:Name="imgBack"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="brnFinishGame" Content="Jag är klar" Grid.Row="7" Grid.Column="7"/>
+
+
+        <Canvas Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" x:Name="dropZone" Grid.ColumnSpan="3" DragOver="card_DragOver" AllowDrop="True" Background="Transparent" >
             <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -41,9 +60,9 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </Canvas>
-        <StackPanel Grid.Row="0" Grid.Column="2">
+        <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Label Content="Dina nuvarande poäng är just nu:" FontSize="10" HorizontalAlignment="Center"/>
             <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="10" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
-</UserControl>
+</local:MasterGameView>

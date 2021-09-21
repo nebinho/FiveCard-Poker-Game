@@ -20,7 +20,7 @@ namespace FiveCardPokerGame.Views
     /// <summary>
     /// Interaction logic for CardView.xaml
     /// </summary>
-    public partial class CardView : UserControl
+    public partial class CardView : MasterGameView
     {
 
         public Card GetCard
@@ -34,16 +34,16 @@ namespace FiveCardPokerGame.Views
         public static readonly DependencyProperty GetCardProperty =
             DependencyProperty.Register("GetCard", typeof(Card), typeof(CardView), new PropertyMetadata(new Card()));
 
-
         protected void MoveCard(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                DragDrop.DoDragDrop(this, new DataObject(DataFormats.Serializable, this), DragDropEffects.Move);               
+                DragDrop.DoDragDrop(this, new DataObject(DataFormats.Serializable, this), DragDropEffects.Move);
             }
         }
 
-        
+
+
 
         public CardView()
         {
