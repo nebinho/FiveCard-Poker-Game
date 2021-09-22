@@ -1,21 +1,18 @@
 ﻿using FiveCardPokerGame.Data;
-using FiveCardPokerGame.ViewModels;
-using FiveCardPokerGame.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace FiveCardPokerGame.Commands
 {
-    class UpdateViewAndSaveDataCommand : ICommand
+    class CreatePlayerCommand : ICommand
     {
         private PlayerDb playerDb;
 
-        public UpdateViewAndSaveDataCommand(PlayerDb playerDb)
+        public CreatePlayerCommand(PlayerDb playerDb)
         {
             this.playerDb = playerDb;
         }
@@ -29,9 +26,7 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
-            Global.Difficulty = playerDb.SelectedDifficulty;
-            Global.MyPlayer = playerDb.SelectedPlayer;
-            playerDb.SelectedViewModel = new GameViewModel();                      
+            playerDb.CreatePlayer(playerDb.NewPlayer);
         }
     }
 }
