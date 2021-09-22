@@ -11,11 +11,11 @@ using System.Windows.Input;
 
 namespace FiveCardPokerGame.Commands
 {
-    class UpdateViewCommandAndSaveData : ICommand
+    class UpdateViewAndSaveDataCommand : ICommand
     {
         private PlayerDb playerDb;
 
-        public UpdateViewCommandAndSaveData(PlayerDb playerDb)
+        public UpdateViewAndSaveDataCommand(PlayerDb playerDb)
         {
             this.playerDb = playerDb;
         }
