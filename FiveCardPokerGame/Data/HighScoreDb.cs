@@ -12,24 +12,41 @@ namespace FiveCardPokerGame.Data
     public class HighScoreDb : BaseViewModel
     {
 
-        private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 
         public ObservableCollection<Highscore> Highscores { get; set; }
 
 
-        #region Create
-        public void SetHighscore(Highscore highscore, Player player)
+        public void GetDifficulty()
         {
-            string stmt = $"INSERT INTO highscore(score, player_id, difficulty) VALUES ({highscore.Score}, {player.PlayerId}, {highscore.Difficulty})";
+            if (Global.Difficulty == 1)
+            {
+                Global.MyHighscore.Difficulty = "hard";
+            }
+            else if (Global.Difficulty == 2)
+            {
+                Global.MyHighscore.Difficulty = "medium";
+            }
+            else if (Global.Difficulty == 3)
+            {
+                Global.MyHighscore.Difficulty = "easy";
+            }
+
+
+        }
+
+        #region Create
+        public void SetHighscore(Highscore highscore)
+        {
+            string stmt = $"INSERT INTO highscore(score, player_id, difficulty) VALUES ({highscore.Score}, {Global.MyPlayer}, {highscore.Difficulty})";
 
 
             try
             {
-                using var conn = new NpgsqlConnection(connectionString);
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
                 conn.Open();
                 using var command = new NpgsqlCommand(stmt, conn);
                 command.Parameters.AddWithValue("@score", highscore.Score);
-                command.Parameters.AddWithValue("@player_id", player.PlayerId);
+                command.Parameters.AddWithValue("@player_id", Global.MyPlayer.PlayerId);
                 command.Parameters.AddWithValue("@difficulty", highscore.Difficulty);
 
                 using var reader = command.ExecuteReader();
@@ -51,25 +68,63 @@ namespace FiveCardPokerGame.Data
 
         #region Read
 
-        #endregion
-
-        #region Update
-        public void UpdateHighScore(Player player, Highscore highscore)
+        public ObservableCollection<Highscore> GetHighscores()
         {
-            string stmt = $"UPDATE highscore SET score = {highscore.Score} WHERE id = {player.PlayerId}";
+            string stmt = $"SELECT * FROM highscore WHERE difficulty = {Global.MyHighscore.Difficulty} ORDER BY score dsc";
 
             try
             {
-                using var conn = new NpgsqlConnection(connectionString);
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
+                conn.Open();
+                using var command = new NpgsqlCommand(stmt, conn);
+                using var reader = command.ExecuteReader();
+
+                Highscore highscore = null;
+
+                var highscores = new ObservableCollection<Highscore>();
+
+                while (reader.Read())
+                {
+                    highscore = new Highscore
+                    {
+
+                        Score = (int)reader["score"],
+                        Difficulty = (string)reader["difficulty"]
+
+                    };
+                    highscores.Add(highscore);
+
+                }
+
+                return highscores;
+
+            }
+            catch (PostgresException ex)
+            {
+                string errorcode = ex.SqlState;
+                throw new Exception("Couldn´t retrieve Highscore list", ex);
+            }
+        }
+
+        #endregion
+
+        #region Update
+        public void UpdateHighScore()
+        {
+            string stmt = $"UPDATE highscore SET score = {Global.MyHighscore.Score} WHERE id = {Global.MyPlayer.PlayerId}";
+
+            try
+            {
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
                 conn.Open();
                 using var command = new NpgsqlCommand(stmt, conn);
 
-                command.Parameters.AddWithValue("@score", highscore.Score);
+                command.Parameters.AddWithValue("@score", Global.MyHighscore.Score);
 
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    highscore.HighscoreId = (int)reader["id"];
+                    Global.MyHighscore.HighscoreId = (int)reader["id"];
                 }
 
 

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Five Card Poker" Height="800" Width="1280"
         WindowStyle="None"
-        ResizeMode="CanMinimize"
+        ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
     <Grid Background="Black">
