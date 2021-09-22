@@ -1,10 +1,11 @@
 ﻿namespace FiveCardPokerGame.ViewModels
 {
-
-    public class Player : BaseViewModel
+    
+    public class Player : PlayerViewModel
     {
         public string Name { get; set; }
         public int PlayerId { get; set; }
+            
 
         public override string ToString()
         {
@@ -14,5 +15,6 @@
 
 
     }
-
+        
+    
 }
