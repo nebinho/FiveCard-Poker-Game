@@ -30,8 +30,20 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3">
-            <Button Command="{Binding UpdateViewCommand}" CommandParameter="GameViewModel"  Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
+            <Button Command="{Binding UpdateViewAndSaveDataCommand}" CommandParameter="GameViewModel"  Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
         </StackPanel>
+
+        <StackPanel Grid.Column="6" Grid.Row="3">
+            <TextBlock Text="Select Player"/>
+            <ComboBox  Name="playerlist"  ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.Column="4">
+            <TextBlock Text="Select Difficulty"/>
+            <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}"/>
+        </StackPanel>
+        
+        
         <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="25" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>        
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
     </Grid>

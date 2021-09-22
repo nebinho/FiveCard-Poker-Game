@@ -1,4 +1,5 @@
-﻿using FiveCardPokerGame.Views;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.Views;
 
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,24 @@ namespace FiveCardPokerGame.ViewModels
 {
     public partial class PlayerViewModel : BaseViewModel
     {
-        public ObservableCollection<StartView> PresentedCard { get; set; } = new ObservableCollection<StartView>();
+        //public ObservableCollection<StartView> PresentedCard { get; set; } = new ObservableCollection<StartView>();
+        //public PlayerDb playerDb;
 
 
-
-        public PlayerViewModel()
-        {
-            StartView startView = new();
-            PresentedCard.Add(startView);
+        //public PlayerViewModel()
+        //{
+        //    StartView startView = new();
+        //    PresentedCard.Add(startView);
            
 
 
-        }
+        //}
+        //public void UpdatePlayerList()
+        //{
+        //    var players = playerDb.GetPlayers();
+
+
+        //}
        
     }
 }

@@ -1,21 +1,23 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.ViewModels;
 using FiveCardPokerGame.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace FiveCardPokerGame.Commands
 {
-    class UpdateViewCommand : ICommand
+    class UpdateViewAndSaveDataCommand : ICommand
     {
-        private readonly BaseViewModel mainViewModel;
+        private PlayerDb playerDb;
 
-        public UpdateViewCommand(BaseViewModel mainViewModel)
+        public UpdateViewAndSaveDataCommand(PlayerDb playerDb)
         {
-            this.mainViewModel = mainViewModel;
+            this.playerDb = playerDb;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -27,11 +29,10 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
+            Global.Difficulty = playerDb.SelectedDifficulty;
+            Global.MyPlayer = playerDb.SelectedPlayer;
+            playerDb.SelectedViewModel = new GameViewModel();
             
-            if (parameter.ToString() == "GameViewModel")
-            {
-                mainViewModel.SelectedViewModel = new GameViewModel();
-            }
         }
 
     }
