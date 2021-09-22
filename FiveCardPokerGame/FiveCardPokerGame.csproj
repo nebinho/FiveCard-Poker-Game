@@ -61,6 +61,8 @@
     <None Remove="Resources\ImagesCards\Spades Two.png" />
     <None Remove="Resources\ImagesCards\xCardBack.png" />
     <None Remove="Resources\ImagesCards\xCardBackDisabled.png" />
+    <None Remove="Resources\Images\HighScore.png" />
+    <None Remove="Resources\Images\HighScoreBackground.png" />
     <None Remove="Resources\Images\Table.png" />
   </ItemGroup>
 
@@ -128,6 +130,8 @@
     <Resource Include="Resources\ImagesCards\Spades Queen.png" />
     <Resource Include="Resources\ImagesCards\xCardBack.png" />
     <Resource Include="Resources\ImagesCards\xCardBackDisabled.png" />
+    <Resource Include="Resources\Images\HighScore.png" />
+    <Resource Include="Resources\Images\HighScoreBackground.png" />
     <Resource Include="Resources\Images\Table.png" />
   </ItemGroup>
 

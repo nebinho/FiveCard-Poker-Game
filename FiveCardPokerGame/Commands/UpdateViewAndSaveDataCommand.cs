@@ -31,9 +31,7 @@ namespace FiveCardPokerGame.Commands
         {
             Global.Difficulty = playerDb.SelectedDifficulty;
             Global.MyPlayer = playerDb.SelectedPlayer;
-            playerDb.SelectedViewModel = new GameViewModel();
-            
+            playerDb.SelectedViewModel = new GameViewModel();                      
         }
-
     }
 }

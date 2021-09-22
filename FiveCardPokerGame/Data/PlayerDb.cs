@@ -28,9 +28,6 @@ namespace FiveCardPokerGame.Data
         public BaseViewModel SelectedViewModel { get; set; }
         public ICommand UpdateViewAndSaveDataCommand { get; set; }
 
-
-
-
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 
         #region Read

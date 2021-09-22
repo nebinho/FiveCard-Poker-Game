@@ -11,6 +11,6 @@ namespace FiveCardPokerGame.ViewModels
     {
         public static Player MyPlayer { get; set; }
         public static int Difficulty { get; set; }
-
+        public static int EndScore { get; set; }
     }
 }

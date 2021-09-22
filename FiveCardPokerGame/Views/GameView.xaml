@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Images/Table.png"/>
         </Grid.Background>
@@ -53,10 +53,10 @@
         </Border>
 
 
-        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2">
+        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="{Binding IsCardEnabled}" Stretch="Uniform" x:Name="imgBack"></Image>
+                    <Image Source="{Binding IsCardEnabled}" x:Name="imgBack"></Image>
                 </ControlTemplate>
             </Button.Template>
         </Button>       
@@ -79,7 +79,7 @@
             <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Black"/>
         </StackPanel>
 
-        <Button x:Name="btnDone" Content="Finish game" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" Margin="5"/>
-
+        <Button x:Name="btnDone" Content="Finish game" Command="{Binding EndViewCommand}" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" Margin="5" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="15" Grid.RowSpan="10"/>
     </Grid>
 </local:MasterGameView>

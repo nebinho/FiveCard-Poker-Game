@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Yellow">
+    <Grid Background="Yellow" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
