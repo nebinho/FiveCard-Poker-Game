@@ -1,21 +1,36 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Commands;
+using FiveCardPokerGame.ViewModels;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Data
 {
     public class PlayerDb : BaseViewModel
     {
-        //public PlayerDb()
-        //{
-        //    GetPlayers();
-        //}
-        List<Player> Players { get; set; } 
+        public PlayerDb()
+        {
+            GetPlayers();
+            UpdateViewCommandAndSaveData = new UpdateViewCommandAndSaveData(this);
+
+        }
+        public ObservableCollection<Player> Players { get; set; }
+        public Player SelectedPlayer { get; set; }
+        public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
+        public int SelectedDifficulty { get; set; }
+        public BaseViewModel SelectedViewModel { get; set; }
+        public ICommand UpdateViewCommandAndSaveData { get; set; }
+
+
+
+
         private static readonly string connectionString = "Server = studentpsql.miun.se; Port=5432; Database=sup_db2; User ID = sup_g2; Password=spelmarker; Trust Server Certificate = true; sslmode = Require";
 
         #region Read
@@ -80,28 +95,35 @@ namespace FiveCardPokerGame.Data
         }
         #endregion
 
-        public List<Player> GetPlayers()
+        public ObservableCollection<Player> GetPlayers()
         {
             string stmt = "select * from player order by name asc";
 
             try
             {
+                Players = new ObservableCollection<Player>();
                 using var conn = new NpgsqlConnection(connectionString);
                 conn.Open();
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
-
-                Player player = null;
-                Players = new List<Player>();
+                
+                //Player player = null;
+                //var Players = new List<Player>();
 
                 
                 while (reader.Read())
                 {
-                    player = new Player
+                    Player asd = null;
+                    Player player = null;
+                     player = new Player
                     {
-                        Name = (string)reader["name"]
+                       
+                        Name = (string)reader["name"],
+                        
                     };
-                    Players.Add(player);
+                    asd = player;
+                    Players.Add(asd);
+
                 }
 
                 return Players;

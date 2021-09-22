@@ -12,7 +12,7 @@ namespace FiveCardPokerGame.ViewModels
 {
     public partial class GameViewModel : BaseViewModel
     {
-        public PlayerViewModel P1 { get; set; } = new Player();
+        //public PlayerViewModel P1 { get; set; } = new Player();
 
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
         public bool IsButtonEnabled { get; set; }
@@ -23,6 +23,7 @@ namespace FiveCardPokerGame.ViewModels
         public string IsCardEnabled { get; set; }
 
         public int NumberOfDraws { get; set; }
+        public Player SetPlayer { get; set; }
 
         public string CardEnabler()
         {
@@ -44,6 +45,8 @@ namespace FiveCardPokerGame.ViewModels
             RemoveCardCommand = new RemoveCardCommand(this);
             DrawCardCommand = new DrawCardCommand(this);
             IsCardEnabled = CardEnabler();
+            SetPlayer = Global.MyPlayer;
+
             
         }
 
