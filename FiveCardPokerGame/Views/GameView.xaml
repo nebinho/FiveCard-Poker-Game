@@ -45,7 +45,7 @@
                 <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center" Cursor="Hand"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
@@ -56,7 +56,7 @@
         <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="{Binding IsCardEnabled}" x:Name="imgBack"></Image>
+                    <Image Source="{Binding IsCardEnabled}" x:Name="imgBack" Cursor="Hand"></Image>
                 </ControlTemplate>
             </Button.Template>
         </Button>       
@@ -67,7 +67,7 @@
                 <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center"/>
+                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center" Cursor="Hand"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
@@ -80,6 +80,6 @@
         </StackPanel>
 
         <Button x:Name="btnDone" Content="Finish game" Command="{Binding EndViewCommand}" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" Margin="5" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16"/>
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="15" Grid.RowSpan="10"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="15" Grid.RowSpan="10" Cursor="Hand"/>
     </Grid>
 </local:MasterGameView>

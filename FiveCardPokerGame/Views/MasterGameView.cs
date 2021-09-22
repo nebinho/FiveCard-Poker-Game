@@ -45,6 +45,7 @@ namespace FiveCardPokerGame.Views
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();  //Kallar på metoden för att kolla antal byten.
                 gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
+                
             }
             else
             {
