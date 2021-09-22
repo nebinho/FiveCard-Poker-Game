@@ -32,7 +32,7 @@ namespace FiveCardPokerGame.Data
         public string NewPlayer { get; set; }
         public bool BtnEnabler { get; set; }
         public string AlrdyExists { get; set;  }
-
+        
 
         //public bool HasContent() // försöka göra så att knappen är disabled när man inte skrivit in nån ny spelare
         //{
@@ -46,13 +46,14 @@ namespace FiveCardPokerGame.Data
         //    }
         //}
 
-        #region Create
+        
 
+        #region Read
         public void CreatePlayer(string NewPlayer)
         {
             AlrdyExists = null;
             string stmt = $"insert into player(name) values (@name)";
-            if (NewPlayer != null)
+            if (NewPlayer!= null)
             {
                 try
                 {
@@ -67,15 +68,16 @@ namespace FiveCardPokerGame.Data
                     while (reader.Read())
                     {
                         NewPlayer = (string)reader["name"];
+                        
                     }
-
+                    AlrdyExists = $"{NewPlayer} är skapad";
 
 
                 }
                 catch (PostgresException ex)
                 {
                     string errorcode = ex.SqlState;
-                    AlrdyExists = "Namnet finns redan";
+                    AlrdyExists = "Namnet finns redan, vänligen välj ett annat";
                     //throw new Exception(AlrdyExists = "Namnet finns redan", ex);
                 }
                 var player = SelectPlayer(NewPlayer);
@@ -83,15 +85,10 @@ namespace FiveCardPokerGame.Data
             }
             else
             {
-
-
+                
+                
             }
         }
-
-        #endregion
-
-        #region Read
-
         public Player SelectPlayer(string NewPlayer)
         {
             Player player = null;
@@ -105,6 +102,7 @@ namespace FiveCardPokerGame.Data
                 command.Parameters.AddWithValue("@name", NewPlayer);
 
                 using var reader = command.ExecuteReader();
+                //Player player = null;
 
                 while (reader.Read())
                 {
@@ -131,6 +129,36 @@ namespace FiveCardPokerGame.Data
 
 
         }
+        //public Player UpdateHighScore(Player player)
+        //{
+        //    string stmt = "update player set highscore = @highscore where id =@id";
+
+        //    try
+        //    {
+        //        using var conn = new NpgsqlConnection(connectionString);
+        //        conn.Open();
+        //        using var command = new NpgsqlCommand(stmt, conn);
+        //        //Player p1 = new Player();
+        //        command.Parameters.AddWithValue("@highscore", player.HighScore);
+        //        command.Parameters.AddWithValue("@id", player.PlayerId);
+
+
+        //        using var reader = command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            player.HighScore = (int)reader["highscore"];
+        //        }
+
+        //        return player;
+
+        //    }
+        //    catch (PostgresException ex)
+        //    {
+        //        string errorcode = ex.SqlState;
+        //        throw new Exception("FFELLL", ex);
+        //    }
+        //}
+        #endregion
 
         public ObservableCollection<Player> GetPlayers()
         {
@@ -143,21 +171,20 @@ namespace FiveCardPokerGame.Data
                 conn.Open();
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
-
+                
                 //Player player = null;
                 //var Players = new List<Player>();
 
-
+                
                 while (reader.Read())
                 {
                     Player asd = null;
                     Player player = null;
-                    player = new Player
+                     player = new Player
                     {
-
+                       
                         Name = (string)reader["name"],
                         PlayerId = (int)reader["id"]
-
                     };
                     asd = player;
                     Players.Add(asd);
@@ -173,8 +200,5 @@ namespace FiveCardPokerGame.Data
                 throw new Exception("FFELLL", ex);
             }
         }
-
-        #endregion
-
     }
 }
