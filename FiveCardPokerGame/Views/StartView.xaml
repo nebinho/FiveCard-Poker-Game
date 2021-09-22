@@ -42,8 +42,9 @@
             <TextBlock Text="Select Difficulty"/>
             <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}"/>
         </StackPanel>
-        
-        
+        <TextBox x:Name="txtBoxCreatePlayer" Grid.Row="4" Grid.Column="4" Text="{Binding NewPlayer}"/>
+        <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" Command="{Binding CreatePlayerCommand}"/>
+        <Label x:Name="lblAlrdyExist" Content="{Binding AlrdyExists}" Grid.Row="6" Grid.Column="4" FontSize="25" Grid.ColumnSpan="2"/>
         <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="25" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>        
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
     </Grid>
