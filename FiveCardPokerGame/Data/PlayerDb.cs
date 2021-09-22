@@ -68,9 +68,10 @@ namespace FiveCardPokerGame.Data
                     while (reader.Read())
                     {
                         NewPlayer = (string)reader["name"];
+                        
                     }
+                    AlrdyExists = $"{NewPlayer} är skapad";
 
-                    
 
                 }
                 catch (PostgresException ex)
