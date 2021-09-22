@@ -1,4 +1,5 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Views
 {
@@ -16,8 +18,13 @@ namespace FiveCardPokerGame.Views
         public CardView CardView { get; set; }
         public GameView GameView { get; set; }
         public StartView StartView { get; set; }
-        
+        //public ICommand SetPlayerCommand { get; set; }
 
+        //public Player Player { get; set; } = new Player();
+        public MasterGameView()
+        {
+            
+        }
         public void card_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
@@ -89,5 +96,6 @@ namespace FiveCardPokerGame.Views
                 var viewModel = (GameViewModel)DataContext;
             }
         }
+        
     }
 }

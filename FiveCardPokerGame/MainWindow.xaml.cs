@@ -16,11 +16,12 @@ namespace FiveCardPokerGame
             
             InitializeComponent();
             DataContext = new MainViewModel();
-            DeckOfCards deckOfCards = new DeckOfCards();
-            EvaluateHand evaluateHand = new EvaluateHand();
-            GameViewModel game = new GameViewModel();
-            PlayerDb playerDb = new PlayerDb();
-            StartView startView = new StartView();
+            //StartView startView = new StartView();
+            //DeckOfCards deckOfCards = new DeckOfCards();
+            //EvaluateHand evaluateHand = new EvaluateHand();
+            //GameViewModel game = new GameViewModel();
+            //PlayerDb playerDb = new PlayerDb();
+            
         }
         
     }
