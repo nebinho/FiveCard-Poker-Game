@@ -28,6 +28,7 @@ namespace FiveCardPokerGame.Data
         public int SelectedDifficulty { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
         public ICommand UpdateViewAndSaveDataCommand { get; set; }
+
         public ICommand CreatePlayerCommand { get; set; }
         public string NewPlayer { get; set; }
         public bool BtnEnabler { get; set; }
@@ -47,6 +48,7 @@ namespace FiveCardPokerGame.Data
         //}
 
         
+
 
         #region Read
         public void CreatePlayer(string NewPlayer)
