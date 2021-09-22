@@ -77,7 +77,7 @@ namespace FiveCardPokerGame.Data
                 catch (PostgresException ex)
                 {
                     string errorcode = ex.SqlState;
-                    AlrdyExists = "Namnet finns redan";
+                    AlrdyExists = "Namnet finns redan, vänligen välj ett annat";
                     //throw new Exception(AlrdyExists = "Namnet finns redan", ex);
                 }
                 var player = SelectPlayer(NewPlayer);
@@ -184,7 +184,7 @@ namespace FiveCardPokerGame.Data
                     {
                        
                         Name = (string)reader["name"],
-                        
+                        PlayerId = (int)reader["id"]
                     };
                     asd = player;
                     Players.Add(asd);
