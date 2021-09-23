@@ -43,7 +43,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txtScore" Text="{Binding EndScore}"  Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="txtScore" Text="{Binding EndScore}" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="50" FontWeight="ExtraBold" FontFamily="Segoe UI"/>
         <Button Content="Play again" Command="{Binding PlayAgainCommand}" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
         <Button Content="Go to start" Command="{Binding GoToStartCommand}" Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
 
