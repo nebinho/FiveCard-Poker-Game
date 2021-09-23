@@ -39,10 +39,10 @@
         <TextBlock Text="✩ FIVE CARD POKER GAME ✩" FontSize="40" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" Foreground="#014022"/>
        
         <!--BORDER SELECT PLAYER-->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="15"/>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="20,15,15,0"/>
 
         <!--BORDER SELECT PLAYER-->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="15" />
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="20,15,15,0" />
 
 
         <Label Content="Or" FontSize="20" FontStyle="Oblique" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -50,7 +50,7 @@
         <!--SELECT PLAYER-->
         <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Select Player" FontSize="22" Margin="5" FontWeight="DemiBold"/>            
-            <ListBox x:Name="lstBoxPlayer" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
+            <ListBox x:Name="lstBoxPlayer" Width="215" Background="Transparent" BorderBrush="Transparent" FontSize="15" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
         </StackPanel>
 
         <!--CREATE PLAYER-->
@@ -60,7 +60,7 @@
             <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32"/>
         </StackPanel>
         
-        <!--SELECT DIFFICULT-->
+        <!--SELECT DIFFICULTY-->
         <StackPanel Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" >
             <Label Content="Select Difficulty" FontSize="22" FontWeight="DemiBold"/>
             <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}" Height="30" Margin="5"/>

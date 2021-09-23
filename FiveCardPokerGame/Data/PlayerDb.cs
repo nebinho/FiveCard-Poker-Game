@@ -84,6 +84,7 @@ namespace FiveCardPokerGame.Data
                 }
                 var player = SelectPlayer(NewPlayer);
                 Global.MyPlayer = player;
+                SelectedPlayer = player;
             }
             else
             {
