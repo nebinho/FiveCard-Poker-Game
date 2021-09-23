@@ -47,9 +47,9 @@
         <Button Content="Play again" Command="{Binding PlayAgainCommand}" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
         <Button Content="Go to start" Command="{Binding GoToStartCommand}" Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
 
-        <StackPanel Grid.Row="2" Grid.Column="12" Grid.RowSpan="8" Grid.ColumnSpan="4" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Label Content="{Binding ShowDifficulty}" FontSize="22" Margin="5" FontWeight="DemiBold"/>
-            <ListBox x:Name="lstBoxShowHighscore" ItemsSource="{Binding HighscoreList}"  Margin="5" Height="250" Grid.Row="4">
+        <StackPanel Grid.Row="3" Grid.Column="12" Grid.RowSpan="8" Grid.ColumnSpan="4" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="{Binding ShowDifficulty, StringFormat='Difficulty: {0}'}" HorizontalAlignment="Center" FontSize="22" Margin="0,8,2,0" FontWeight="DemiBold"/>
+            <ListBox x:Name="lstBoxShowHighscore" ItemsSource="{Binding HighscoreList}" FontSize="20" BorderBrush="Transparent" Background="Transparent" Width="250" Margin="5" Height="250" Grid.Row="4">
 
             </ListBox>
         </StackPanel>
