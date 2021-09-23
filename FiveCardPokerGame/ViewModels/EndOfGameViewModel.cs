@@ -18,13 +18,14 @@ namespace FiveCardPokerGame.ViewModels
         public static ObservableCollection<Highscore> HighscoreList { get; set; }
 
         public ICommand PlayAgainCommand { get; set; }
-
+        
         public ICommand GoToStartCommand { get; set; }
 
         public BaseViewModel SelectedViewModel { get; set; }
 
         public EndOfGameViewModel()
         {
+            
             highScoreDb.SetHighscore();
             highScoreDb.GetHighscores();
             EndScore = Global.EndScore.ToString();

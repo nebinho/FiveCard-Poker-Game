@@ -19,15 +19,15 @@ namespace FiveCardPokerGame.Data
         {
             if (Global.Difficulty == 1)
             {
-                dif = "Difficulty: Hard";
+                dif = "Hard";
             }
             else if (Global.Difficulty == 2)
             {
-                dif = "Difficulty: Medium";
+                dif = "Medium";
             }
             else if (Global.Difficulty == 3)
             {
-                dif = "Difficulty: Easy";
+                dif = "Easy";
             }
 
 
@@ -70,7 +70,7 @@ namespace FiveCardPokerGame.Data
 
         public ObservableCollection<Highscore> GetHighscores()
         {
-            string stmt = $"SELECT score, difficulty FROM highscore WHERE difficulty = '{dif}' ORDER BY score DESC";
+            string stmt = $"SELECT highscore.score, highscore.difficulty, player.name FROM highscore, player WHERE highscore.player_id = player.id AND difficulty = '{dif}' ORDER BY score DESC";
 
             try
             {
@@ -91,7 +91,8 @@ namespace FiveCardPokerGame.Data
                         Score = (int)reader["score"],
                         
                         Difficulty = (string)reader["difficulty"],
-                        //PlayerId = (int)reader["player_id"]
+                        PlayerId = (int)reader["player_id"],
+                        //Name = (string)reader["name"]
 
                     };
                     EndOfGameViewModel.HighscoreList.Add(highscore);
