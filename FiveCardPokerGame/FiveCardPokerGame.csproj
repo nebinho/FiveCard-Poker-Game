@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Cursor\x-CardBack.cur" />
     <None Remove="Resources\ImagesCards\Clubs Ace.png" />
     <None Remove="Resources\ImagesCards\Clubs Eight.png" />
     <None Remove="Resources\ImagesCards\Clubs Five.png" />
@@ -80,6 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Cursor\x-CardBack.cur" />
     <Resource Include="Resources\ImagesCards\Clubs Ten.png" />
     <Resource Include="Resources\ImagesCards\Diamonds Ten.png" />
     <Resource Include="Resources\ImagesCards\Hearts Ten.png" />
@@ -140,6 +142,10 @@
     <Resource Include="Resources\Images\BlankBackground.png" />
 
     <Resource Include="Resources\Images\Table.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Styles\" />
   </ItemGroup>
 
 </Project>

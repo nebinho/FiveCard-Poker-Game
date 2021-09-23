@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Resources;
 using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Views
@@ -64,13 +65,17 @@ namespace FiveCardPokerGame.Views
             }
         }
 
+        
+
         public void myCards_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
+            
 
             if (data is CardView cardView)
             {
+                
                 if (!gameViewModel.DeckOfCards.CardViews.Contains(cardView))
                 {
                     gameViewModel.DeckOfCards.ThrownCards.Remove(cardView);
@@ -83,6 +88,16 @@ namespace FiveCardPokerGame.Views
                 }
 
             }
+        }
+
+        public void Border_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            if (e.Effects.HasFlag(DragDropEffects.Move))
+            {
+                StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(cardCurs.Stream));
+            }
+            e.Handled = true;
         }
 
         public void myCards_Drop(object sender, DragEventArgs e)

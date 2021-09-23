@@ -10,6 +10,19 @@
         <Storyboard x:Key="FlipCard" >
             <DoubleAnimation Storyboard.TargetName="Rotation" Storyboard.TargetProperty="Angle" From="0" To="360" BeginTime="00:00:00" Duration="0:0:1"></DoubleAnimation>
         </Storyboard>
+        
+        <Style TargetType="Button" x:Key="TransparentButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.Background>
@@ -44,7 +57,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="2" Margin="1">
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="2" Margin="1" GiveFeedback="Border_GiveFeedback">
 
             <Canvas x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
                 <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}">
@@ -58,12 +71,13 @@
         </Border>
 
 
-        <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+        <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128">
             <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
                 <Image.RenderTransform>
                     <RotateTransform x:Name="Rotation" Angle="0"></RotateTransform>
                 </Image.RenderTransform>
             </Image>
+            
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.Click">
                     <BeginStoryboard Storyboard="{StaticResource FlipCard}">
@@ -73,7 +87,7 @@
         </Button>       
 
         <Border BorderBrush="Black" BorderThickness="2" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="1">
-            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent">
+            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="Border_GiveFeedback">
                 <TextBlock Text="THROW CARDS HERE" Canvas.Left="54" Canvas.Top="30" FontSize="25"/>
                 <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                     <ItemsControl.ItemsPanel>
