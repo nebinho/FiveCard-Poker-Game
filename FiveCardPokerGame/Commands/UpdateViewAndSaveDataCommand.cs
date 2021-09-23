@@ -29,9 +29,19 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
-            Global.Difficulty = playerDb.SelectedDifficulty;
-            Global.MyPlayer = playerDb.SelectedPlayer;
-            playerDb.SelectedViewModel = new GameViewModel();                      
+            
+            
+            if (playerDb.SelectedPlayer == null || playerDb.SelectedDifficulty == 0)
+            {
+                playerDb.AlrdyExists = "A player and difficulty must be selected";
+            }
+            else
+            {
+                Global.Difficulty = playerDb.SelectedDifficulty;
+                Global.MyPlayer = playerDb.SelectedPlayer;
+                playerDb.SelectedViewModel = new GameViewModel();
+            }
+                                 
         }
     }
 }
