@@ -40,6 +40,10 @@ namespace FiveCardPokerGame.ViewModels
                 return IsCardEnabled = "/Resources/ImagesCards/xCardBackDisabled.png";
             }
         }
+        public void SetColor()
+        {
+            
+        }
 
         public GameViewModel()
         {            
