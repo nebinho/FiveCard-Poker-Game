@@ -13,55 +13,55 @@ namespace FiveCardPokerGame.Data
     {
 
 
-        public ObservableCollection<Highscore> Highscores { get; set; }
+        public static string dif { get; set; }
 
-
-        public void GetDifficulty()
+        public static void GetDifficulty(int difficulty)
         {
             if (Global.Difficulty == 1)
             {
-                Global.MyHighscore.Difficulty = "hard";
+                dif = "Hard";
             }
             else if (Global.Difficulty == 2)
             {
-                Global.MyHighscore.Difficulty = "medium";
+                dif = "Medium";
             }
             else if (Global.Difficulty == 3)
             {
-                Global.MyHighscore.Difficulty = "easy";
+                dif = "Easy";
             }
 
 
         }
 
         #region Create
-        public void SetHighscore(Highscore highscore)
+        public void SetHighscore()
         {
-            string stmt = $"INSERT INTO highscore(score, player_id, difficulty) VALUES ({highscore.Score}, {Global.MyPlayer}, {highscore.Difficulty})";
+            GetDifficulty(Global.Difficulty);
 
+            string stmt = $"INSERT INTO highscore(score, player_id, difficulty) VALUES (@score, @player_id, @difficulty)";
 
             try
             {
                 using var conn = new NpgsqlConnection(Global.ConnectionString);
                 conn.Open();
                 using var command = new NpgsqlCommand(stmt, conn);
-                command.Parameters.AddWithValue("@score", highscore.Score);
+                command.Parameters.AddWithValue("@score", Global.EndScore);
                 command.Parameters.AddWithValue("@player_id", Global.MyPlayer.PlayerId);
-                command.Parameters.AddWithValue("@difficulty", highscore.Difficulty);
+                command.Parameters.AddWithValue("@difficulty", dif);
 
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    highscore.HighscoreId = (int)reader["id"];
+                     Global.EndScore = (int)reader["score"];
                 }
-
+               
             }
             catch (PostgresException ex)
             {
                 string errorcode = ex.SqlState;
                 throw new Exception("Couldn´t add highscore", ex);
             }
-
+            
         }
 
         #endregion
@@ -70,8 +70,8 @@ namespace FiveCardPokerGame.Data
 
         public ObservableCollection<Highscore> GetHighscores()
         {
-            string stmt = $"SELECT * FROM highscore WHERE difficulty = {Global.MyHighscore.Difficulty} ORDER BY score dsc";
-
+            //string stmt = $"SELECT highscore.score, highscore.difficulty, player.name FROM highscore, player WHERE player.id = highscore.player_id AND difficulty = '{dif}' ORDER BY score DESC";
+            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' ORDER BY score DESC";
             try
             {
                 using var conn = new NpgsqlConnection(Global.ConnectionString);
@@ -79,63 +79,67 @@ namespace FiveCardPokerGame.Data
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
 
-                Highscore highscore = null;
 
-                var highscores = new ObservableCollection<Highscore>();
-
+                EndOfGameViewModel.HighscoreList = new ObservableCollection<Highscore>();
+                Highscore highscore = new Highscore();
                 while (reader.Read())
                 {
+                    //highscore = null;
                     highscore = new Highscore
                     {
-
+                        //HighscoreId = (int)reader["highscore_id"],
                         Score = (int)reader["score"],
-                        Difficulty = (string)reader["difficulty"]
+                        
+                        Difficulty = (string)reader["difficulty"],
+                        PlayerId = (int)reader["player_id"],
+                        Name = (string)reader["name"]
 
                     };
-                    highscores.Add(highscore);
+                    EndOfGameViewModel.HighscoreList.Add(highscore);
 
                 }
 
-                return highscores;
-
+                return EndOfGameViewModel.HighscoreList;                
+                
             }
             catch (PostgresException ex)
             {
                 string errorcode = ex.SqlState;
                 throw new Exception("Couldn´t retrieve Highscore list", ex);
             }
+
         }
 
         #endregion
 
         #region Update
-        public void UpdateHighScore()
-        {
-            string stmt = $"UPDATE highscore SET score = {Global.MyHighscore.Score} WHERE id = {Global.MyPlayer.PlayerId}";
+        //public void UpdateHighScore()
+        //{
+        //    string stmt = $"UPDATE highscore SET score = {Global.MyHighscore.Score} WHERE id = {Global.MyPlayer.PlayerId}";
 
-            try
-            {
-                using var conn = new NpgsqlConnection(Global.ConnectionString);
-                conn.Open();
-                using var command = new NpgsqlCommand(stmt, conn);
+        //    try
+        //    {
+        //        using var conn = new NpgsqlConnection(Global.ConnectionString);
+        //        conn.Open();
+        //        using var command = new NpgsqlCommand(stmt, conn);
 
-                command.Parameters.AddWithValue("@score", Global.MyHighscore.Score);
+        //        command.Parameters.AddWithValue("@score", Global.MyHighscore.Score);
 
-                using var reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Global.MyHighscore.HighscoreId = (int)reader["id"];
-                }
+        //        using var reader = command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            Global.MyHighscore.HighscoreId = (int)reader["id"];
+        //        }
 
 
 
-            }
-            catch (PostgresException ex)
-            {
-                string errorcode = ex.SqlState;
-                throw new Exception("FFELLL", ex);
-            }
-        }
+        //    }
+        //    catch (PostgresException ex)
+        //    {
+        //        string errorcode = ex.SqlState;
+        //        throw new Exception("FFELLL", ex);
+        //    }
+        //}
         #endregion
 
     }

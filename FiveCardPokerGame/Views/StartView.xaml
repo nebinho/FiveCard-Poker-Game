@@ -10,6 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Images/BlankBackground.png"/>
         </Grid.Background>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
@@ -33,33 +34,46 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2">
-            <Button Command="{Binding UpdateViewAndSaveDataCommand}" CommandParameter="GameViewModel" Content="START GAME" Width="auto" Height="35" Margin="5" FontSize="20" FontFamily="Segoe Ui" FontWeight="Bold"/>
+
+        <!--HEADLINE-->
+        <TextBlock Text="✩ FIVE CARD POKER GAME ✩" FontSize="40" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bernard MT Condensed" Foreground="#014022"/>
+       
+        <!--BORDER SELECT PLAYER-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="20,15,15,0"/>
+
+        <!--BORDER SELECT PLAYER-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" Margin="20,15,15,0" />
+
+
+        <Label Content="Or" FontSize="20" FontStyle="Oblique" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <!--SELECT PLAYER-->
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="Select Player" FontSize="22" Margin="5" FontWeight="DemiBold"/>            
+            <ListBox x:Name="lstBoxPlayer" Width="215" Background="Transparent" BorderBrush="Transparent" FontSize="15" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
         </StackPanel>
 
-        <!--<StackPanel Grid.Column="6" Grid.Row="3">
-            <TextBlock Text="Select Player"/>
-            <ComboBox  Name="playerlist"  ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}"/>
+        <!--CREATE PLAYER-->
+        <StackPanel Grid.Row="2" Grid.Column="5"  Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="Create Player" FontSize="22" FontWeight="DemiBold" Margin="5"/>
+            <TextBox x:Name="txtBoxCreatePlayer" Grid.Row="4" Grid.Column="4" Text="{Binding NewPlayer}" Margin="5" Height="30"/>
+            <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32"/>
         </StackPanel>
         
-        <StackPanel Grid.Row="3" Grid.Column="2">
-            <TextBlock Text="Select Difficulty"/>
-            <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}"/>
-        </StackPanel>-->
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <TextBlock Text="Select Player" FontSize="20"/>
-            <ComboBox  Name="playerlist"  ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}"/>
-            <TextBlock Text="Select Difficulty" FontSize="20"/>
-            <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}"/>
-        </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="3" >
-            <TextBox x:Name="txtBoxCreatePlayer" Grid.Row="4" Grid.Column="4" Text="{Binding NewPlayer}" Margin="8" Height="35"/>
-            <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Height="35"  />
+        <!--SELECT DIFFICULTY-->
+        <StackPanel Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" >
+            <Label Content="Select Difficulty" FontSize="22" FontWeight="DemiBold"/>
+            <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}" Height="30" Margin="5"/>
         </StackPanel>
         
-        
-        <TextBlock Text="VÄLKOMMEN TILL POKER" FontSize="30" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center"/>
+        <!--START GAME-->
+        <StackPanel Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2">
+            <Button x:Name="btnStartGame" Command="{Binding UpdateViewAndSaveDataCommand}" CommandParameter="GameViewModel" Content="START GAME" Width="auto" Height="40" Margin="5" FontSize="20" FontWeight="DemiBold" Background="#014022" Foreground="White" BorderBrush="DarkGreen"/>
+        </StackPanel>
+
+        <!--LABEL ALREADY EXIST-->
         <Label x:Name="lblAlrdyExist" Content="{Binding AlrdyExists}" Grid.Row="5" Grid.Column="3" FontSize="25" Grid.ColumnSpan="4"/>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
+
     </Grid>
 </local:MasterGameView>
