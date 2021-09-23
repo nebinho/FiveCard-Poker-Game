@@ -12,21 +12,22 @@ namespace FiveCardPokerGame.Data
     public class HighScoreDb : BaseViewModel
     {
 
+
         public static string dif { get; set; }
 
         public static void GetDifficulty(int difficulty)
         {
             if (Global.Difficulty == 1)
             {
-                dif = "hard";
+                dif = "Difficulty: Hard";
             }
             else if (Global.Difficulty == 2)
             {
-                dif = "medium";
+                dif = "Difficulty: Medium";
             }
             else if (Global.Difficulty == 3)
             {
-                dif = "easy";
+                dif = "Difficulty: Easy";
             }
 
 
@@ -69,7 +70,7 @@ namespace FiveCardPokerGame.Data
 
         public ObservableCollection<Highscore> GetHighscores()
         {
-            string stmt = $"SELECT * FROM highscore WHERE highscore.difficulty = '{dif}' ORDER BY score DESC";
+            string stmt = $"SELECT score, difficulty FROM highscore WHERE difficulty = '{dif}' ORDER BY score DESC";
 
             try
             {
@@ -79,25 +80,26 @@ namespace FiveCardPokerGame.Data
                 using var reader = command.ExecuteReader();
 
 
-                Global.HighscoreList = new ObservableCollection<Highscore>();
+                EndOfGameViewModel.HighscoreList = new ObservableCollection<Highscore>();
                 Highscore highscore = new Highscore();
                 while (reader.Read())
                 {
                     //highscore = null;
                     highscore = new Highscore
                     {
-                        HighscoreId = (int)reader["highscore_id"],
+                        //HighscoreId = (int)reader["highscore_id"],
                         Score = (int)reader["score"],
+                        
                         Difficulty = (string)reader["difficulty"],
-                        PlayerId = (int)reader["player_id"]
+                        //PlayerId = (int)reader["player_id"]
 
-                    }; 
-                    Global.HighscoreList.Add(highscore);
+                    };
+                    EndOfGameViewModel.HighscoreList.Add(highscore);
 
                 }
 
-                return Global.HighscoreList;                
-
+                return EndOfGameViewModel.HighscoreList;                
+                
             }
             catch (PostgresException ex)
             {

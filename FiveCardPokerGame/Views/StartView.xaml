@@ -60,7 +60,7 @@
             <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32"/>
         </StackPanel>
         
-        <!--SELECT DIFFICULT-->
+        <!--SELECT DIFFICULTY-->
         <StackPanel Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" >
             <Label Content="Select Difficulty" FontSize="22" FontWeight="DemiBold"/>
             <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}" Height="30" Margin="5"/>

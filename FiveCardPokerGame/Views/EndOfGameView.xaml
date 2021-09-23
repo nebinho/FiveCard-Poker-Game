@@ -46,6 +46,20 @@
         <TextBlock x:Name="txtScore" Text="{Binding EndScore}"  Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" FontFamily="Segoe UI"/>
         <Button Content="Play again" Command="{Binding PlayAgainCommand}" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
         <Button Content="Go to start" Command="{Binding GoToStartCommand}" Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3" BorderBrush="#014022" Background="#01572E" Foreground="white" FontSize="16" Cursor="Hand"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="12" Grid.RowSpan="8" Grid.ColumnSpan="4" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="{Binding ShowDifficulty}" FontSize="22" Margin="5" FontWeight="DemiBold"/>
+            <ListBox x:Name="lstBoxShowHighscore" ItemsSource="{Binding HighscoreList}"  Margin="5" Height="250" Grid.Row="4">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Score}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="16" Grid.RowSpan="12"/>
     </Grid>
 </local:MasterGameView>
