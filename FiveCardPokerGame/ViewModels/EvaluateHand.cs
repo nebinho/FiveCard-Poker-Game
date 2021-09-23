@@ -21,7 +21,6 @@ namespace FiveCardPokerGame.ViewModels
         public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // om denna alltid kollar först den metoden som är värd mest poäng så kanske det funkar?
         {
 
-
             if (IsFlush(hand) && IsStraight(hand)) // kollar om man fått färg och stege och sedan om stegen är tio till ess = Royal Flush
             {
                 if (IsRoyalFlush(hand))
@@ -43,7 +42,7 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.Score = 35;
                 return true;
             }
-            if (IsPair(hand) && IsThree(hand)) // kollar om man fått kåk
+            if (IsFullHouse(hand)) // kollar om man fått kåk
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.FullHouse;
                 pokerHands.Score = 30;
@@ -141,7 +140,20 @@ namespace FiveCardPokerGame.ViewModels
 
             return asd;
         }
+        public static bool IsFullHouse(ObservableCollection<Card> hand)
+        {
+            hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
+            bool fullHouse = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
+                        (int)hand[1].Cardvalue == (int)hand[2].Cardvalue &&
+                        (int)hand[3].Cardvalue == (int)hand[4].Cardvalue ||
 
+                        (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
+                        (int)hand[2].Cardvalue == (int)hand[3].Cardvalue &&
+                        (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
+
+
+            return fullHouse;
+        }
         public static bool IsRoyalFlush(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
