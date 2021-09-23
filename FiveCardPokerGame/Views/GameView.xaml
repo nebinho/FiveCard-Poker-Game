@@ -6,6 +6,11 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="FlipCard" >
+            <DoubleAnimation Storyboard.TargetName="Rotation" Storyboard.TargetProperty="Angle" From="0" To="360" BeginTime="00:00:00" Duration="0:0:1"></DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Images/Table.png"/>
@@ -53,12 +58,18 @@
         </Border>
 
 
-        <Button x:Name="DrawNewCards" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="{Binding IsCardEnabled}" x:Name="imgBack" Cursor="Hand"></Image>
-                </ControlTemplate>
-            </Button.Template>
+        <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+            <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="Rotation" Angle="0"></RotateTransform>
+                </Image.RenderTransform>
+            </Image>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard Storyboard="{StaticResource FlipCard}">
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
         </Button>       
 
         <Border BorderBrush="Black" BorderThickness="2" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="1">
