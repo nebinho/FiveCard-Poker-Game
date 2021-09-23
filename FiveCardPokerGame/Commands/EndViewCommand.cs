@@ -1,4 +1,5 @@
-﻿using FiveCardPokerGame.ViewModels;
+﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace FiveCardPokerGame.Commands
         {
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
             gameViewModel.SelectedViewModel = new EndOfGameViewModel();
+            
+            
         }
     }
 }

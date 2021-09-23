@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.ViewModels
         public int HighscoreId { get; set; }
         public int Score { get; set; }
         public string Difficulty { get; set; }
-
+        public int PlayerId { get; set; }
 
     }
 }

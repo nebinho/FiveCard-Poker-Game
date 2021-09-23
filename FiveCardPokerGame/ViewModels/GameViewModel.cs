@@ -1,4 +1,5 @@
 ﻿using FiveCardPokerGame.Commands;
+using FiveCardPokerGame.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,6 @@ namespace FiveCardPokerGame.ViewModels
 
         public int NumberOfDraws { get; set; }
         public Player SetPlayer { get; set; }
-
         public ICommand EndViewCommand { get; set; }
 
         public BaseViewModel SelectedViewModel { get; set; }
