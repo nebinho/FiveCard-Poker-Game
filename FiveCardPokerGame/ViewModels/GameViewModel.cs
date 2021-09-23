@@ -13,20 +13,14 @@ namespace FiveCardPokerGame.ViewModels
 {
     public partial class GameViewModel : BaseViewModel
     {
-        //public PlayerViewModel P1 { get; set; } = new Player();
-
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
         public bool IsButtonEnabled { get; set; }
-
         public ICommand RemoveCardCommand { get; set; }
-
         public ICommand DrawCardCommand { get; set; }
         public string IsCardEnabled { get; set; }
-
         public int NumberOfDraws { get; set; }
         public Player SetPlayer { get; set; }
         public ICommand EndViewCommand { get; set; }
-
         public BaseViewModel SelectedViewModel { get; set; }
 
         public string CardEnabler()
@@ -40,17 +34,12 @@ namespace FiveCardPokerGame.ViewModels
                 return IsCardEnabled = "/Resources/ImagesCards/xCardBackDisabled.png";
             }
         }
-        public void SetColor()
-        {
-            
-        }
 
         public GameViewModel()
         {            
             RemoveCardCommand = new RemoveCardCommand(this);
             DrawCardCommand = new DrawCardCommand(this);
             IsCardEnabled = CardEnabler();
-            //SetPlayer = Global.MyPlayer;
             EndViewCommand = new EndViewCommand(this);            
         }
     }

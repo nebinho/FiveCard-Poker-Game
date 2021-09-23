@@ -12,7 +12,6 @@ namespace FiveCardPokerGame.Commands
     public class DrawCardCommand : ICommand
     {
         private GameViewModel gameViewModel;
-        //private GameView gameView;
 
         public DrawCardCommand(GameViewModel gameViewModel)
         {
@@ -23,15 +22,14 @@ namespace FiveCardPokerGame.Commands
 
         public bool CanExecute(object parameter) => true;
         
-
         public void Execute(object parameter)
         {
             gameViewModel.DeckOfCards.DealCards();
             gameViewModel.DeckOfCards.CreateCardViews();
             gameViewModel.DeckOfCards.ThrownCards.Clear();
             gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
-            gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
-            
+            gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();           
         }
+
     }
 }

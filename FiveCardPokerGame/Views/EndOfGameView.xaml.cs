@@ -24,5 +24,6 @@ namespace FiveCardPokerGame.Views
         {
             InitializeComponent();
         }
+
     }
 }

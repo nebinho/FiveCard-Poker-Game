@@ -16,21 +16,18 @@ namespace FiveCardPokerGame.ViewModels
         public string ShowDifficulty { get { return HighScoreDb.dif; } set { HighScoreDb.dif = value; } }
         public HighScoreDb highScoreDb = new HighScoreDb();
         public static ObservableCollection<Highscore> HighscoreList { get; set; }
-
-        public ICommand PlayAgainCommand { get; set; }
-        
+        public ICommand PlayAgainCommand { get; set; }        
         public ICommand GoToStartCommand { get; set; }
-
         public BaseViewModel SelectedViewModel { get; set; }
 
         public EndOfGameViewModel()
-        {
-            
+        {        
             highScoreDb.SetHighscore();
             highScoreDb.GetHighscores();
             EndScore = Global.EndScore.ToString();
             PlayAgainCommand = new PlayAgainCommand(this);
             GoToStartCommand = new GoToStartCommand(this);
         }
+
     }
 }

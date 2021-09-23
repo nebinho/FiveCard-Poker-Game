@@ -18,6 +18,5 @@ namespace FiveCardPokerGame.ViewModels
         {
             return $"Score: {Score} Player: {Name}";
         }
-
     }
 }

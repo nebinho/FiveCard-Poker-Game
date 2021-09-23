@@ -10,18 +10,10 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class EvaluateHand : BaseViewModel
     {
-
-
-        public EvaluateHand()
+        public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands)
         {
 
-        }
-
-
-        public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // om denna alltid kollar först den metoden som är värd mest poäng så kanske det funkar?
-        {
-
-            if (IsFlush(hand) && IsStraight(hand)) // kollar om man fått färg och stege och sedan om stegen är tio till ess = Royal Flush
+            if (IsFlush(hand) && IsStraight(hand))
             {
                 if (IsRoyalFlush(hand))
                 {
@@ -30,7 +22,7 @@ namespace FiveCardPokerGame.ViewModels
                     return true;
                 }
             }
-            if (IsFlush(hand) && IsStraight(hand)) // kollar om man har fått färg och stege och då får man färgstege
+            if (IsFlush(hand) && IsStraight(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.StraightFlush;
                 pokerHands.Score = 40;
@@ -42,25 +34,25 @@ namespace FiveCardPokerGame.ViewModels
                 pokerHands.Score = 35;
                 return true;
             }
-            if (IsFullHouse(hand)) // kollar om man fått kåk
+            if (IsFullHouse(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.FullHouse;
                 pokerHands.Score = 30;
                 return true;
             }
-            if (IsFlush(hand)) // kollar om man fått färg
+            if (IsFlush(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.Flush;
                 pokerHands.Score = 25;
                 return true;
             }
-            if (IsStraight(hand)) // kollar om man fått stege
+            if (IsStraight(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.Straight;
                 pokerHands.Score = 20;
                 return true;
             }
-            if (IsThree(hand)) // kollar om man fått tretal
+            if (IsThree(hand))
             {
                 pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
                 pokerHands.Score = 15;
@@ -84,14 +76,11 @@ namespace FiveCardPokerGame.ViewModels
 
         }
 
-
-    public static bool IsPair(ObservableCollection<Card> hand)
+        public static bool IsPair(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool pair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue ||
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue || (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
-
-
 
             return pair;
         }
@@ -109,7 +98,7 @@ namespace FiveCardPokerGame.ViewModels
         public static bool IsThree(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
-            bool three = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
+            bool threeOfAKind = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
                         (int)hand[1].Cardvalue == (int)hand[2].Cardvalue ||
 
                         (int)hand[1].Cardvalue == (int)hand[2].Cardvalue &&
@@ -118,14 +107,14 @@ namespace FiveCardPokerGame.ViewModels
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue &&
                         (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
-            return three;
+            return threeOfAKind;
         }
 
-        public static bool IsStraight(ObservableCollection<Card> hand) // kolla med ESS SEN
+        public static bool IsStraight(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
-            bool straight = (int)hand[0].Cardvalue % 13 == (int)hand[1].Cardvalue % 13 - 1 && // ser ut att funka "The remainder operator % computes the remainder after dividing its left-hand operand by its right-hand operand."
-                            (int)hand[1].Cardvalue % 13 == (int)hand[2].Cardvalue % 13 - 1 && // möjlgitvis en loop annars? 
+            bool straight = (int)hand[0].Cardvalue % 13 == (int)hand[1].Cardvalue % 13 - 1 &&
+                            (int)hand[1].Cardvalue % 13 == (int)hand[2].Cardvalue % 13 - 1 && 
                             (int)hand[2].Cardvalue % 13 == (int)hand[3].Cardvalue % 13 - 1 &&
                             (int)hand[3].Cardvalue % 13 == (int)hand[4].Cardvalue % 13 - 1;
 
@@ -134,11 +123,11 @@ namespace FiveCardPokerGame.ViewModels
 
         public static bool IsFlush(ObservableCollection<Card> hand)
         {
-            bool asd = (int)hand[0].Cardsuit == (int)hand[1].Cardsuit && (int)hand[1].Cardsuit == (int)hand[2].Cardsuit &&
+            bool flush = (int)hand[0].Cardsuit == (int)hand[1].Cardsuit && (int)hand[1].Cardsuit == (int)hand[2].Cardsuit &&
                         (int)hand[2].Cardsuit == (int)hand[3].Cardsuit && (int)hand[3].Cardsuit == (int)hand[4].Cardsuit &&
                         (int)hand[4].Cardsuit == (int)hand[0].Cardsuit;
 
-            return asd;
+            return flush;
         }
         public static bool IsFullHouse(ObservableCollection<Card> hand)
         {
@@ -151,15 +140,14 @@ namespace FiveCardPokerGame.ViewModels
                         (int)hand[2].Cardvalue == (int)hand[3].Cardvalue &&
                         (int)hand[3].Cardvalue == (int)hand[4].Cardvalue;
 
-
             return fullHouse;
         }
         public static bool IsRoyalFlush(ObservableCollection<Card> hand)
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
-            bool aaa = hand[0].Cardvalue == Value.Ten && hand[1].Cardvalue == Value.Jack && hand[2].Cardvalue == Value.Queen && hand[3].Cardvalue == Value.King && hand[4].Cardvalue == Value.Ace;
+            bool royalFlush = hand[0].Cardvalue == Value.Ten && hand[1].Cardvalue == Value.Jack && hand[2].Cardvalue == Value.Queen && hand[3].Cardvalue == Value.King && hand[4].Cardvalue == Value.Ace;
 
-            return aaa;
+            return royalFlush;
         }
 
         public static bool IsFourOfAKind(ObservableCollection<Card> hand)
@@ -172,5 +160,6 @@ namespace FiveCardPokerGame.ViewModels
 
             return fourOfAKind;
         }
+
     }
 }

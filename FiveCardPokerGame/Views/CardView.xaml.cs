@@ -22,7 +22,6 @@ namespace FiveCardPokerGame.Views
     /// </summary>
     public partial class CardView : MasterGameView
     {
-
         public Card GetCard
         {
             get { return (Card)GetValue(GetCardProperty); }
@@ -42,13 +41,10 @@ namespace FiveCardPokerGame.Views
             }
         }
 
-
-
-
         public CardView()
         {
             InitializeComponent();
-            
         }
+
     }
 }

@@ -15,20 +15,10 @@ namespace FiveCardPokerGame.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class BaseViewModel
     {
-        //public BaseViewModel SelectedViewModel { get; set; }
-        
-        //public PlayerDb PlayerDb { get; set; } = new PlayerDb();
-        //public Player Player { get; set; }
-        //public ICommand UpdateViewAndSaveDataCommand { get; set; }
-
-        //public ICommand SetPlayerCommand { get; set; }
-
         public BaseViewModel()
         {
-            //UpdateViewAndSaveDataCommand = new UpdateViewAndSaveDataCommand(this);
-            
-        }
 
+        }
 
     }
 }

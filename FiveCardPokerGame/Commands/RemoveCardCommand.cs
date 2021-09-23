@@ -21,13 +21,12 @@ namespace FiveCardPokerGame.Commands
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter) => true;
-        
 
         public void Execute(object parameter)
         {
             var cardView = (CardView)parameter;
-            gameViewModel.DeckOfCards.CardViews.Remove(cardView);
-            
+            gameViewModel.DeckOfCards.CardViews.Remove(cardView);            
         }
+
     }
 }

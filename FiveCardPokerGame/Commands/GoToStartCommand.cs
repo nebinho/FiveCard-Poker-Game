@@ -29,5 +29,6 @@ namespace FiveCardPokerGame.Commands
         {
             endOfGameViewModel.SelectedViewModel = new PlayerDb();
         }
+
     }
 }
