@@ -70,8 +70,8 @@ namespace FiveCardPokerGame.Data
 
         public ObservableCollection<Highscore> GetHighscores()
         {
-            string stmt = $"SELECT highscore.score, highscore.difficulty, player.name FROM highscore, player WHERE highscore.player_id = player.id AND difficulty = '{dif}' ORDER BY score DESC";
-
+            //string stmt = $"SELECT highscore.score, highscore.difficulty, player.name FROM highscore, player WHERE player.id = highscore.player_id AND difficulty = '{dif}' ORDER BY score DESC";
+            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' ORDER BY score DESC";
             try
             {
                 using var conn = new NpgsqlConnection(Global.ConnectionString);
@@ -92,7 +92,7 @@ namespace FiveCardPokerGame.Data
                         
                         Difficulty = (string)reader["difficulty"],
                         PlayerId = (int)reader["player_id"],
-                        //Name = (string)reader["name"]
+                        Name = (string)reader["name"]
 
                     };
                     EndOfGameViewModel.HighscoreList.Add(highscore);
