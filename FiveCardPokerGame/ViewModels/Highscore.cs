@@ -16,7 +16,7 @@ namespace FiveCardPokerGame.ViewModels
 
         public override string ToString()
         {
-            return $"Score: {Score} Player: {Name}";
+            return $"| {Name} | Score: {Score} |";
         }
 
     }

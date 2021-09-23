@@ -15,13 +15,10 @@
     </UserControl.Resources>
 
     <Border>
-
         <Grid >
-
             <Image Grid.Row="0" Source="{Binding GetCard, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource CardToImageConverter}}">
 
             </Image>
         </Grid>
-
     </Border>
 </local:MasterGameView>
