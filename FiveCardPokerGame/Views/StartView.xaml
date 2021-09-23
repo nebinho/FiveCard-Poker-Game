@@ -50,7 +50,7 @@
         <!--SELECT PLAYER-->
         <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Select Player" FontSize="22" Margin="5" FontWeight="DemiBold"/>            
-            <ListBox x:Name="lstBoxPlayer" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
+            <ListBox x:Name="lstBoxPlayer" Background="Transparent" BorderBrush="Transparent" FontSize="15" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
         </StackPanel>
 
         <!--CREATE PLAYER-->
