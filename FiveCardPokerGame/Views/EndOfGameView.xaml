@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Images/HighScoreBackground.png"/>
@@ -49,7 +49,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="12" Grid.RowSpan="8" Grid.ColumnSpan="4" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock Text="{Binding ShowDifficulty, StringFormat='Difficulty: {0}'}" HorizontalAlignment="Center" FontSize="22" Margin="0,8,2,0" FontWeight="DemiBold"/>
-            <ListBox x:Name="lstBoxShowHighscore" ItemsSource="{Binding HighscoreList}" FontSize="20" BorderBrush="Transparent" Background="Transparent" Width="250" Margin="5" Height="250" Grid.Row="4">
+            <ListBox x:Name="lstBoxShowHighscore" ItemsSource="{Binding HighscoreList}" FontSize="20" BorderBrush="Transparent" Background="Transparent" Width="400" Margin="5" Height="600" Grid.Row="4">
 
             </ListBox>
         </StackPanel>

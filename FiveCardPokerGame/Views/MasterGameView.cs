@@ -90,12 +90,16 @@ namespace FiveCardPokerGame.Views
             }
         }
 
-        public void Border_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        public void ChangeCursorGiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
-                StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
-                Mouse.SetCursor(new Cursor(cardCurs.Stream));
+                if (!gameViewModel.DeckOfCards.CanDrawNewCard()==false)
+                {
+                    StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
+                    Mouse.SetCursor(new Cursor(cardCurs.Stream));
+                }
             }
             e.Handled = true;
         }
