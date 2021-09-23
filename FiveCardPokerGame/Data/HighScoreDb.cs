@@ -64,7 +64,7 @@ namespace FiveCardPokerGame.Data
         #region Read
         public ObservableCollection<Highscore> GetHighscores()
         {            
-            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' WHERE >= 5 ORDER BY score DESC";
+            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' ORDER BY score DESC LIMIT 19";
 
             try
             {
