@@ -22,7 +22,7 @@ namespace FiveCardPokerGame.ViewModels
         public List<Card> Cards { get; set; }
         public int SelectedDifficulty { get; set; }
         public int NumberOfThrows { get; set; }
-        public int DrawsLeft { get; set; }
+        
 
         public DeckOfCards()
         {
@@ -30,13 +30,9 @@ namespace FiveCardPokerGame.ViewModels
             DealCards();
             CreateCardViews();
             SelectedDifficulty = Global.Difficulty;
-            HowManyDrawsLeft();
+            
         }
-        public int HowManyDrawsLeft()
-        {
-            DrawsLeft = Global.Difficulty - NumberOfThrows;
-            return DrawsLeft;
-        }
+
         public void SetUpDeck()
         {
             foreach (Card.Suit s in Enum.GetValues(typeof(Card.Suit)))
