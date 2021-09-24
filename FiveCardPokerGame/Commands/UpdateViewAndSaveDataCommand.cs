@@ -31,7 +31,7 @@ namespace FiveCardPokerGame.Commands
         {
             if (playerDb.SelectedPlayer == null || playerDb.SelectedDifficulty == 0)
             {
-                playerDb.AlrdyExists = "A player and difficulty must be selected";
+                playerDb.FeedbackString = "A player and difficulty must be selected";
             }
             else
             {

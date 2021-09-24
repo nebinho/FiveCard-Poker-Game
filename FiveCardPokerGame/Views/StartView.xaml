@@ -16,6 +16,7 @@
             <Setter Property="Background" Value="#02723D"/>
         </Style>
     </UserControl.Resources>
+    
     <Grid>
                
         <Grid.ColumnDefinitions>
@@ -71,13 +72,13 @@
         <Label Content="Or" FontSize="20" FontStyle="Oblique" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
 
         <!--SELECT PLAYER-->
-        <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="25" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Select Player" FontSize="22" Margin="5" FontWeight="DemiBold" FontFamily="Segoe UI" Foreground="White"/>            
             <ListBox x:Name="lstBoxPlayer" Width="215" Background="Transparent" Foreground="White" BorderBrush="Transparent" FontSize="15" FontFamily="Segoe UI light" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" Margin="5" Height="250" Grid.Row="4"/>
         </StackPanel>
 
         <!--CREATE PLAYER-->
-        <StackPanel Grid.Row="2" Grid.Column="5"  Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel Grid.Row="2" Grid.Column="5"  Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="25" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Create Player" FontSize="22" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
             <TextBox x:Name="txtBoxCreatePlayer" Grid.Row="4" Grid.Column="4" Text="{Binding NewPlayer}" Margin="5" Height="30"/>
             <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32" Background="#37A196" Foreground="White" BorderBrush="#00331b">
@@ -87,7 +88,7 @@
                     </Style>
                 </Button.Resources>
                 <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.8" />
+                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
                 </Button.BitmapEffect>
             </Button>
         </StackPanel>
@@ -108,13 +109,13 @@
                     </Style>     
                 </Button.Resources>
                 <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.8" />
+                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
                 </Button.BitmapEffect>
             </Button>
         </StackPanel>
 
         <!--LABEL ALREADY EXIST-->
-        <Label x:Name="lblAlrdyExist" Content="{Binding AlrdyExists}" Grid.Row="5" Grid.Column="3" FontSize="25" Grid.ColumnSpan="4"/>
+        <Label x:Name="lblAlrdyExist" Content="{Binding FeedbackString}" Grid.Row="5" Grid.Column="3" FontSize="25" Grid.ColumnSpan="4"/>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="9" Grid.RowSpan="9"/>
 
     </Grid>
