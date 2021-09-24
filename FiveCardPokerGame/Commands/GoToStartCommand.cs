@@ -19,12 +19,16 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Can always execute.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public bool CanExecute(object parameter) => true;
+        /// <summary>
+        /// Returns the player to the startscreen by setting the SelectedViewModel (Binded to contentcontrol in XAML) to a new PlayerDb.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             endOfGameViewModel.SelectedViewModel = new PlayerDb();

@@ -19,12 +19,16 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Can always execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public bool CanExecute(object parameter) => true;
+        /// <summary>
+        /// Takes the player to the ScoreScreen and saves the players score and sets it to a global property used in the score screen.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;

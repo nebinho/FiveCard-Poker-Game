@@ -13,6 +13,7 @@ namespace FiveCardPokerGame.ViewModels
 {
     public partial class GameViewModel : BaseViewModel
     {
+        
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
         public bool IsButtonEnabled { get; set; }
         public ICommand RemoveCardCommand { get; set; }
@@ -22,7 +23,10 @@ namespace FiveCardPokerGame.ViewModels
         public Player SetPlayer { get; set; }
         public ICommand EndViewCommand { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
-
+        /// <summary>
+        /// Method for changing the picture binded to the button where the player draws new cards.
+        /// </summary>
+        /// <returns>A string depending if the player can draw more cards or not</returns>
         public string CardEnabler()
         {
             if (DeckOfCards.IsHandFiveOrLess() == true)
@@ -34,9 +38,11 @@ namespace FiveCardPokerGame.ViewModels
                 return IsCardEnabled = "/Resources/ImagesCards/xCardBackDisabled.png";
             }
         }
-
+        /// <summary>
+        /// Constructor that enables the diffrent commands for the GameView. Also runs the method CardEnabler() when starting this class. Method is connected to a property that sets IsEnabled on a button, true or false.
+        /// </summary>
         public GameViewModel()
-        {            
+        {
             RemoveCardCommand = new RemoveCardCommand(this);
             DrawCardCommand = new DrawCardCommand(this);
             IsCardEnabled = CardEnabler();
