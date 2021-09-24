@@ -21,12 +21,18 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Can always execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public bool CanExecute(object parameter) => true;
+        /// <summary>
+        /// Method the executes when pressing the button that is binded to this command. First checks so that there is a player and a difficulty selected, if not then it returns feedback to the user.
+        /// Else it sets the difficulty to a global property that can be used everywhere, same goes for the selected player.
+        /// Updates the viewmodel when it sets the SelectedViewModel to a new GameViewModel();
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             if (playerDb.SelectedPlayer == null || playerDb.SelectedDifficulty == 0)
