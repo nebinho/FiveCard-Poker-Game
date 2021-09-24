@@ -26,9 +26,7 @@ namespace FiveCardPokerGame.Views
         public GameView()
         {
             InitializeComponent();
-            
         }
 
-        
     }
 }

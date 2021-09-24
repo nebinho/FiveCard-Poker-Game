@@ -29,8 +29,7 @@ namespace FiveCardPokerGame.Commands
         {
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
             gameViewModel.SelectedViewModel = new EndOfGameViewModel();
-            
-            
         }
+
     }
 }

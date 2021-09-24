@@ -29,5 +29,6 @@ namespace FiveCardPokerGame.Commands
             playerDb.CreatePlayer(playerDb.NewPlayer);
             playerDb.GetPlayers();
         }
+
     }
 }

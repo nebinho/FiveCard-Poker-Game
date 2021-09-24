@@ -29,8 +29,6 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
-            
-            
             if (playerDb.SelectedPlayer == null || playerDb.SelectedDifficulty == 0)
             {
                 playerDb.AlrdyExists = "A player and difficulty must be selected";
@@ -41,7 +39,7 @@ namespace FiveCardPokerGame.Commands
                 Global.MyPlayer = playerDb.SelectedPlayer;
                 playerDb.SelectedViewModel = new GameViewModel();
             }
-                                 
         }
+
     }
 }

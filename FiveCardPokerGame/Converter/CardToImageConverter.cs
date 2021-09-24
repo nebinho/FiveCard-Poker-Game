@@ -14,17 +14,13 @@ namespace FiveCardPokerGame.Converter
     
     public class CardToImageConverter : IValueConverter
     {
-        
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var imageBit = new BitmapImage();
 
             if (value is Card && value != null)
             {
-
                 return imageBit = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
-                    
-                               
             }
             return null;
         }
@@ -33,5 +29,6 @@ namespace FiveCardPokerGame.Converter
         {
             throw new NotImplementedException();
         }
+
     }
 }
