@@ -19,7 +19,8 @@ namespace FiveCardPokerGame.Data
         {
             GetPlayers();
             UpdateViewAndSaveDataCommand = new UpdateViewAndSaveDataCommand(this);
-            CreatePlayerCommand = new CreatePlayerCommand(this);            
+            CreatePlayerCommand = new CreatePlayerCommand(this);
+            RulesCommand = new RulesCommand(this);
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
@@ -31,6 +32,7 @@ namespace FiveCardPokerGame.Data
         public string NewPlayer { get; set; }
         public bool BtnEnabler { get; set; }
         public string FeedbackString { get; set;  }
+        public ICommand RulesCommand { get; set; }
 
         #region Read
         public ObservableCollection<Player> GetPlayers()

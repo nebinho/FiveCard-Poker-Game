@@ -12,11 +12,15 @@ namespace FiveCardPokerGame.Commands
     class GoToStartCommand : ICommand
     {
         private EndOfGameViewModel endOfGameViewModel;
+        private HowToPlayViewModel howToPlayViewModel;
 
         public GoToStartCommand(EndOfGameViewModel endOfGameViewModel)
         {
             this.endOfGameViewModel = endOfGameViewModel;
+            
         }
+
+       
 
         public event EventHandler CanExecuteChanged;
         /// <summary>
