@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock TextWrapping="Wrap" Text="{Binding HowToPlay}" Grid.Column="0" Grid.Row="0" Margin="50" Height="Auto" Width="Auto"/>
-        <TextBlock TextWrapping="Wrap" Text="{Binding Rules}" Grid.Column="0" Grid.Row="1" Margin="50" Height="Auto" Width="Auto"/>
+        <ListBox ItemsSource="{Binding Rules}" Grid.Column="0" Grid.Row="1" Margin="50" Height="Auto" Width="Auto"/>
         <Button Content="Close" Command="{Binding RestartCommand}" Grid.Row="1" Grid.Column="1" Height="50" Width="100"/>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
     </Grid>
