@@ -22,6 +22,7 @@ namespace FiveCardPokerGame.ViewModels
         public List<Card> Cards { get; set; }
         public int SelectedDifficulty { get; set; }
         public int NumberOfThrows { get; set; }
+        public int DrawsLeft { get; set; } = Global.Difficulty;
 
         public DeckOfCards()
         {

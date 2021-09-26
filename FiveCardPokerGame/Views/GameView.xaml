@@ -68,8 +68,12 @@
                 </ItemsControl>
             </Canvas>
         </Border>
-
-
+        
+        <StackPanel Grid.Column="11" Grid.Row="3" >
+            <Label Content="Draws left" FontSize="15" FontWeight="Bold"/>
+            <Label x:Name="lblDraws" Content="{Binding DeckOfCards.DrawsLeft}"  FontSize="15" FontWeight="Bold"/>
+        </StackPanel>
+        
         <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128">
             <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
                 <Image.RenderTransform>
