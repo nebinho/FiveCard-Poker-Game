@@ -19,23 +19,22 @@ namespace FiveCardPokerGame.Views
         public CardView CardView { get; set; }
         public GameView GameView { get; set; }
         public StartView StartView { get; set; }
-        //public ICommand SetPlayerCommand { get; set; }
 
-        //public Player Player { get; set; } = new Player();
         public MasterGameView()
         {
             
         }
+
         public void card_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
 
-            if (gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard() == true) //Man får bara flytta kort om man har byten kvar.
+            if (gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard() == true)
             {
                 if (data is CardView cardView)
                 {
-                    
+
                     if (!gameViewModel.DeckOfCards.ThrownCards.Contains(cardView))
                     {
                         gameViewModel.DeckOfCards.ThrowCard(gameViewModel.DeckOfCards.CardViews.IndexOf(cardView));
@@ -44,16 +43,15 @@ namespace FiveCardPokerGame.Views
                     }
                 }
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
-                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();  //Kallar på metoden för att kolla antal byten.
+                gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();
                 gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
-                
+
             }
             else
             {
-                //MessageBox.Show("Du har förbrukat dina byten"); //Försöker man ändå att slänga kort får man upp en ruta om att man inte får.
             }
-
         }
+
         public void card_Drop(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
@@ -65,17 +63,13 @@ namespace FiveCardPokerGame.Views
             }
         }
 
-        
-
         public void myCards_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
-            
 
             if (data is CardView cardView)
             {
-                
                 if (!gameViewModel.DeckOfCards.CardViews.Contains(cardView))
                 {
                     gameViewModel.DeckOfCards.ThrownCards.Remove(cardView);
@@ -84,18 +78,20 @@ namespace FiveCardPokerGame.Views
 
                     gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                     gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
-
                 }
-
             }
         }
 
-        public void Border_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        public void ChangeCursorGiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
+            GameViewModel gameViewModel = (GameViewModel)DataContext;
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
-                StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
-                Mouse.SetCursor(new Cursor(cardCurs.Stream));
+                if (!gameViewModel.DeckOfCards.CanDrawNewCard()==false)
+                {
+                    StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
+                    Mouse.SetCursor(new Cursor(cardCurs.Stream));
+                }
             }
             e.Handled = true;
         }
@@ -110,6 +106,6 @@ namespace FiveCardPokerGame.Views
                 var viewModel = (GameViewModel)DataContext;
             }
         }
-        
+
     }
 }

@@ -10,18 +10,10 @@ namespace FiveCardPokerGame
     /// </summary>
     public partial class MainWindow : Window
     {
-       
         public MainWindow()
         {
-            
             InitializeComponent();
             DataContext = new MainViewModel();
-            //StartView startView = new StartView();
-            //DeckOfCards deckOfCards = new DeckOfCards();
-            //EvaluateHand evaluateHand = new EvaluateHand();
-            //GameViewModel game = new GameViewModel();
-            //PlayerDb playerDb = new PlayerDb();
-            
         }
         
     }

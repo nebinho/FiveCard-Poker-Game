@@ -18,23 +18,23 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; }
         public ObservableCollection<CardView> ThrownCards { get; set; } = new();
-        //public Player Player { get; set; } = new Player();
-
         public PokerHands PokerHands { get; set; } = new PokerHands();
         public List<Card> Cards { get; set; }
         public int SelectedDifficulty { get; set; }
-        public int NumberOfThrows { get; set; } //private int numberOfThrows; //Int för att räkna antal byten
-        //public PlayerDb playerDb { get; set; } = new PlayerDb();
-       
+        public int NumberOfThrows { get; set; }
+        public int DrawsLeft { get; set; } = Global.Difficulty;
 
         public DeckOfCards()
         {
             SetUpDeck();
-            DealCards();           
+            DealCards();
             CreateCardViews();
             SelectedDifficulty = Global.Difficulty;
+            
         }
-
+        /// <summary>
+        /// Sets up a deck of cards containing 52 cards.
+        /// </summary>
         public void SetUpDeck()
         {
             foreach (Card.Suit s in Enum.GetValues(typeof(Card.Suit)))
@@ -44,11 +44,13 @@ namespace FiveCardPokerGame.ViewModels
                     var newcard = new Card { Cardsuit = s, Cardvalue = v };
                     Deck.Add(newcard);
                 }
-            }           
+            }
         }
-
+        /// <summary>
+        /// Deals cards from the deck randomly to a players hand. 5 cards total.
+        /// </summary>
         public void DealCards()
-        {           
+        {
             do
             {
                 int randomNr = random.Next(Deck.Count);
@@ -58,15 +60,12 @@ namespace FiveCardPokerGame.ViewModels
                 
             } while (Hand.Count <= 4);        
             EvaluateHand.CheckPokerHand(Hand, PokerHands);
-            //Player.HighScore = PokerHands.Score;
             IsHandFiveOrLess();
-            NumberOfThrows++; //Varje gång man får nya kort räknas det som ett byte
-            //playerDb.CreatePlayer(Player);
-            //playerDb.UpdateHighScore(Player);
-
-
-        }        
-
+            NumberOfThrows++;
+        }
+        /// <summary>
+        /// Creates a view for each card in hand that displays the cards.
+        /// </summary>
         public void CreateCardViews()
         {
             CardViews = new();
@@ -76,32 +75,39 @@ namespace FiveCardPokerGame.ViewModels
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
-            }        
-            
+            }
         }
-
+        /// <summary>
+        /// Removes one card from the Hand when a player throws a card.
+        /// </summary>
+        /// <param name="cardViewNumber"></param>
         public void ThrowCard(int cardViewNumber)
         {
             Hand.RemoveAt(cardViewNumber);
-            IsHandFiveOrLess();            
+            IsHandFiveOrLess();
         }
-
+        /// <summary>
+        /// Checks if there are fice cards or less on hand.
+        /// </summary>
+        /// <returns></returns>
         public bool IsHandFiveOrLess()
-        {          
+        {
             if (Hand.Count < 5)
             {
-                
                 return true;
             }
-            
             return false;
         }
-
-        public bool CanDrawNewCard() //Metod för att kolla så man inte får för många byten
+        /// <summary>
+        /// Method to see if the player can continue to draw cards.
+        /// Based on difficulty from the StartPage.
+        /// </summary>
+        /// <returns></returns>
+        public bool CanDrawNewCard()
         {
             if (NumberOfThrows >= SelectedDifficulty+1)
             {
-                return false;      
+                return false;
             }
             return true;
         }

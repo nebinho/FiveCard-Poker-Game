@@ -15,9 +15,9 @@ namespace FiveCardPokerGame.ViewModels
             Hearts,
             Spades,
         }
+
         public enum Value
-        {   
-            
+        {
             Two ,
             Three,
             Four,
@@ -32,6 +32,7 @@ namespace FiveCardPokerGame.ViewModels
             King,
             Ace,
         }
+
         public Suit Cardsuit { get; set; }
         public Value Cardvalue { get; set; }
 

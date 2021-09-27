@@ -1,5 +1,4 @@
-﻿using FiveCardPokerGame.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +16,13 @@ using System.Windows.Shapes;
 namespace FiveCardPokerGame.Views
 {
     /// <summary>
-    /// Interaction logic for StartView.xaml
+    /// Interaction logic for HowToPlayView.xaml
     /// </summary>
-    public partial class StartView : MasterGameView
+    public partial class HowToPlayView : MasterGameView
     {
-        public StartView()
+        public HowToPlayView()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
     }
 }

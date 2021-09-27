@@ -19,15 +19,21 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
+        /// <summary>
+        /// Can always execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter) => true;
-        
-
+        /// <summary>
+        /// When executed it removes a selected CardView from a ObservableCollection.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             var cardView = (CardView)parameter;
-            gameViewModel.DeckOfCards.CardViews.Remove(cardView);
-            
+            gameViewModel.DeckOfCards.CardViews.Remove(cardView);            
         }
+
     }
 }

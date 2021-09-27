@@ -11,8 +11,6 @@ namespace FiveCardPokerGame.Data
 {
     public class HighScoreDb : BaseViewModel
     {
-
-
         public static string dif { get; set; }
 
         public static void GetDifficulty(int difficulty)
@@ -29,8 +27,6 @@ namespace FiveCardPokerGame.Data
             {
                 dif = "Easy";
             }
-
-
         }
 
         #region Create
@@ -44,6 +40,7 @@ namespace FiveCardPokerGame.Data
             {
                 using var conn = new NpgsqlConnection(Global.ConnectionString);
                 conn.Open();
+
                 using var command = new NpgsqlCommand(stmt, conn);
                 command.Parameters.AddWithValue("@score", Global.EndScore);
                 command.Parameters.AddWithValue("@player_id", Global.MyPlayer.PlayerId);
@@ -53,94 +50,53 @@ namespace FiveCardPokerGame.Data
                 while (reader.Read())
                 {
                      Global.EndScore = (int)reader["score"];
-                }
-               
+                }  
             }
             catch (PostgresException ex)
             {
                 string errorcode = ex.SqlState;
                 throw new Exception("Couldn´t add highscore", ex);
-            }
-            
+            }           
         }
 
         #endregion
 
         #region Read
-
         public ObservableCollection<Highscore> GetHighscores()
-        {
-            //string stmt = $"SELECT highscore.score, highscore.difficulty, player.name FROM highscore, player WHERE player.id = highscore.player_id AND difficulty = '{dif}' ORDER BY score DESC";
-            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' ORDER BY score DESC";
+        {            
+            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' ORDER BY score DESC LIMIT 19";
+
             try
             {
                 using var conn = new NpgsqlConnection(Global.ConnectionString);
                 conn.Open();
+
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
 
-
                 EndOfGameViewModel.HighscoreList = new ObservableCollection<Highscore>();
                 Highscore highscore = new Highscore();
+
                 while (reader.Read())
                 {
-                    //highscore = null;
                     highscore = new Highscore
                     {
-                        //HighscoreId = (int)reader["highscore_id"],
-                        Score = (int)reader["score"],
-                        
+                        Score = (int)reader["score"],                        
                         Difficulty = (string)reader["difficulty"],
                         PlayerId = (int)reader["player_id"],
                         Name = (string)reader["name"]
-
                     };
                     EndOfGameViewModel.HighscoreList.Add(highscore);
-
                 }
-
-                return EndOfGameViewModel.HighscoreList;                
-                
+                return EndOfGameViewModel.HighscoreList;                               
             }
             catch (PostgresException ex)
             {
                 string errorcode = ex.SqlState;
-                throw new Exception("Couldn´t retrieve Highscore list", ex);
+                throw new Exception("Couldn´t retrieve Highscores list", ex);
             }
-
         }
 
         #endregion
-
-        #region Update
-        //public void UpdateHighScore()
-        //{
-        //    string stmt = $"UPDATE highscore SET score = {Global.MyHighscore.Score} WHERE id = {Global.MyPlayer.PlayerId}";
-
-        //    try
-        //    {
-        //        using var conn = new NpgsqlConnection(Global.ConnectionString);
-        //        conn.Open();
-        //        using var command = new NpgsqlCommand(stmt, conn);
-
-        //        command.Parameters.AddWithValue("@score", Global.MyHighscore.Score);
-
-        //        using var reader = command.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            Global.MyHighscore.HighscoreId = (int)reader["id"];
-        //        }
-
-
-
-        //    }
-        //    catch (PostgresException ex)
-        //    {
-        //        string errorcode = ex.SqlState;
-        //        throw new Exception("FFELLL", ex);
-        //    }
-        //}
-        #endregion
-
     }
 }
