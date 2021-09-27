@@ -23,6 +23,7 @@ namespace FiveCardPokerGame.Data
             DifficultyDictionary[1] = "Hard - 1 Draw";
             DifficultyDictionary[2] = "Medium - 2 Draws";
             DifficultyDictionary[3] = "Easy - 3 Draws";
+            RulesCommand = new RulesCommand(this);
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
@@ -34,7 +35,8 @@ namespace FiveCardPokerGame.Data
         public ICommand CreatePlayerCommand { get; set; }
         public string NewPlayer { get; set; }
         public bool BtnEnabler { get; set; }
-        public string AlrdyExists { get; set;  }
+        public string FeedbackString { get; set;  }
+        public ICommand RulesCommand { get; set; }
 
         #region Read
         public ObservableCollection<Player> GetPlayers()
@@ -103,7 +105,7 @@ namespace FiveCardPokerGame.Data
         #region Create
         public void CreatePlayer(string NewPlayer)
         {
-            AlrdyExists = null;
+            FeedbackString = null;
             string stmt = $"INSERT INTO player(name) VALUES (@name)";
             if (NewPlayer != null)
             {
@@ -120,12 +122,12 @@ namespace FiveCardPokerGame.Data
                     {
                         NewPlayer = (string)reader["name"];
                     }
-                    AlrdyExists = $"{NewPlayer} is created";
+                    FeedbackString = $"{NewPlayer} is created";
                 }
                 catch (PostgresException ex)
                 {
                     string errorcode = ex.SqlState;
-                    AlrdyExists = "The name already exists, please choose another name";
+                    FeedbackString = "The name already exists, please choose another name";
                 }
                 var player = SelectPlayer(NewPlayer);
                 Global.MyPlayer = player;

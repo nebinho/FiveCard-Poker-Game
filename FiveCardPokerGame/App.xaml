@@ -17,6 +17,9 @@
         <DataTemplate DataType="{x:Type viewModels:EndOfGameViewModel}">
             <views:EndOfGameView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:HowToPlayViewModel}">
+            <views:HowToPlayView/>
+        </DataTemplate>
 
     </Application.Resources>
 </Application>

@@ -30,8 +30,11 @@ namespace FiveCardPokerGame.ViewModels
             DealCards();
             CreateCardViews();
             SelectedDifficulty = Global.Difficulty;
+            
         }
-
+        /// <summary>
+        /// Sets up a deck of cards containing 52 cards.
+        /// </summary>
         public void SetUpDeck()
         {
             foreach (Card.Suit s in Enum.GetValues(typeof(Card.Suit)))
@@ -43,7 +46,9 @@ namespace FiveCardPokerGame.ViewModels
                 }
             }
         }
-
+        /// <summary>
+        /// Deals cards from the deck randomly to a players hand. 5 cards total.
+        /// </summary>
         public void DealCards()
         {
             do
@@ -58,7 +63,9 @@ namespace FiveCardPokerGame.ViewModels
             IsHandFiveOrLess();
             NumberOfThrows++;
         }
-
+        /// <summary>
+        /// Creates a view for each card in hand that displays the cards.
+        /// </summary>
         public void CreateCardViews()
         {
             CardViews = new();
@@ -70,13 +77,19 @@ namespace FiveCardPokerGame.ViewModels
                 CardViews.Add(cardView);
             }
         }
-
+        /// <summary>
+        /// Removes one card from the Hand when a player throws a card.
+        /// </summary>
+        /// <param name="cardViewNumber"></param>
         public void ThrowCard(int cardViewNumber)
         {
             Hand.RemoveAt(cardViewNumber);
             IsHandFiveOrLess();
         }
-
+        /// <summary>
+        /// Checks if there are fice cards or less on hand.
+        /// </summary>
+        /// <returns></returns>
         public bool IsHandFiveOrLess()
         {
             if (Hand.Count < 5)
@@ -85,7 +98,11 @@ namespace FiveCardPokerGame.ViewModels
             }
             return false;
         }
-
+        /// <summary>
+        /// Method to see if the player can continue to draw cards.
+        /// Based on difficulty from the StartPage.
+        /// </summary>
+        /// <returns></returns>
         public bool CanDrawNewCard()
         {
             if (NumberOfThrows >= SelectedDifficulty+1)
