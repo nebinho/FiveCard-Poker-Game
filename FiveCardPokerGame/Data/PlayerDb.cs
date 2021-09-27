@@ -19,11 +19,15 @@ namespace FiveCardPokerGame.Data
         {
             GetPlayers();
             UpdateViewAndSaveDataCommand = new UpdateViewAndSaveDataCommand(this);
-            CreatePlayerCommand = new CreatePlayerCommand(this);            
+            CreatePlayerCommand = new CreatePlayerCommand(this);
+            DifficultyDictionary[1] = "Hard - 1 Draw";
+            DifficultyDictionary[2] = "Medium - 2 Draws";
+            DifficultyDictionary[3] = "Easy - 3 Draws";
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
-        public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
+        //public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
+        public Dictionary<int, string> DifficultyDictionary { get; set; } = new Dictionary<int, string>();
         public int SelectedDifficulty { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
         public ICommand UpdateViewAndSaveDataCommand { get; set; }
