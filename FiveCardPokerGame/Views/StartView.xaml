@@ -6,17 +6,7 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
-
-    <UserControl.Resources>
-        <Style TargetType="ScrollBar">
-            <Setter Property="Background" Value="#002A30"/>
-            
-        </Style>
-        <Style TargetType="Thumb">
-            <Setter Property="Background" Value="#02723D"/>
-        </Style>
-    </UserControl.Resources>
-    
+   
     <Grid>
                
         <Grid.ColumnDefinitions>
@@ -131,7 +121,7 @@
         </StackPanel>
 
         <!--LABEL ALREADY EXIST-->
-        <Label x:Name="lblAlrdyExist" Content="{Binding FeedbackString}" Grid.Row="5" Grid.Column="3" FontSize="25" Grid.ColumnSpan="4"/>
+        <Label x:Name="lblAlrdyExist" Content="{Binding FeedbackString}" Grid.Row="5" Grid.Column="3" FontSize="18" Grid.ColumnSpan="4" Foreground="White" HorizontalAlignment="Center"/>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="10" Grid.RowSpan="9"/>
 
     </Grid>
