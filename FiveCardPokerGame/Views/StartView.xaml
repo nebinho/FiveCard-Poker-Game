@@ -99,8 +99,7 @@
             <ComboBox  ItemsSource="{Binding DifficultyDictionary}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding SelectedDifficulty}" Height="30" Margin="5"/>
         </StackPanel>
         
-        <!--BUTTON START GAME-->
-        
+        <!--BUTTON START GAME-->        
         <StackPanel Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="2">
             <Button x:Name="btnStartGame" Command="{Binding UpdateViewAndSaveDataCommand}"  Width="auto" Height="50" Margin="5" 
                     Content="START GAME" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b">
@@ -113,29 +112,27 @@
                     <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
                 </Button.BitmapEffect>
             </Button>
+            
+            <!-- RULES AND HOW TO PLAY -->
+        </StackPanel>
+        <StackPanel Grid.Column="7" Grid.Row="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Command="{Binding RulesCommand}"
                      Width="300" Height="50" Margin="5" 
-                        Content="Rules And How to Play" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-                <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
-                </Button.BitmapEffect>
-            </Button>
+                        Content="Rules And How to Play" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
+            </Button.BitmapEffect>
+        </Button>
         </StackPanel>
 
         <!--LABEL ALREADY EXIST-->
         <Label x:Name="lblAlrdyExist" Content="{Binding FeedbackString}" Grid.Row="5" Grid.Column="3" FontSize="25" Grid.ColumnSpan="4"/>
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="10" Grid.RowSpan="9"/>
-        
-        <!-- RULES AND HOW TO PLAY -->
-        
-
-            
-        
 
     </Grid>
 </local:MasterGameView>
