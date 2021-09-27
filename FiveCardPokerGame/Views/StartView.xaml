@@ -96,7 +96,7 @@
         <!--SELECT DIFFICULTY-->
         <StackPanel Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" >
             <Label Content="Select Difficulty" FontSize="22" FontWeight="DemiBold" FontFamily="Segoe UI" Foreground="White"/>
-            <ComboBox  ItemsSource="{Binding Difficulty}" SelectedItem="{Binding SelectedDifficulty}" Height="30" Margin="5"/>
+            <ComboBox  ItemsSource="{Binding DifficultyDictionary}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding SelectedDifficulty}" Height="30" Margin="5"/>
         </StackPanel>
         
         <!--BUTTON START GAME-->
