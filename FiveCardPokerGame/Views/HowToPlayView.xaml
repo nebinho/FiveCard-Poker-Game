@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -15,9 +15,36 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock TextWrapping="Wrap" Text="{Binding HowToPlay}" Grid.Column="0" Grid.Row="0" Margin="50" Height="Auto" Width="Auto"/>
-        <ListBox ItemsSource="{Binding Rules}" Grid.Column="0" Grid.Row="1" Margin="50" Height="Auto" Width="Auto"/>
-        <Button Content="Close" Command="{Binding RestartCommand}" Grid.Row="1" Grid.Column="1" Height="50" Width="100"/>
+        <Grid.Background>
+            <RadialGradientBrush
+
+                GradientOrigin="0.5,0.5"
+                Center="0.5,0.5"
+                RadiusX="0.7" RadiusY="0.5">
+
+                <RadialGradientBrush.GradientStops>
+                    <GradientStop Color="#02723D" Offset="0.2" />
+                    <GradientStop Color="#002A30" Offset="1.1" />
+                </RadialGradientBrush.GradientStops>
+
+            </RadialGradientBrush>
+        </Grid.Background>
+        <!-- Textblock for the rules and how to play -->
+        <TextBlock TextWrapping="Wrap" Text="{Binding HowToPlay}" Grid.Column="0" Grid.Row="0" Margin="50" Height="Auto" Width="Auto" FontSize="30" Foreground="White"/>
+        <!-- Listbox for displaying all the combinations and how many points they give -->
+        <ListBox ItemsSource="{Binding Rules}" Grid.Column="0" Grid.Row="1" Margin="50" Height="Auto" Width="Auto" Background="Transparent" FontSize="25" Foreground="White"/>
+        <!-- Button for going back to the startscreen-->
+        <Button Content="Close" Command="{Binding RestartCommand}" Grid.Row="1" Grid.Column="1" Height="50" Width="150" Background="#37A196" Foreground="White" BorderBrush="#00331b">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
+            </Button.BitmapEffect>
+        </Button>
+            
         <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
     </Grid>
 </local:MasterGameView>
