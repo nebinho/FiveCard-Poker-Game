@@ -19,16 +19,28 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
+        /// <summary>
+        /// Can always execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter) => true;
-        
+        /// <summary>
+        /// Deals new cards from the deck.
+        /// Creates new CardViews that displays the cards for the player.
+        /// Clears the ThrownCards observable collection so that they are removed from the game.
+        /// Sets the IsEnable of a button by running a method.
+        /// Sets the picture on the button depending on if a player can draw a card (depending on cards in hand) or not.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             gameViewModel.DeckOfCards.DealCards();
             gameViewModel.DeckOfCards.CreateCardViews();
             gameViewModel.DeckOfCards.ThrownCards.Clear();
             gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
-            gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();           
+            gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
+            
         }
 
     }
