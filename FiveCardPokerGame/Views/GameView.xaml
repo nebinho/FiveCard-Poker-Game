@@ -7,11 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
   
+    <!--USER CONTROL SPINNING BUTTON-->
     <UserControl.Resources>
+        
         
         <Storyboard x:Key="FlipCard" >
             <DoubleAnimation Storyboard.TargetName="Rotation" Storyboard.TargetProperty="Angle" From="0" To="360" BeginTime="00:00:00" Duration="0:0:0.5"></DoubleAnimation>
-        </Storyboard>
+        </Storyboard>        
         
         <Style TargetType="Button" x:Key="TransparentButton">
             <Setter Property="Background" Value="Transparent"/>
@@ -106,14 +108,8 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </Canvas>
-        </Border>
-        
-        <StackPanel Grid.Column="11" Grid.Row="3" >
-            <Label Content="Draws left" FontSize="15" FontWeight="Bold"/>
-            <Label x:Name="lblDraws" Content="{Binding DeckOfCards.DrawsLeft}"  FontSize="15" FontWeight="Bold"/>
-        </StackPanel>
-        
-
+        </Border>      
+       
         <!--BUTTON DRAW CARD-->
         <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128">
             <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
@@ -128,7 +124,14 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Button.Triggers>
-        </Button>       
+        </Button>
+
+             
+        <!--DRAWS LEFT-->
+        <StackPanel Grid.Column="11" Grid.Row="6" >
+            <Label Content="Draws left"  FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="lblDraws" Content="{Binding DeckOfCards.DrawsLeft}" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
 
         <!--BUTTON FINISH GAME-->
         <Button x:Name="btnDone" Content="Finish game" Command="{Binding EndViewCommand}" 
