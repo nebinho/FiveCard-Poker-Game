@@ -79,6 +79,7 @@
         <StackPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="5">
             <Label Content="Current score:" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
             <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+            <Label Content="{Binding DeckOfCards.PokerHands.pokerHand}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
         </StackPanel>
 
         <!--BORDER THROW CARD-->
