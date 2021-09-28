@@ -71,7 +71,7 @@
         <StackPanel Grid.Row="2" Grid.Column="5"  Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="25" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="Create Player" FontSize="22" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
             <TextBox x:Name="txtBoxCreatePlayer" Grid.Row="4" Grid.Column="4" Text="{Binding NewPlayer}" Margin="5" Height="30"/>
-            <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Skapa spelare" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32" Background="#37A196" Foreground="White" BorderBrush="#00331b">
+            <Button x:Name="btnCreatePlayer" Grid.Row="5" Grid.Column="4" Content="Create Player" FontSize="20" Command="{Binding CreatePlayerCommand}" Margin="5" Height="32" Background="#37A196" Foreground="White" BorderBrush="#00331b">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
