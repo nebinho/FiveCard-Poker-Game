@@ -60,21 +60,21 @@
         <!--TEXT YOUR SCORE-->
         <TextBlock
             Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="Center"
-            Text="YOUR SCORE" FontSize="50" FontFamily="Segoe Ui Light" Foreground="White">                        
+            Text="YOUR SCORE" FontSize="60" FontFamily="Segoe Ui Light" Foreground="White">                        
         </TextBlock>
 
         <!--TEXT HIGH SCORE-->
         <TextBlock
             Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="4" HorizontalAlignment="Center"
-            Text="HIGH SCORE" FontSize="50" FontFamily="Segoe Ui Light" Foreground="White">
+            Text="HIGH SCORE" FontSize="60" FontFamily="Segoe Ui Light" Foreground="White">
         </TextBlock>
-
+        
         <!--PLAYER SCORE-->
-        <TextBlock 
-         x:Name="txtScore" Text="{Binding EndScore}" 
-         Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" 
-         FontSize="50" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White">            
-        </TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" HorizontalAlignment="center" VerticalAlignment="Center" Grid.RowSpan="4" >
+            <Label Content="{Binding EndScore}" FontSize="80" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White" HorizontalAlignment="Center"/>
+            <Label Content="{Binding EndHand}" FontSize="30" FontWeight="DemiBold" FontFamily="Segoe UI" Foreground="White" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
 
         <!--BORDER HIGH SCORE-->
         <Border Grid.Row="0" Grid.Column="12" Grid.RowSpan="12" Grid.ColumnSpan="4" BorderBrush="#002A30" BorderThickness="8"/>
@@ -86,7 +86,7 @@
         </StackPanel>
 
         <!--BUTTON PLAY AGAIN-->
-        <Button Content="Play again" Command="{Binding PlayAgainCommand}" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" Cursor="Hand">
+        <Button Content="Play again" Command="{Binding PlayAgainCommand}" Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" Cursor="Hand">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -98,7 +98,7 @@
         </Button>
 
         <!--BUTTON GO TO START-->
-        <Button Content="Go to start" Command="{Binding GoToStartCommand}" Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="3" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" Cursor="Hand">
+        <Button Content="Go to start" Command="{Binding GoToStartCommand}" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b" Cursor="Hand">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>

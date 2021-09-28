@@ -31,6 +31,7 @@ namespace FiveCardPokerGame.Commands
         public void Execute(object parameter)
         {
             endOfGameViewModel.SelectedViewModel = new GameViewModel();
+            Global.PlayClickSound();
         }
     }
 }

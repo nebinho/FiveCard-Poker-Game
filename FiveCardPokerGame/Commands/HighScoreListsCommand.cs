@@ -9,23 +9,26 @@ using System.Windows.Input;
 
 namespace FiveCardPokerGame.Commands
 {
-    class RestartCommand : ICommand
+    class HighScoreListsCommand : ICommand
     {
-        private HowToPlayViewModel howToPlayViewModel;
+        private HighScoreViewModel highScoreViewModel;
+        private PlayerDb playerDb;
 
-        public RestartCommand(HowToPlayViewModel howToPlayViewModel)
+        public HighScoreListsCommand(PlayerDb playerDb)
         {
-            this.howToPlayViewModel = howToPlayViewModel;
+            this.playerDb = playerDb;
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter) => true;
+        public bool CanExecute(object parameter)
+        {
+           return true;
+        }
 
         public void Execute(object parameter)
         {
-            howToPlayViewModel.SelectedViewModel = new PlayerDb();
-            Global.PlayClickSound();
+            playerDb.SelectedViewModel = new HighScoreViewModel();
         }
     }
 }

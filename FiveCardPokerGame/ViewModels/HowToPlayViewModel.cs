@@ -19,9 +19,31 @@ namespace FiveCardPokerGame.ViewModels
         public BaseViewModel SelectedViewModel { get; set; }
         public ObservableCollection<string> Rules { get; set; } = new ObservableCollection<string>
         {
-            "Pair = 5 points", "Two Pairs = 10 Points", "Three of a kind = 15 Points", "Straight = 20 Points", "Flush = 25 Points", "Full House = 30 Points", "Four of a kind = 35 Points", "Straight flush = 40 Points", "Royal Straight Flush = 50 Points!"
+            "Pair (Two cards of one rank) = 5 points", "Two Pairs (Two cards of one rank and two cards of another rank) = 10 Points", 
+            "Three of a kind (Three cards of one rank) = 15 Points", "Straight (Five cards of sequential rank, not all of same suit) = 20 Points", 
+            "Flush (Five cards of the same suit, not all of sequential rank) = 25 Points", "Full House (Three cards of one rank and two cards of another rank) = 30 Points", 
+            "Four of a kind (Four cards of one rank) = 35 Points", "Straight flush (Five cards of sequential rank and of the same suit) = 40 Points",
+            "Royal Straight Flush (Five cards of the highest sequential rank (10 to A) and of the same suit) = 50 Points!"
         };
-        public string HowToPlay { get; set; } = "You play the game by first selecting what difficulty you want to play (Number of Draws). You also have to select which player you want to play as by selecting a existing player or creating a new one. Then you press 'Start Game'. When the game has started you have as many draws as you chose on the first page to get as many points as possible and land yourself on the leaderboard! You play by getting 5 random cards from the deck. You then drag the ones you want to change to the 'Throw here zone' and then click on the red card with the writing 'Draw Card' on it to get new cards!";
         
+        public ObservableCollection<string> HowToPlay { get; set; } = new ObservableCollection<string>
+        {
+            "'Five-Card-Poker' is a card game where the goal is to set a 'hand' of as good rank as possible",
+            "A 'hand' consists of five cards", 
+            "The player tries to set the 'hand' by swapping out cards - Throwing undesired and drawing new random cards",
+            "The different 'hands' a player can set are ranked - See 'hand'-ranking below",
+            "Each 'hand' gives the player a certain amount of points",
+            "The player tries to set a 'hand' of highest score possible",
+            "Before the player starts the game a desired difficulty must be selected", 
+            "The difficulty is based on the number of draws the player can make (1, 2 or 3)",
+            "You have to select which player you want to play as by selecting an existing player or creating a new one",
+            "Then you press 'Start Game'",
+            "The game starts by dealing 5 random cards from the deck",
+            "Current points and 'hand'-rank are shown on top of the screen",
+            "You then drag and drop the cards you want to swap out to the 'Throw here'-zone", 
+            "To draw new cards from the deck you click on the upside down card with the writing 'Draw Card'",
+            "If you´re satisified with the set hand and still have draws left you can click the 'Finish game' button",
+            "When the game finishes the score of your 'hand' and place on the highscore-list are shown"
+        };
     }
 }

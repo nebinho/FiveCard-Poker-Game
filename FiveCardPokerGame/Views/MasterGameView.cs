@@ -25,8 +25,9 @@ namespace FiveCardPokerGame.Views
             
         }
 
+   
         public void card_DragOver(object sender, DragEventArgs e)
-        {
+        {            
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
 
@@ -45,7 +46,6 @@ namespace FiveCardPokerGame.Views
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();
                 gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
-
             }
             else
             {
@@ -54,6 +54,7 @@ namespace FiveCardPokerGame.Views
 
         public void card_Drop(object sender, DragEventArgs e)
         {
+            Global.PlayDragAndDropSound();
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             if (e.Source is CardView cardView)
             {
@@ -98,6 +99,7 @@ namespace FiveCardPokerGame.Views
 
         public void myCards_Drop(object sender, DragEventArgs e)
         {
+            Global.PlayDragAndDropSound();
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             if (e.Source is CardView cardView)
             {
@@ -106,6 +108,5 @@ namespace FiveCardPokerGame.Views
                 var viewModel = (GameViewModel)DataContext;
             }
         }
-
     }
 }

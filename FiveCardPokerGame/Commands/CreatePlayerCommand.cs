@@ -1,4 +1,5 @@
 ﻿using FiveCardPokerGame.Data;
+using FiveCardPokerGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace FiveCardPokerGame.Commands
         {
             playerDb.CreatePlayer(playerDb.NewPlayer);
             playerDb.GetPlayers();
+            Global.PlayClickSound();
         }
-
     }
 }

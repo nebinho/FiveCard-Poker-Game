@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Click.wav" />
     <None Remove="Resources\Cursor\x-CardBack.cur" />
+    <None Remove="Resources\DragAndDrop.wav" />
+    <None Remove="Resources\HighScore.wav" />
     <None Remove="Resources\ImagesCards\Clubs Ace.png" />
     <None Remove="Resources\ImagesCards\Clubs Eight.png" />
     <None Remove="Resources\ImagesCards\Clubs Five.png" />
@@ -69,6 +72,10 @@
     <None Remove="Resources\Images\BlankBackground.png" />
 
     <None Remove="Resources\Images\Table.png" />
+
+    <None Remove="Resources\NoPoints.wav" />
+
+    <None Remove="Resources\Points.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,7 +88,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Click.wav" />
     <Resource Include="Resources\Cursor\x-CardBack.cur" />
+    <Resource Include="Resources\DragAndDrop.wav" />
+    <Resource Include="Resources\HighScore.wav" />
     <Resource Include="Resources\ImagesCards\Clubs Ten.png" />
     <Resource Include="Resources\ImagesCards\Diamonds Ten.png" />
     <Resource Include="Resources\ImagesCards\Hearts Ten.png" />
@@ -142,10 +152,29 @@
     <Resource Include="Resources\Images\BlankBackground.png" />
 
     <Resource Include="Resources\Images\Table.png" />
+
+    <Resource Include="Resources\NoPoints.wav" />
+
+    <Resource Include="Resources\Points.wav" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Sounds\GameSounds.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GameSounds.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Sounds\GameSounds.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GameSounds.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

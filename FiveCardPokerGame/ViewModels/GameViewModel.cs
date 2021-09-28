@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,6 +16,7 @@ namespace FiveCardPokerGame.ViewModels
     {
         
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
+        public HowToPlayViewModel HowToPlayViewModel { get; set; } = new(); 
         public bool IsButtonEnabled { get; set; }
         public ICommand RemoveCardCommand { get; set; }
         public ICommand DrawCardCommand { get; set; }
@@ -23,6 +25,7 @@ namespace FiveCardPokerGame.ViewModels
         public Player SetPlayer { get; set; }
         public ICommand EndViewCommand { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
+        public HighScoreDb HighScoreDb { get; set; } = new();
         /// <summary>
         /// Method for changing the picture binded to the button where the player draws new cards.
         /// </summary>
@@ -48,5 +51,18 @@ namespace FiveCardPokerGame.ViewModels
             IsCardEnabled = CardEnabler();
             EndViewCommand = new EndViewCommand(this);            
         }
+        public bool CheckIfHighScore()
+        {
+            foreach (var item in HighScoreDb.GetHighscores())
+            {
+                if (Global.EndScore >= item.Score)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

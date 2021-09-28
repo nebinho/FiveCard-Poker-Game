@@ -13,6 +13,7 @@ namespace FiveCardPokerGame.ViewModels
    public class EndOfGameViewModel : BaseViewModel
     {
         public string EndScore { get; set; }
+        public string EndHand { get; set; }
         public string ShowDifficulty { get { return HighScoreDb.dif; } set { HighScoreDb.dif = value; } }
         public HighScoreDb highScoreDb = new HighScoreDb();
         public static ObservableCollection<Highscore> HighscoreList { get; set; }
@@ -22,12 +23,12 @@ namespace FiveCardPokerGame.ViewModels
 
         public EndOfGameViewModel()
         {        
-            highScoreDb.SetHighscore();
-            highScoreDb.GetHighscores();
+            highScoreDb.SetHighscore(); 
+            highScoreDb.GetHighscores();            
             EndScore = Global.EndScore.ToString();
+            EndHand = Global.EndHand.ToString();
             PlayAgainCommand = new PlayAgainCommand(this);
             GoToStartCommand = new GoToStartCommand(this);
         }
-
     }
 }

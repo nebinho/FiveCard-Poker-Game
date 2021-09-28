@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace FiveCardPokerGame.Data
             DifficultyDictionary[2] = "Medium - 2 Draws";
             DifficultyDictionary[3] = "Easy - 3 Draws";
             RulesCommand = new RulesCommand(this);
+            HighScoreListsCommand = new HighScoreListsCommand(this);
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
@@ -37,6 +39,7 @@ namespace FiveCardPokerGame.Data
         public bool BtnEnabler { get; set; }
         public string FeedbackString { get; set;  }
         public ICommand RulesCommand { get; set; }
+        public ICommand HighScoreListsCommand { get; set; }
 
         #region Read
         public ObservableCollection<Player> GetPlayers()
@@ -122,7 +125,7 @@ namespace FiveCardPokerGame.Data
                     {
                         NewPlayer = (string)reader["name"];
                     }
-                    FeedbackString = $"{NewPlayer} is created";
+                    FeedbackString = $"{NewPlayer} is created and selected!";
                 }
                 catch (PostgresException ex)
                 {

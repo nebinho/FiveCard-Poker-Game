@@ -35,14 +35,13 @@ namespace FiveCardPokerGame.Commands
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
+            Global.PlayDrawCardSound();
             gameViewModel.DeckOfCards.DealCards();
             gameViewModel.DeckOfCards.CreateCardViews();
             gameViewModel.DeckOfCards.ThrownCards.Clear();
             gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
             gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
             gameViewModel.DeckOfCards.DrawsLeft--;
-
         }
-
     }
 }
