@@ -23,44 +23,12 @@ namespace FiveCardPokerGame.ViewModels
 
         public EndOfGameViewModel()
         {        
-            highScoreDb.SetHighscore();
-            highScoreDb.GetHighscores();
-            CheckWhatSound();
+            highScoreDb.SetHighscore(); 
+            highScoreDb.GetHighscores();            
             EndScore = Global.EndScore.ToString();
             EndHand = Global.EndHand.ToString();
             PlayAgainCommand = new PlayAgainCommand(this);
             GoToStartCommand = new GoToStartCommand(this);
-        }
-
-        public bool CheckIfHighScore()
-        {
-            foreach (var item in HighscoreList)
-            {
-                if (Global.EndScore>= item.Score)
-                {                    
-                    return true;
-                }        
-            }
-
-            return false;
-        }
-
-        public void CheckWhatSound()
-        {
-            if (CheckIfHighScore() == true)
-            {
-                Global.PlayHighScoreSound();
-            }
-
-            else if (Global.EndScore > 0)
-            {
-                Global.PlayPointsSound();
-            }
-
-            else
-            {
-                Global.PlayNoPointsSound();
-            }
         }
     }
 }

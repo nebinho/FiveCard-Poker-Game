@@ -25,6 +25,7 @@ namespace FiveCardPokerGame.ViewModels
         public Player SetPlayer { get; set; }
         public ICommand EndViewCommand { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
+        public HighScoreDb HighScoreDb { get; set; } = new();
         /// <summary>
         /// Method for changing the picture binded to the button where the player draws new cards.
         /// </summary>
@@ -49,6 +50,18 @@ namespace FiveCardPokerGame.ViewModels
             DrawCardCommand = new DrawCardCommand(this);
             IsCardEnabled = CardEnabler();
             EndViewCommand = new EndViewCommand(this);            
+        }
+        public bool CheckIfHighScore()
+        {
+            foreach (var item in HighScoreDb.GetHighscores())
+            {
+                if (Global.EndScore >= item.Score)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
     }
