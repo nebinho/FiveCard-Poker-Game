@@ -84,7 +84,8 @@
         <!--TEXT DRAG AND DROP-->
         <TextBlock Text="THROW CARDS HERE" FontSize="45" Foreground="White" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        
+        <!--Listbox defining what everything is worth for quick help while playing -->
+        <ListBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemsSource="{Binding HowToPlayViewModel.Rules}" Margin="30" Height="Auto" Width="Auto" FontSize="25" Foreground="White" Background="Transparent"/>
 
         <!--CURRENT SCORE-->
         <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5">
