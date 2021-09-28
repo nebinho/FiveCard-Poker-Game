@@ -10,13 +10,14 @@ namespace FiveCardPokerGame.ViewModels
     {
         public int HighscoreId { get; set; }
         public int Score { get; set; }
+        public long ScoreRank { get; set; }
         public string Difficulty { get; set; }
         public int PlayerId { get; set; }
         public string Name { get; set; }
 
         public override string ToString()
         {
-            return $"⋆|⋆ {Name} ⋆|⋆ Score: {Score} ";
+            return $"#{ScoreRank} ⋆|⋆ {Name} ⋆|⋆ Score: {Score} ";
         }
     }
 }
