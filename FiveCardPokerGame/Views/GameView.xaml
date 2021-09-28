@@ -96,7 +96,7 @@
 
         <!--BORDER THROW CARD-->
         <Border BorderBrush="#002A30" BorderThickness="5" Grid.Row="2" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="5">
-            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="ChangeCursorGiveFeedback">
+            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="ChangeCursorGiveFeedback" Drop="card_Drop">
                 <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

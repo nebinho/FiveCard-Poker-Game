@@ -35,6 +35,8 @@ namespace FiveCardPokerGame.Commands
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
+            Global.PlayClickSound();
+
             if (playerDb.SelectedPlayer == null || playerDb.SelectedDifficulty == 0)
             {
                 playerDb.FeedbackString = "A player and difficulty must be selected";
