@@ -33,8 +33,7 @@ namespace FiveCardPokerGame.Commands
         {
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
             Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
-            gameViewModel.SelectedViewModel = new EndOfGameViewModel();
-            Global.EndScore = 100;
+            gameViewModel.SelectedViewModel = new EndOfGameViewModel();            
             Global.PlayClickSound();
             if (gameViewModel.CheckIfHighScore()==true)
             {
