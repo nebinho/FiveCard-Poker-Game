@@ -10,8 +10,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -29,12 +35,12 @@
 
             </RadialGradientBrush>
         </Grid.Background>
-        <!-- Textblock for the rules and how to play -->
-        <TextBlock TextWrapping="Wrap" Text="{Binding HowToPlay}" Grid.Column="0" Grid.Row="0" Margin="50" Height="Auto" Width="Auto" FontSize="30" Foreground="White"/>
+        <!-- Listbox for the rules and how to play -->
+        <ListBox  ItemsSource="{Binding HowToPlay}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="6" Margin="50" Height="Auto" Width="Auto" FontSize="30" Foreground="White" Background="Transparent"/>
         <!-- Listbox for displaying all the combinations and how many points they give -->
-        <ListBox ItemsSource="{Binding Rules}" Grid.Column="0" Grid.Row="1" Margin="50" Height="Auto" Width="Auto" Background="Transparent" FontSize="25" Foreground="White"/>
+        <ListBox ItemsSource="{Binding Rules}" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="50" Height="Auto" Width="Auto" Background="Transparent" FontSize="25" Foreground="White"/>
         <!-- Button for going back to the startscreen-->
-        <Button Content="Close" Command="{Binding RestartCommand}" Grid.Row="1" Grid.Column="1" Height="50" Width="150" Background="#37A196" Foreground="White" BorderBrush="#00331b">
+        <Button Content="Close" Command="{Binding RestartCommand}" Grid.Row="3" Grid.Column="5" Height="100" Width="200" Background="#37A196" Foreground="White" BorderBrush="#00331b" FontSize="40" FontFamily="Segoe UI light">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>

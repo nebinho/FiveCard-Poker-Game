@@ -122,7 +122,7 @@ namespace FiveCardPokerGame.Data
                     {
                         NewPlayer = (string)reader["name"];
                     }
-                    FeedbackString = $"{NewPlayer} is created";
+                    FeedbackString = $"{NewPlayer} is created and selected!";
                 }
                 catch (PostgresException ex)
                 {
