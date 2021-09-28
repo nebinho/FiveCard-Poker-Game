@@ -15,6 +15,7 @@ namespace FiveCardPokerGame.ViewModels
     {
         
         public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
+        public HowToPlayViewModel HowToPlayViewModel { get; set; } = new(); 
         public bool IsButtonEnabled { get; set; }
         public ICommand RemoveCardCommand { get; set; }
         public ICommand DrawCardCommand { get; set; }

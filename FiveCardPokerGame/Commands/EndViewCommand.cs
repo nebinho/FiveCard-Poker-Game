@@ -32,6 +32,7 @@ namespace FiveCardPokerGame.Commands
         public void Execute(object parameter)
         {
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
+            Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
             gameViewModel.SelectedViewModel = new EndOfGameViewModel();
         }
 

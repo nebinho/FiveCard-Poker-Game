@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:FiveCardPokerGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
-  
+
     <!--USER CONTROL SPINNING BUTTON-->
     <UserControl.Resources>
-        
-        
+
+
         <Storyboard x:Key="FlipCard" >
             <DoubleAnimation Storyboard.TargetName="Rotation" Storyboard.TargetProperty="Angle" From="0" To="360" BeginTime="00:00:00" Duration="0:0:0.5"></DoubleAnimation>
-        </Storyboard>        
-        
+        </Storyboard>
+
         <Style TargetType="Button" x:Key="TransparentButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -26,9 +26,9 @@
                     <Setter Property="BorderBrush" Value="Transparent"/>
                 </Trigger>
             </Style.Triggers>
-        </Style>        
+        </Style>
     </UserControl.Resources>
-    
+
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <!--BACKGROUND COLOR-->
@@ -38,7 +38,7 @@
                 GradientOrigin="0.5,0.5"
                 Center="0.5,0.5"
                 RadiusX="0.7" RadiusY="0.5">
-                
+
                 <RadialGradientBrush.GradientStops>
                     <GradientStop Color="#02723D" Offset="0.2" />
                     <GradientStop Color="#002A30" Offset="1.1" />
@@ -64,7 +64,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -77,17 +77,26 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        
+        <!--TEXT THROW CARDS-->
+        <TextBlock Text="Drag and drop to throw" FontSize="25" Foreground="White" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!--TEXT DRAG AND DROP-->
+        <TextBlock Text="THROW CARDS HERE" FontSize="45" Foreground="White" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!--Listbox defining what everything is worth for quick help while playing -->
+        <ListBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" ItemsSource="{Binding HowToPlayViewModel.Rules}" Margin="30" Height="Auto" Width="Auto" FontSize="25" Foreground="White" Background="Transparent"/>
+
         <!--CURRENT SCORE-->
-        <StackPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="5">
-            <Label Content="Current score:" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
-            <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
-            <Label Content="{Binding DeckOfCards.PokerHands.pokerHand}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
+        <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5">
+            <Label Content="Current score:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+            <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+            <Label Content="{Binding DeckOfCards.PokerHands.pokerHand}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
         </StackPanel>
 
         <!--BORDER THROW CARD-->
-        <Border BorderBrush="#002A30" BorderThickness="5" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="5">
+        <Border BorderBrush="#002A30" BorderThickness="5" Grid.Row="2" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="5">
             <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="ChangeCursorGiveFeedback">
-                <TextBlock Text="THROW CARDS HERE" FontSize="25" Foreground="White"/>
                 <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -99,7 +108,7 @@
         </Border>
 
         <!--BORDER MY CARDS-->
-        <Border BorderBrush="#002A30" BorderThickness="5" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="2" Margin="5" GiveFeedback="ChangeCursorGiveFeedback">
+        <Border BorderBrush="#002A30" BorderThickness="5" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="4" Grid.RowSpan="2" Margin="5" GiveFeedback="ChangeCursorGiveFeedback">
             <Canvas x:Name="myCards" DragOver="myCards_DragOver" Drop="myCards_Drop" AllowDrop="True">
                 <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}">
                     <ItemsControl.ItemsPanel>
@@ -109,37 +118,36 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </Canvas>
-        </Border>      
-       
+        </Border>
+
         <!--BUTTON DRAW CARD-->
-        <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="4" Grid.RowSpan="2" Height="178" Width="128">
-            <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
-                <Image.RenderTransform>
-                    <RotateTransform x:Name="Rotation" Angle="0"></RotateTransform>
-                </Image.RenderTransform>
-            </Image>
-            
+        <Button x:Name="Button" Command="{Binding DrawCardCommand}" IsEnabled="{Binding IsButtonEnabled}" Grid.Column="11" Grid.Row="3" Grid.RowSpan="2" Height="178" Width="128">
+
             <Button.Triggers>
-                <EventTrigger RoutedEvent="Button.Click">
-                    <BeginStoryboard Storyboard="{StaticResource FlipCard}">
-                    </BeginStoryboard>
+                <EventTrigger RoutedEvent="ButtonBase.Click">
+                    <BeginStoryboard Storyboard="{StaticResource FlipCard}"/>
                 </EventTrigger>
             </Button.Triggers>
+            <Image Source="{Binding IsCardEnabled}" RenderTransformOrigin="0.5 0.5" x:Name="imgBack" Cursor="Hand" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="Rotation" Angle="0"/>
+                </Image.RenderTransform>
+            </Image>
+
         </Button>
 
-             
         <!--DRAWS LEFT-->
-        <StackPanel Grid.Column="11" Grid.Row="6" >
-            <Label Content="Draws left"  FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="lblDraws" Content="{Binding DeckOfCards.DrawsLeft}" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="11" Grid.Row="5" >
+            <Label Content="Draws left"  FontWeight="Bold" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="lblDraws" Content="{Binding DeckOfCards.DrawsLeft}" FontSize="20" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
 
         <!--BUTTON FINISH GAME-->
         <Button x:Name="btnDone" Content="Finish game" Command="{Binding EndViewCommand}" 
-         Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" Margin="5" Height="40" 
+         Grid.Column="12" Grid.Row="7" Grid.ColumnSpan="2" Margin="5" Height="40" 
          FontSize="25" FontFamily="Segoe UI light" Background="#37A196" Foreground="White" BorderBrush="#00331b">
             <Button.Resources>
-                <Style TargetType="Border">
+                <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
                 </Style>
             </Button.Resources>
@@ -147,9 +155,8 @@
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="1" Opacity="0.8" />
             </Button.BitmapEffect>
         </Button>
-        
-        <!--CONTENT CONTROL-->
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="15" Grid.RowSpan="10" Cursor="Hand"/>               
 
+        <!--CONTENT CONTROL-->
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="15" Grid.RowSpan="10" Cursor="Hand"/>
     </Grid>
 </local:MasterGameView>

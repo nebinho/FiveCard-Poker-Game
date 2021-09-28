@@ -11,5 +11,6 @@ namespace FiveCardPokerGame.ViewModels
     public class MainViewModel : BaseViewModel
     {
         public PlayerDb CurrentViewModel { get; set; } = new PlayerDb();
+        
     }
 }
