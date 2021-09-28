@@ -20,13 +20,11 @@ namespace FiveCardPokerGame.Commands
 
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
-        {
-            return true ;
-        }
+        public bool CanExecute(object parameter) => true;
 
         public void Execute(object parameter)
         {
+            Global.PlayClickSound();
             highScoreViewModel.SelectedViewModel = new PlayerDb();
         }
     }
