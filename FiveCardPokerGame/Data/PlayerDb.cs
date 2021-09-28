@@ -24,6 +24,7 @@ namespace FiveCardPokerGame.Data
             DifficultyDictionary[2] = "Medium - 2 Draws";
             DifficultyDictionary[3] = "Easy - 3 Draws";
             RulesCommand = new RulesCommand(this);
+            HighScoreListsCommand = new HighScoreListsCommand(this);
         }
         public ObservableCollection<Player> Players { get; set; }
         public Player SelectedPlayer { get; set; }
@@ -37,6 +38,7 @@ namespace FiveCardPokerGame.Data
         public bool BtnEnabler { get; set; }
         public string FeedbackString { get; set;  }
         public ICommand RulesCommand { get; set; }
+        public ICommand HighScoreListsCommand { get; set; }
 
         #region Read
         public ObservableCollection<Player> GetPlayers()

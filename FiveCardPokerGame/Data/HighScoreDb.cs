@@ -88,8 +88,118 @@ namespace FiveCardPokerGame.Data
                         ScoreRank = (long)reader["score_rank"]
                     };
                     EndOfGameViewModel.HighscoreList.Add(highscore);
+                    
                 }
                 return EndOfGameViewModel.HighscoreList;
+                return EndOfGameViewModel.HighscoreList;
+                
+            }
+            catch (PostgresException ex)
+            {
+                string errorcode = ex.SqlState;
+                throw new Exception("Couldn´t retrieve Highscores list", ex);
+            }
+        }
+
+        public ObservableCollection<Highscore> GetEasyHighScore()
+        {
+            string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Easy'  ORDER BY score DESC LIMIT 19";
+
+
+            try
+            {
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
+                conn.Open();
+
+                using var command = new NpgsqlCommand(stmt, conn);
+                using var reader = command.ExecuteReader();
+
+                ObservableCollection<Highscore> easyList = new ObservableCollection<Highscore>();
+                Highscore highscore = new Highscore();
+
+                while (reader.Read())
+                {
+                    highscore = new Highscore
+                    {
+                        Score = (int)reader["score"],
+                        Difficulty = (string)reader["difficulty"],
+                        PlayerId = (int)reader["player_id"],
+                        Name = (string)reader["name"]
+                    };
+                    easyList.Add(highscore);
+                }
+                return easyList;
+            }
+            catch (PostgresException ex)
+            {
+                string errorcode = ex.SqlState;
+                throw new Exception("Couldn´t retrieve Highscores list", ex);
+            }
+        }
+        public ObservableCollection<Highscore> GetHardHighScore()
+        {
+            string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Hard'  ORDER BY score DESC LIMIT 19";
+
+            try
+            {
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
+                conn.Open();
+
+                using var command = new NpgsqlCommand(stmt, conn);
+                using var reader = command.ExecuteReader();
+
+                ObservableCollection<Highscore> hardList = new ObservableCollection<Highscore>();
+                Highscore highscore = new Highscore();
+
+                while (reader.Read())
+                {
+                    highscore = new Highscore
+                    {
+                        Score = (int)reader["score"],
+                        Difficulty = (string)reader["difficulty"],
+                        PlayerId = (int)reader["player_id"],
+                        Name = (string)reader["name"]
+                    };
+                    hardList.Add(highscore);
+                }
+                return hardList;
+            }
+            catch (PostgresException ex)
+            {
+                string errorcode = ex.SqlState;
+                throw new Exception("Couldn´t retrieve Highscores list", ex);
+            }
+        }
+
+
+        public ObservableCollection<Highscore> GetMediumHighScore()
+        {
+            string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Medium'  ORDER BY score DESC LIMIT 19";
+
+
+            try
+            {
+                using var conn = new NpgsqlConnection(Global.ConnectionString);
+                conn.Open();
+
+                using var command = new NpgsqlCommand(stmt, conn);
+                using var reader = command.ExecuteReader();
+
+                ObservableCollection<Highscore> mediumList = new ObservableCollection<Highscore>();
+                Highscore highscore = new Highscore();
+
+                while (reader.Read())
+                {
+                    highscore = new Highscore
+                    {
+                        Score = (int)reader["score"],
+                        Difficulty = (string)reader["difficulty"],
+                        PlayerId = (int)reader["player_id"],
+                        Name = (string)reader["name"]
+                    };
+                    mediumList.Add(highscore);
+                }
+                return mediumList;
             }
             catch (PostgresException ex)
             {
