@@ -51,6 +51,6 @@
             </Button.BitmapEffect>
         </Button>
             
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="6" Grid.RowSpan="4"/>
     </Grid>
 </local:MasterGameView>
