@@ -68,13 +68,13 @@
             Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="4" HorizontalAlignment="Center"
             Text="HIGH SCORE" FontSize="50" FontFamily="Segoe Ui Light" Foreground="White">
         </TextBlock>
-
+        
         <!--PLAYER SCORE-->
-        <TextBlock 
-         x:Name="txtScore" Text="{Binding EndScore}" 
-         Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" 
-         FontSize="50" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White">            
-        </TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.RowSpan="4" >
+            <Label Content="{Binding EndScore}" FontSize="50" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White" />
+            <Label Content="{Binding EndHand}" FontSize="50" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White" />
+        </StackPanel>
+        
 
         <!--BORDER HIGH SCORE-->
         <Border Grid.Row="0" Grid.Column="12" Grid.RowSpan="12" Grid.ColumnSpan="4" BorderBrush="#002A30" BorderThickness="8"/>
