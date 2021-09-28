@@ -16,18 +16,15 @@ namespace FiveCardPokerGame.Views
 {
     public class MasterGameView : UserControl
     {
-        public CardView CardView { get; set; }
-        public GameView GameView { get; set; }
-        public StartView StartView { get; set; }
+        
 
         public MasterGameView()
         {
             
         }
 
-   
         public void card_DragOver(object sender, DragEventArgs e)
-        {            
+        {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
 
@@ -46,6 +43,7 @@ namespace FiveCardPokerGame.Views
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                 gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.CanDrawNewCard();
                 gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
+
             }
             else
             {
@@ -93,6 +91,7 @@ namespace FiveCardPokerGame.Views
                     StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
                     Mouse.SetCursor(new Cursor(cardCurs.Stream));
                 }
+                
             }
             e.Handled = true;
         }
@@ -108,5 +107,6 @@ namespace FiveCardPokerGame.Views
                 var viewModel = (GameViewModel)DataContext;
             }
         }
+
     }
 }

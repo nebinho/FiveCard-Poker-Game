@@ -28,6 +28,7 @@ namespace FiveCardPokerGame.Commands
 
         public void Execute(object parameter)
         {
+            Global.PlayClickSound();
             playerDb.SelectedViewModel = new HighScoreViewModel();
         }
     }
