@@ -91,7 +91,6 @@ namespace FiveCardPokerGame.Data
                     
                 }
                 return EndOfGameViewModel.HighscoreList;
-                return EndOfGameViewModel.HighscoreList;
                 
             }
             catch (PostgresException ex)
