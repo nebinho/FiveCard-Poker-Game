@@ -66,13 +66,6 @@
     <None Remove="Resources\ImagesCards\xCardBack.png" />
     <None Remove="Resources\ImagesCards\xCardBackDisabled.png" />
 
-    
-    <None Remove="Resources\Images\HighScoreBackground.png" />
-
-    <None Remove="Resources\Images\BlankBackground.png" />
-
-    <None Remove="Resources\Images\Table.png" />
-
     <None Remove="Resources\NoPoints.wav" />
 
     <None Remove="Resources\Points.wav" />
@@ -146,12 +139,6 @@
     <Resource Include="Resources\ImagesCards\Spades Queen.png" />
     <Resource Include="Resources\ImagesCards\xCardBack.png" />
     <Resource Include="Resources\ImagesCards\xCardBackDisabled.png" />
-
-    <Resource Include="Resources\Images\HighScoreBackground.png" />
-
-    <Resource Include="Resources\Images\BlankBackground.png" />
-
-    <Resource Include="Resources\Images\Table.png" />
 
     <Resource Include="Resources\NoPoints.wav" />
 

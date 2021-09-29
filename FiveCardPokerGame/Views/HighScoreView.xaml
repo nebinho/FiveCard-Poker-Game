@@ -28,6 +28,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
@@ -43,15 +44,23 @@
                 </RadialGradientBrush.GradientStops>
             </RadialGradientBrush>
         </Grid.Background>
-        <Label Content="✩ HIGHSCORE ✩" FontSize="40" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Top" FontFamily="Seogu UI ligt" Foreground="White" Margin="25,0,0,0" />
-        <Label Content="Easy" Grid.Row="1" Grid.Column="2" FontSize="22" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
-        <Label Content="Medium" Grid.Row="1" Grid.Column="4" FontSize="22" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White" Grid.ColumnSpan="2"/>
-        <Label Content="Hard" Grid.Row="1" Grid.Column="6" FontSize="22" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
-        <ListBox ItemsSource="{Binding HighscoreListEasy}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent"  Foreground="White"/>
-        <ListBox ItemsSource="{Binding HigscoreListMedium}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent" Foreground="White"/>
-        <ListBox ItemsSource="{Binding HighScoreListHard}" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent" Foreground="White" />
 
-        <Button Content="Close" Command="{Binding ReturnToStartCommand}" Grid.Row="7" Grid.Column="8" Background="#37A196" Foreground="White" BorderBrush="#00331b" FontSize="30" FontFamily="Segoe UI light" >
+        <Label Content="✩ HIGHSCORE ✩" FontSize="50" Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="1" Grid.RowSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Seogu UI ligt" Foreground="White" Margin="25,0,0,0" />
+        
+        <Label Content="Easy" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left"  FontSize="25" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
+
+        <Label Content="Medium" Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="25" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
+
+        <Label Content="Hard" Grid.Row="2" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="25" FontWeight="DemiBold" Margin="5" FontFamily="Segoe UI" Foreground="White"/>
+       
+        <ListBox ItemsSource="{Binding HighscoreListEasy}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent"  Foreground="White"/>
+        
+        <ListBox ItemsSource="{Binding HigscoreListMedium}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent" Foreground="White"/>
+      
+        <ListBox ItemsSource="{Binding HighScoreListHard}" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="20" BorderBrush="Transparent" Background="Transparent" Foreground="White" />
+
+        <!--BUTTON CLOSE-->
+        <Button Content="Close" Command="{Binding ReturnToStartCommand}" Grid.Row="8" Grid.Column="8" Background="#37A196" Foreground="White" BorderBrush="#00331b" FontSize="30" FontFamily="Segoe UI light" Height="50" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -62,6 +71,7 @@
             </Button.BitmapEffect>
         </Button>
 
-        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="10" Grid.RowSpan="9"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.ColumnSpan="10" Grid.RowSpan="10"/>
+        
     </Grid>
 </local:MasterGameView>
