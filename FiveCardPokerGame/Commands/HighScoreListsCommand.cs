@@ -20,12 +20,17 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
-        {
-           return true;
-        }
-
+        /// <summary>
+        /// Can always execute.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public bool CanExecute(object parameter) => true;
+        /// <summary>
+        /// Plays a sound when command is used.
+        /// Displays the HighScoreView when command is used.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             Global.PlayClickSound();

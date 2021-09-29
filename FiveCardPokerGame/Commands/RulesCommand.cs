@@ -19,9 +19,16 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
+        /// <summary>
+        /// Can always execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns>true</returns>
         public bool CanExecute(object parameter) => true;
-
+        /// <summary>
+        /// Displays the HowToPlayView and plays a sound
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             playerDb.SelectedViewModel = new HowToPlayViewModel();

@@ -10,6 +10,9 @@ namespace FiveCardPokerGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Sets the datacontect to MainViewModel
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

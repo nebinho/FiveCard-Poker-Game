@@ -15,8 +15,14 @@ namespace FiveCardPokerGame.ViewModels
         {
             RestartCommand = new RestartCommand(this);
         }
+        /// <summary>
+        /// A Command for going back to the startview
+        /// </summary>
         public ICommand RestartCommand { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
+        /// <summary>
+        /// A ObservableCollection made for displaying the values of diffrent combinations of cards.
+        /// </summary>
         public ObservableCollection<string> Rules { get; set; } = new ObservableCollection<string>
         {
             "Pair (Two cards of one rank) = 5 points", "Two Pairs (Two cards of one rank and two cards of another rank) = 10 Points", 
@@ -25,7 +31,9 @@ namespace FiveCardPokerGame.ViewModels
             "Four of a kind (Four cards of one rank) = 35 Points", "Straight flush (Five cards of sequential rank and of the same suit) = 40 Points",
             "Royal Straight Flush (Five cards of the highest sequential rank (10 to A) and of the same suit) = 50 Points!"
         };
-        
+        /// <summary>
+        /// Instruction for new players. Can be used in listboxes (we made this choice because you can select strings and make it easier to read)
+        /// </summary>
         public ObservableCollection<string> HowToPlay { get; set; } = new ObservableCollection<string>
         {
             "'Five-Card-Poker' is a card game where the goal is to set a 'hand' of as good rank as possible",

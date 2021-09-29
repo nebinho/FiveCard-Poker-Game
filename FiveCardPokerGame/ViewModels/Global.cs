@@ -6,7 +6,7 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading.Tasks;
-using static FiveCardPokerGame.ViewModels.PlayerViewModel;
+
 
 namespace FiveCardPokerGame.ViewModels
 {
@@ -21,8 +21,10 @@ namespace FiveCardPokerGame.ViewModels
 
 
 
+        /// <summary>
+        /// Diffrent methods for playing specific sounds. Can be used everywhere in the game.
+        /// </summary>
         #region Sounds
-
         public static void PlayDrawCardSound()
         {
             SoundPlayer player = new(Resources.Sounds.GameSounds.Swoosh1);

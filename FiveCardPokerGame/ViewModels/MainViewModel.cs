@@ -10,6 +10,9 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        /// <summary>
+        /// Selects the first view for the game. PlayerDb is linked to StartView in App.xaml
+        /// </summary>
         public PlayerDb CurrentViewModel { get; set; } = new PlayerDb();
         
     }
