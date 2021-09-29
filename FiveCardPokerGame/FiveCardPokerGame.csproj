@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\Click.wav" />
-    <None Remove="Resources\Cursor\x-CardBack.cur" />
+    <None Remove="Resources\Cursor\xCard.cur" />
     <None Remove="Resources\DragAndDrop.wav" />
     <None Remove="Resources\HighScore.wav" />
     <None Remove="Resources\ImagesCards\Clubs Ace.png" />
@@ -89,7 +89,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\Click.wav" />
-    <Resource Include="Resources\Cursor\x-CardBack.cur" />
+    <Resource Include="Resources\Cursor\xCard.cur" />
     <Resource Include="Resources\DragAndDrop.wav" />
     <Resource Include="Resources\HighScore.wav" />
     <Resource Include="Resources\ImagesCards\Clubs Ten.png" />
