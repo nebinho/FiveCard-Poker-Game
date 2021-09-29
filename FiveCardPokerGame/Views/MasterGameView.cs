@@ -16,7 +16,7 @@ namespace FiveCardPokerGame.Views
 {
     public class MasterGameView : UserControl
     {
-        
+        public System.Drawing.Size MouseSize { get; set; }
 
         public MasterGameView()
         {
@@ -88,8 +88,9 @@ namespace FiveCardPokerGame.Views
             {
                 if (!gameViewModel.DeckOfCards.CanDrawNewCard()==false)
                 {
-                    StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/x-CardBack.cur", UriKind.Relative));
-                    Mouse.SetCursor(new Cursor(cardCurs.Stream));
+                    
+                    StreamResourceInfo cardCurs = Application.GetResourceStream(new Uri("/Resources/Cursor/xCard.cur", UriKind.Relative));
+                    Mouse.SetCursor(new Cursor(cardCurs.Stream));                    
                 }
                 
             }
