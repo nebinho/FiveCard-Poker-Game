@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Styles\**" />
+    <EmbeddedResource Remove="Styles\**" />
+    <None Remove="Styles\**" />
+    <Page Remove="Styles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Click.wav" />
     <None Remove="Resources\Cursor\xCard.cur" />
     <None Remove="Resources\DragAndDrop.wav" />
@@ -143,10 +150,6 @@
     <Resource Include="Resources\NoPoints.wav" />
 
     <Resource Include="Resources\Points.wav" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Styles\" />
   </ItemGroup>
 
   <ItemGroup>
