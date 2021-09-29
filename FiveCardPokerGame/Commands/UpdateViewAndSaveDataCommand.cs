@@ -13,9 +13,9 @@ namespace FiveCardPokerGame.Commands
 {
     class UpdateViewAndSaveDataCommand : ICommand
     {
-        private PlayerDb playerDb;
+        private PlayerDbViewModel playerDb;
 
-        public UpdateViewAndSaveDataCommand(PlayerDb playerDb)
+        public UpdateViewAndSaveDataCommand(PlayerDbViewModel playerDb)
         {
             this.playerDb = playerDb;
         }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FiveCardPokerGame.ViewModels
 {
-    public class DeckOfCards : BaseViewModel
+    public class GameEngine : BaseViewModel
     {
         private static readonly Random random = new();
 
@@ -24,7 +24,7 @@ namespace FiveCardPokerGame.ViewModels
         public int NumberOfThrows { get; set; }
         public int DrawsLeft { get; set; } = Global.Difficulty;
 
-        public DeckOfCards()
+        public GameEngine()
         {
             SetUpDeck();
             DealCards();

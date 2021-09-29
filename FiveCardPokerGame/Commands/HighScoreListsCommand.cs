@@ -12,9 +12,9 @@ namespace FiveCardPokerGame.Commands
     class HighScoreListsCommand : ICommand
     {
         private HighScoreViewModel highScoreViewModel;
-        private PlayerDb playerDb;
+        private PlayerDbViewModel playerDb;
 
-        public HighScoreListsCommand(PlayerDb playerDb)
+        public HighScoreListsCommand(PlayerDbViewModel playerDb)
         {
             this.playerDb = playerDb;
         }

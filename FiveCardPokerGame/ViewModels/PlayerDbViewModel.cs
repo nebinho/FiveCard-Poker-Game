@@ -14,9 +14,9 @@ using System.Windows.Input;
 
 namespace FiveCardPokerGame.Data
 {
-    public class PlayerDb : BaseViewModel
+    public class PlayerDbViewModel : BaseViewModel
     {
-        public PlayerDb()
+        public PlayerDbViewModel()
         {
             GetPlayers();
             UpdateViewAndSaveDataCommand = new UpdateViewAndSaveDataCommand(this);
