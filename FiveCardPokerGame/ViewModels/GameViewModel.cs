@@ -63,6 +63,13 @@ namespace FiveCardPokerGame.ViewModels
 
             return false;
         }
-
+        public void ExecuteGameOver()
+        {
+            if (DeckOfCards.CanDrawNewCard()==false)
+            {
+                Global.FinalHand = DeckOfCards.CardViews;
+                Task.Delay(2500).ContinueWith(t=>EndViewCommand.Execute(this));
+            }
+        }
     }
 }

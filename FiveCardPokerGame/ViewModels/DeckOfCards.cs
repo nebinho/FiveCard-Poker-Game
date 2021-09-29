@@ -107,6 +107,7 @@ namespace FiveCardPokerGame.ViewModels
         {
             if (NumberOfThrows >= SelectedDifficulty+1)
             {
+                
                 return false;
             }
             return true;

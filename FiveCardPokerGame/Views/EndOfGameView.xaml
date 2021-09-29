@@ -74,8 +74,18 @@
             <Label Content="{Binding EndScore}" FontSize="80" FontWeight="ExtraBold" FontFamily="Segoe UI" Foreground="White" HorizontalAlignment="Center"/>
             <Label Content="{Binding EndHand}" FontSize="30" FontWeight="DemiBold" FontFamily="Segoe UI" Foreground="White" HorizontalAlignment="Center"/>
         </StackPanel>
-        
-
+        <!--CANVAS SHOWING FINAL HAND-->
+        <Border Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="5" Grid.RowSpan="3" Margin="5">
+            <Canvas>
+                <ItemsControl ItemsSource="{Binding FinalHand}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5" Rows="1" MaxHeight="712" MaxWidth="512" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Canvas>
+        </Border>
         <!--BORDER HIGH SCORE-->
         <Border Grid.Row="0" Grid.Column="12" Grid.RowSpan="12" Grid.ColumnSpan="4" BorderBrush="#002A30" BorderThickness="8"/>
 
