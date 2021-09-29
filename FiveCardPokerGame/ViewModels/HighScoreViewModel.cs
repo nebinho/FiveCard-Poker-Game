@@ -18,6 +18,9 @@ namespace FiveCardPokerGame.ViewModels
         public  ObservableCollection<Highscore> HighScoreListHard { get; set; }
         public  ObservableCollection<Highscore> HigscoreListMedium { get; set; }
         public  ObservableCollection<Highscore> HighscoreListEasy { get; set; }
+        /// <summary>
+        /// Gets highscore lists when this viewmodel is instanced( = new HighScoreViewModel())
+        /// </summary>
         public HighScoreViewModel()
         {
             ReturnToStartCommand = new ReturnToStartCommand(this);

@@ -10,19 +10,24 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Resources;
-using static FiveCardPokerGame.ViewModels.PlayerViewModel;
 
 namespace FiveCardPokerGame.Views
 {
     public class MasterGameView : UserControl
     {
-        public System.Drawing.Size MouseSize { get; set; }
+        
 
         public MasterGameView()
         {
             
         }
-
+        /// <summary>
+        /// Removes the card from the players hand and adds it in another observable collection.
+        /// This incase the player changes their mind and wants to undo the throw.
+        /// Used for Drag and drop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void card_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
@@ -49,19 +54,21 @@ namespace FiveCardPokerGame.Views
             {
             }
         }
-
+        /// <summary>
+        /// Plays a sound when player drops a card in the UI.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void card_Drop(object sender, DragEventArgs e)
         {
-            Global.PlayDragAndDropSound();
-            GameViewModel gameViewModel = (GameViewModel)DataContext;
-            if (e.Source is CardView cardView)
-            {
-                var left = Canvas.GetLeft(cardView);
-                var top = Canvas.GetTop(cardView);
-                var viewModel = (GameViewModel)DataContext;
-            }
+            Global.PlayDragAndDropSound();            
         }
-
+        /// <summary>
+        /// Recreates the thrown card and adds it in the players hand.
+        /// Used for drag and drop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void myCards_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
@@ -80,7 +87,12 @@ namespace FiveCardPokerGame.Views
                 }
             }
         }
-
+        /// <summary>
+        /// Changes the cursor image (.cur) to a image of a card when the player has draws left.
+        /// Uses drag and drop.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ChangeCursorGiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
@@ -96,18 +108,5 @@ namespace FiveCardPokerGame.Views
             }
             e.Handled = true;
         }
-
-        public void myCards_Drop(object sender, DragEventArgs e)
-        {
-            Global.PlayDragAndDropSound();
-            GameViewModel gameViewModel = (GameViewModel)DataContext;
-            if (e.Source is CardView cardView)
-            {
-                var left = Canvas.GetLeft(cardView);
-                var top = Canvas.GetTop(cardView);
-                var viewModel = (GameViewModel)DataContext;
-            }
-        }
-
     }
 }
