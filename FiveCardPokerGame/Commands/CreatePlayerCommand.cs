@@ -11,9 +11,9 @@ namespace FiveCardPokerGame.Commands
 {
     class CreatePlayerCommand : ICommand
     {
-        private PlayerDb playerDb;
+        private PlayerDbViewModel playerDb;
 
-        public CreatePlayerCommand(PlayerDb playerDb)
+        public CreatePlayerCommand(PlayerDbViewModel playerDb)
         {
             this.playerDb = playerDb;
         }

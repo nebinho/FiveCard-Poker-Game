@@ -30,12 +30,12 @@ namespace FiveCardPokerGame.Commands
         /// <returns></returns>
         public bool CanExecute(object parameter) => true;
         /// <summary>
-        /// Returns the player to the startscreen by setting the SelectedViewModel (Binded to contentcontrol in XAML) to a new PlayerDb.
+        /// Returns the player to the startscreen by setting the SelectedViewModel (Binded to contentcontrol in XAML) to a new PlayerDbViewModel.
         /// </summary>
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            endOfGameViewModel.SelectedViewModel = new PlayerDb();
+            endOfGameViewModel.SelectedViewModel = new PlayerDbViewModel();
             Global.PlayClickSound();
         }
 

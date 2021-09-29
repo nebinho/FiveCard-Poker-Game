@@ -15,7 +15,7 @@ namespace FiveCardPokerGame.ViewModels
     public partial class GameViewModel : BaseViewModel
     {
         
-        public DeckOfCards DeckOfCards { get; set; } = new DeckOfCards();
+        public GameEngine DeckOfCards { get; set; } = new GameEngine();
         public HowToPlayViewModel HowToPlayViewModel { get; set; } = new(); 
         public bool IsButtonEnabled { get; set; }
         public ICommand RemoveCardCommand { get; set; }

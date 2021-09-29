@@ -12,11 +12,7 @@ namespace FiveCardPokerGame.ViewModels
     {
         public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // Checks all methods, and starts with the one that gives most points, and stops and give score when it finds the correct one.
         {
-            hand[0].Cardvalue = Value.Two;
-            hand[1].Cardvalue = Value.Three;
-            hand[2].Cardvalue = Value.Four;
-            hand[3].Cardvalue = Value.Five;
-            hand[4].Cardvalue = Value.Six;
+
 
             if (IsFlush(hand) && IsStraight(hand))
             {

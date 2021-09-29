@@ -32,7 +32,7 @@ namespace FiveCardPokerGame.Commands
         public void Execute(object parameter)
         {
             Global.PlayClickSound();
-            highScoreViewModel.SelectedViewModel = new PlayerDb();
+            highScoreViewModel.SelectedViewModel = new PlayerDbViewModel();
         }
     }
 }
