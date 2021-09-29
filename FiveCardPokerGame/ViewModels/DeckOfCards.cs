@@ -75,6 +75,7 @@ namespace FiveCardPokerGame.ViewModels
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
+                
             }
         }
         /// <summary>
