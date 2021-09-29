@@ -10,8 +10,13 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class EvaluateHand : BaseViewModel
     {
-        public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands)
+        public static bool CheckPokerHand(ObservableCollection<Card> hand, PokerHands pokerHands) // Checks all methods, and starts with the one that gives most points, and stops and give score when it finds the correct one.
         {
+            hand[0].Cardvalue = Value.Two;
+            hand[1].Cardvalue = Value.Three;
+            hand[2].Cardvalue = Value.Four;
+            hand[3].Cardvalue = Value.Five;
+            hand[4].Cardvalue = Value.Six;
 
             if (IsFlush(hand) && IsStraight(hand))
             {
@@ -76,7 +81,7 @@ namespace FiveCardPokerGame.ViewModels
 
         }
 
-        public static bool IsPair(ObservableCollection<Card> hand)
+        public static bool IsPair(ObservableCollection<Card> hand) // sorts the hand by Cardvalue low to high, and checks if index 0 and 1 or 1-2 or 2-3 or 3-4 to see if a pair exists, dont need to check index 0 and 4, because the cards are sorted by value 
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool pair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue || (int)hand[1].Cardvalue == (int)hand[2].Cardvalue ||
@@ -85,7 +90,7 @@ namespace FiveCardPokerGame.ViewModels
             return pair;
         }
 
-        public static bool IsTwoPair(ObservableCollection<Card> hand)
+        public static bool IsTwoPair(ObservableCollection<Card> hand) // checks if the hand contains Two Pair.
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool twoPair = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[2].Cardvalue == (int)hand[3].Cardvalue ||
@@ -95,7 +100,7 @@ namespace FiveCardPokerGame.ViewModels
             return twoPair;
         }
 
-        public static bool IsThree(ObservableCollection<Card> hand)
+        public static bool IsThree(ObservableCollection<Card> hand) // checks if the hand contains Three cards of the same CardValue.
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool threeOfAKind = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
@@ -110,7 +115,7 @@ namespace FiveCardPokerGame.ViewModels
             return threeOfAKind;
         }
 
-        public static bool IsStraight(ObservableCollection<Card> hand)
+        public static bool IsStraight(ObservableCollection<Card> hand) // checks if the hand contains five cards where CardValue are in sequential order
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool straight = (int)hand[0].Cardvalue % 13 == (int)hand[1].Cardvalue % 13 - 1 &&
@@ -121,7 +126,7 @@ namespace FiveCardPokerGame.ViewModels
             return straight;
         }
 
-        public static bool IsFlush(ObservableCollection<Card> hand)
+        public static bool IsFlush(ObservableCollection<Card> hand) // checks if the all the cards in the hand are of the same Cardsuit.
         {
             bool flush = (int)hand[0].Cardsuit == (int)hand[1].Cardsuit && (int)hand[1].Cardsuit == (int)hand[2].Cardsuit &&
                         (int)hand[2].Cardsuit == (int)hand[3].Cardsuit && (int)hand[3].Cardsuit == (int)hand[4].Cardsuit &&
@@ -129,7 +134,7 @@ namespace FiveCardPokerGame.ViewModels
 
             return flush;
         }
-        public static bool IsFullHouse(ObservableCollection<Card> hand)
+        public static bool IsFullHouse(ObservableCollection<Card> hand) // checks if the cards in hand contains, three of the same value and two other cards with same value
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool fullHouse = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue &&
@@ -142,7 +147,7 @@ namespace FiveCardPokerGame.ViewModels
 
             return fullHouse;
         }
-        public static bool IsRoyalFlush(ObservableCollection<Card> hand)
+        public static bool IsRoyalFlush(ObservableCollection<Card> hand) // checks if the cards in the hand are of value, ten,jack,queen,king,ace
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool royalFlush = hand[0].Cardvalue == Value.Ten && hand[1].Cardvalue == Value.Jack && hand[2].Cardvalue == Value.Queen && hand[3].Cardvalue == Value.King && hand[4].Cardvalue == Value.Ace;
@@ -150,7 +155,7 @@ namespace FiveCardPokerGame.ViewModels
             return royalFlush;
         }
 
-        public static bool IsFourOfAKind(ObservableCollection<Card> hand)
+        public static bool IsFourOfAKind(ObservableCollection<Card> hand) // checks if the hand contains four cards with the same Cardvalue
         {
             hand = new ObservableCollection<Card>(hand.OrderBy(o => o.Cardvalue));
             bool fourOfAKind = (int)hand[0].Cardvalue == (int)hand[1].Cardvalue && (int)hand[1].Cardvalue == (int)hand[2].Cardvalue &&

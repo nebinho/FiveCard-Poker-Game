@@ -27,21 +27,42 @@ namespace FiveCardPokerGame.Data
             RulesCommand = new RulesCommand(this);
             HighScoreListsCommand = new HighScoreListsCommand(this);
         }
+
+        /// <summary>
+        /// ObservableCollection to store Players from database
+        /// </summary>
         public ObservableCollection<Player> Players { get; set; }
+        /// <summary>
+        /// Prop to store selected player from the StartView
+        /// </summary>
         public Player SelectedPlayer { get; set; }
-        //public ObservableCollection<int> Difficulty { get; set; } = new ObservableCollection<int> { 1,2,3};
+        /// <summary>
+        /// Dictionary to translate the int difficulty to a string for show on StartView
+        /// </summary>
         public Dictionary<int, string> DifficultyDictionary { get; set; } = new Dictionary<int, string>();
+        /// <summary>
+        /// Prop to store selected difficulty from StartView
+        /// </summary>
         public int SelectedDifficulty { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
         public ICommand UpdateViewAndSaveDataCommand { get; set; }
         public ICommand CreatePlayerCommand { get; set; }
+        /// <summary>
+        /// Prop to store new player if a user creates one
+        /// </summary>
         public string NewPlayer { get; set; }
-        public bool BtnEnabler { get; set; }
+        /// <summary>
+        /// Prop to display feedback for the user if player and difficulty are not selected
+        /// </summary>
         public string FeedbackString { get; set;  }
         public ICommand RulesCommand { get; set; }
         public ICommand HighScoreListsCommand { get; set; }
 
         #region Read
+        /// <summary>
+        /// Gets observable collection of created players from database to display in listbox on StartView for user to choose
+        /// </summary>
+        /// <returns>ObservableCollection of Players</returns>
         public ObservableCollection<Player> GetPlayers()
         {
             string stmt = "SELECT * FROM player ORDER BY name ASC";
@@ -74,6 +95,11 @@ namespace FiveCardPokerGame.Data
             }
         }
 
+        /// <summary>
+        /// Method to get and select new created player from database 
+        /// </summary>
+        /// <param name="NewPlayer"></param>
+        /// <returns>Player</returns>
         public Player SelectPlayer(string NewPlayer)
         {
             Player player = null;
@@ -106,6 +132,10 @@ namespace FiveCardPokerGame.Data
         #endregion
 
         #region Create
+        /// <summary>
+        /// Method to create and store new created player in database
+        /// </summary>
+        /// <param name="NewPlayer"></param>
         public void CreatePlayer(string NewPlayer)
         {
             FeedbackString = null;
