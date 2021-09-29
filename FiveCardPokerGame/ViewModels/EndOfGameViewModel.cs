@@ -1,5 +1,6 @@
 ﻿using FiveCardPokerGame.Commands;
 using FiveCardPokerGame.Data;
+using FiveCardPokerGame.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,9 +21,11 @@ namespace FiveCardPokerGame.ViewModels
         public ICommand PlayAgainCommand { get; set; }        
         public ICommand GoToStartCommand { get; set; }
         public BaseViewModel SelectedViewModel { get; set; }
+        public ObservableCollection<CardView> FinalHand { get; set; }
 
         public EndOfGameViewModel()
-        {        
+        {
+            FinalHand = Global.FinalHand;
             highScoreDb.SetHighscore(); 
             highScoreDb.GetHighscores();            
             EndScore = Global.EndScore.ToString();

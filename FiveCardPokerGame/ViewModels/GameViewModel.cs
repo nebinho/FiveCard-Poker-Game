@@ -8,7 +8,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static FiveCardPokerGame.ViewModels.PlayerViewModel;
+
 
 namespace FiveCardPokerGame.ViewModels
 {
@@ -51,6 +51,10 @@ namespace FiveCardPokerGame.ViewModels
             IsCardEnabled = CardEnabler();
             EndViewCommand = new EndViewCommand(this);            
         }
+        /// <summary>
+        /// Checks if the players final score is equal or better than any score in the highscorelist.
+        /// </summary>
+        /// <returns></returns>
         public bool CheckIfHighScore()
         {
             foreach (var item in HighScoreDb.GetHighscores())
@@ -63,6 +67,36 @@ namespace FiveCardPokerGame.ViewModels
 
             return false;
         }
-
+        /// <summary>
+        /// If the player has no draws left it moves the player to the score screen after 2 seconds.
+        /// </summary>
+        public void ExecuteGameOver()
+        {
+            if (DeckOfCards.CanDrawNewCard()==false)
+            {
+                Global.FinalHand = DeckOfCards.CardViews;
+                Task.Delay(2000).ContinueWith(t=>EndViewCommand.Execute(this));
+            }
+        }
+        /// <summary>
+        /// Checks if the player makes it to the high score list. Plays a sound if true
+        /// Checks if players score is equal to or higher than five (lowest possible score). Plays sound if that is the case
+        /// If player has no points it plays a sad trumpet(?) sound.
+        /// </summary>
+        public void PlaySoundBasedOnScore()
+        {
+            if (CheckIfHighScore() == true)
+            {
+                Global.PlayHighScoreSound();
+            }
+            else if (Global.EndScore >= 5)
+            {
+                Global.PlayPointsSound();
+            }
+            else
+            {
+                Global.PlayNoPointsSound();
+            }
+        }
     }
 }

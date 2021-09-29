@@ -8,6 +8,9 @@ namespace FiveCardPokerGame.ViewModels
 {
     public class Card : BaseViewModel
     {
+        /// <summary>
+        /// Enum of every suit a card can have.
+        /// </summary>
         public enum Suit
         {
             Clubs,
@@ -15,7 +18,9 @@ namespace FiveCardPokerGame.ViewModels
             Hearts,
             Spades,
         }
-
+        /// <summary>
+        /// Enum of all values a card can have.
+        /// </summary>
         public enum Value
         {
             Two ,
@@ -35,7 +40,10 @@ namespace FiveCardPokerGame.ViewModels
 
         public Suit Cardsuit { get; set; }
         public Value Cardvalue { get; set; }
-
+        /// <summary>
+        /// Returns this string when displaying this type of object.
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             return $"{Cardsuit} {Cardvalue}";

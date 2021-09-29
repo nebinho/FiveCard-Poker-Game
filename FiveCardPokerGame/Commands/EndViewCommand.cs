@@ -35,20 +35,7 @@ namespace FiveCardPokerGame.Commands
             Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
             gameViewModel.SelectedViewModel = new EndOfGameViewModel();            
             Global.PlayClickSound();
-            if (gameViewModel.CheckIfHighScore()==true)
-            {
-                Global.PlayHighScoreSound();
-            }
-            else if (Global.EndScore >= 5)
-            {
-                Global.PlayPointsSound();
-            }
-            else
-            {
-                Global.PlayNoPointsSound();
-            }
-
-
+            gameViewModel.PlaySoundBasedOnScore();
         }
 
 

@@ -19,9 +19,16 @@ namespace FiveCardPokerGame.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-
+        /// <summary>
+        /// Can always execute.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter) => true;
-
+        /// <summary>
+        /// Restarts the game, displays  the StartView.
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             Global.PlayClickSound();

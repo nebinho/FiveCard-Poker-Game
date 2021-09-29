@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static FiveCardPokerGame.ViewModels.PlayerViewModel;
+
 
 namespace FiveCardPokerGame.ViewModels
 {
@@ -75,6 +75,7 @@ namespace FiveCardPokerGame.ViewModels
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
+                
             }
         }
         /// <summary>
@@ -107,11 +108,16 @@ namespace FiveCardPokerGame.ViewModels
         {
             if (NumberOfThrows >= SelectedDifficulty+1)
             {
+                
                 return false;
             }
             return true;
         }
-
+        /// <summary>
+        /// Used for recreating a thrown card.
+        /// </summary>
+        /// <param name="cardView"></param>
+        /// <returns></returns>
         public Card Card(CardView cardView)
         {
             var suit = cardView.GetCard.Cardsuit;

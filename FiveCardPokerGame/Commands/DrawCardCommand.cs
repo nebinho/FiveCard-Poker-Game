@@ -42,6 +42,7 @@ namespace FiveCardPokerGame.Commands
             gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
             gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
             gameViewModel.DeckOfCards.DrawsLeft--;
+            gameViewModel.ExecuteGameOver();
         }
     }
 }
