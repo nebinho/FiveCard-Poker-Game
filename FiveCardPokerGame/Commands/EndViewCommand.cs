@@ -31,10 +31,11 @@ namespace FiveCardPokerGame.Commands
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
+            Global.PlayClickSound();
+            Global.FinalHand = gameViewModel.DeckOfCards.CardViews;
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
             Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
             gameViewModel.SelectedViewModel = new EndOfGameViewModel();            
-            Global.PlayClickSound();
             gameViewModel.PlaySoundBasedOnScore();
         }
 
