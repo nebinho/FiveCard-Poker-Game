@@ -18,7 +18,12 @@ namespace FiveCardPokerGame.Commands
             this.highScoreViewModel = highScoreViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute.
         /// </summary>

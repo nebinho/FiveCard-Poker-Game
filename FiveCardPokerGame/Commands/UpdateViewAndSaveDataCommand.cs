@@ -20,7 +20,12 @@ namespace FiveCardPokerGame.Commands
             this.playerDb = playerDb;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute
         /// </summary>
