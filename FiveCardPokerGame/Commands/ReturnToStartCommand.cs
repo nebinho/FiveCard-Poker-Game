@@ -11,14 +11,19 @@ namespace FiveCardPokerGame.Commands
 {
     class ReturnToStartCommand : ICommand
     {
-        private HighScoreViewModel highScoreViewModel;
+        private readonly HighScoreViewModel highScoreViewModel;
 
         public ReturnToStartCommand(HighScoreViewModel highScoreViewModel)
         {
             this.highScoreViewModel = highScoreViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute.
         /// </summary>

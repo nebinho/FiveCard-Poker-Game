@@ -11,14 +11,19 @@ namespace FiveCardPokerGame.Commands
 {
     class CreatePlayerCommand : ICommand
     {
-        private PlayerDbViewModel playerDb;
+        private readonly PlayerDbViewModel playerDb;
 
         public CreatePlayerCommand(PlayerDbViewModel playerDb)
         {
             this.playerDb = playerDb;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute.
         /// </summary>

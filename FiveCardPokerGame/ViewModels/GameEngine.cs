@@ -18,8 +18,7 @@ namespace FiveCardPokerGame.ViewModels
         public ObservableCollection<Card> Hand { get; set; } = new ObservableCollection<Card>();
         public ObservableCollection<CardView> CardViews { get; set; }
         public ObservableCollection<CardView> ThrownCards { get; set; } = new();
-        public PokerHands PokerHands { get; set; } = new PokerHands();
-        public List<Card> Cards { get; set; }
+        public PokerHands PokerHands { get; set; } = new PokerHands();        
         public int SelectedDifficulty { get; set; }
         public int NumberOfThrows { get; set; }
         public int DrawsLeft { get; set; } = Global.Difficulty;
@@ -71,7 +70,7 @@ namespace FiveCardPokerGame.ViewModels
             CardViews = new();
             foreach (Card card in Hand)
             {
-                var cardView = new CardView();
+                CardView cardView = new();
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
@@ -118,12 +117,12 @@ namespace FiveCardPokerGame.ViewModels
         /// </summary>
         /// <param name="cardView"></param>
         /// <returns></returns>
-        public Card Card(CardView cardView)
+        public static Card RecreateCardFromCardView(CardView cardView)
         {
             var suit = cardView.GetCard.Cardsuit;
             var value = cardView.GetCard.Cardvalue;
 
-            Card card = new Card
+            Card card = new()
             {
                 Cardsuit = suit,
                 Cardvalue = value

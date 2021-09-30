@@ -15,8 +15,8 @@ namespace FiveCardPokerGame.ViewModels
     {
         public string EndScore { get; set; }
         public string EndHand { get; set; }
-        public string ShowDifficulty { get { return HighScoreDb.dif; } set { HighScoreDb.dif = value; } }
-        public HighScoreDb highScoreDb = new HighScoreDb();
+        public static string ShowDifficulty { get { return HighScoreDb.Dif; } set { HighScoreDb.Dif = value; } }
+        public HighScoreDb highScoreDb = new();
         public static ObservableCollection<Highscore> HighscoreList { get; set; }
         public ICommand PlayAgainCommand { get; set; }        
         public ICommand GoToStartCommand { get; set; }
@@ -26,8 +26,8 @@ namespace FiveCardPokerGame.ViewModels
         public EndOfGameViewModel()
         {
             FinalHand = Global.FinalHand;
-            highScoreDb.SetHighscore(); 
-            highScoreDb.GetHighscores();            
+            HighScoreDb.SetHighscore();
+            HighScoreDb.GetHighscores();            
             EndScore = Global.EndScore.ToString();
             EndHand = Global.EndHand.ToString();
             PlayAgainCommand = new PlayAgainCommand(this);

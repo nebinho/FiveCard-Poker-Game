@@ -11,15 +11,20 @@ namespace FiveCardPokerGame.Commands
 {
     class HighScoreListsCommand : ICommand
     {
-        private HighScoreViewModel highScoreViewModel;
-        private PlayerDbViewModel playerDb;
+        
+        private readonly PlayerDbViewModel playerDb;
 
         public HighScoreListsCommand(PlayerDbViewModel playerDb)
         {
             this.playerDb = playerDb;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute.
         /// </summary>

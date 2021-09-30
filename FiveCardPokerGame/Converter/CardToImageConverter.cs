@@ -15,7 +15,7 @@ namespace FiveCardPokerGame.Converter
     public class CardToImageConverter : IValueConverter
     {
         /// <summary>
-        /// Converts the value of a Card to a string and uses the propertys to find the right picture and display that on a CardView.
+        /// Converts the value of a RecreateCardFromCardView to a string and uses the propertys to find the right picture and display that on a CardView.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>
@@ -24,11 +24,9 @@ namespace FiveCardPokerGame.Converter
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var imageBit = new BitmapImage();
-
             if (value is Card && value != null)
             {
-                return imageBit = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
+                return _ = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
             }
             return null;
         }

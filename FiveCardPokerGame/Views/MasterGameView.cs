@@ -28,7 +28,7 @@ namespace FiveCardPokerGame.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void card_DragOver(object sender, DragEventArgs e)
+        public void Card_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
@@ -59,7 +59,7 @@ namespace FiveCardPokerGame.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void card_Drop(object sender, DragEventArgs e)
+        public void Card_Drop(object sender, DragEventArgs e)
         {
             Global.PlayDragAndDropSound();            
         }
@@ -69,7 +69,7 @@ namespace FiveCardPokerGame.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void myCards_DragOver(object sender, DragEventArgs e)
+        public void MyCards_DragOver(object sender, DragEventArgs e)
         {
             GameViewModel gameViewModel = (GameViewModel)DataContext;
             object data = e.Data.GetData(DataFormats.Serializable);
@@ -80,7 +80,7 @@ namespace FiveCardPokerGame.Views
                 {
                     gameViewModel.DeckOfCards.ThrownCards.Remove(cardView);
                     gameViewModel.DeckOfCards.CardViews.Add(cardView);
-                    gameViewModel.DeckOfCards.Hand.Add(gameViewModel.DeckOfCards.Card(cardView));
+                    gameViewModel.DeckOfCards.Hand.Add(GameEngine.RecreateCardFromCardView(cardView));
 
                     gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                     gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();

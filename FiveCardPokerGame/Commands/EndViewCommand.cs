@@ -11,14 +11,19 @@ namespace FiveCardPokerGame.Commands
 {
     class EndViewCommand : ICommand
     {
-        private GameViewModel gameViewModel;
+        private readonly GameViewModel gameViewModel;
 
         public EndViewCommand(GameViewModel gameViewModel)
         {
             this.gameViewModel = gameViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute
         /// </summary>
@@ -34,9 +39,9 @@ namespace FiveCardPokerGame.Commands
             Global.PlayClickSound();
             Global.FinalHand = gameViewModel.DeckOfCards.CardViews;
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
-            Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
-            gameViewModel.SelectedViewModel = new EndOfGameViewModel();            
-            gameViewModel.PlaySoundBasedOnScore();
+            Global.EndHand = gameViewModel.DeckOfCards.PokerHands.CurrentPokerHand.ToString();
+            gameViewModel.SelectedViewModel = new EndOfGameViewModel();
+            GameViewModel.PlaySoundBasedOnScore();
         }
 
 

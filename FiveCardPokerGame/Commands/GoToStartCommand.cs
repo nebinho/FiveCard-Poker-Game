@@ -11,8 +11,8 @@ namespace FiveCardPokerGame.Commands
 {
     class GoToStartCommand : ICommand
     {
-        private EndOfGameViewModel endOfGameViewModel;
-        private HowToPlayViewModel howToPlayViewModel;
+        private readonly EndOfGameViewModel endOfGameViewModel;
+        
 
         public GoToStartCommand(EndOfGameViewModel endOfGameViewModel)
         {
@@ -22,7 +22,12 @@ namespace FiveCardPokerGame.Commands
 
        
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute.
         /// </summary>

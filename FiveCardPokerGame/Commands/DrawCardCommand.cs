@@ -11,14 +11,19 @@ namespace FiveCardPokerGame.Commands
 {
     public class DrawCardCommand : ICommand
     {
-        private GameViewModel gameViewModel;
+        private readonly GameViewModel gameViewModel;
 
         public DrawCardCommand(GameViewModel gameViewModel)
         {
             this.gameViewModel = gameViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Can always execute
         /// </summary>

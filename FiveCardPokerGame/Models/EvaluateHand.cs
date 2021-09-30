@@ -18,60 +18,60 @@ namespace FiveCardPokerGame.ViewModels
             {
                 if (IsRoyalFlush(hand))
                 {
-                    pokerHands.pokerHand = PokerHands.PokerHand.RoyalFlush;
+                    pokerHands.CurrentPokerHand = PokerHands.PokerHand.RoyalFlush;
                     pokerHands.Score = 50;
                     return true;
                 }
             }
             if (IsFlush(hand) && IsStraight(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.StraightFlush;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.StraightFlush;
                 pokerHands.Score = 40;
                 return true;
             }                  
             if (IsFourOfAKind(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.FourOfAKind;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.FourOfAKind;
                 pokerHands.Score = 35;
                 return true;
             }
             if (IsFullHouse(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.FullHouse;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.FullHouse;
                 pokerHands.Score = 30;
                 return true;
             }
             if (IsFlush(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.Flush;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.Flush;
                 pokerHands.Score = 25;
                 return true;
             }
             if (IsStraight(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.Straight;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.Straight;
                 pokerHands.Score = 20;
                 return true;
             }
             if (IsThree(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.ThreeOfAKind;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.ThreeOfAKind;
                 pokerHands.Score = 15;
                 return true;
             }
             if (IsTwoPair(hand))
             {
-                pokerHands.pokerHand = PokerHands.PokerHand.TwoPair;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.TwoPair;
                 pokerHands.Score = 10;
                 return true;
             }
             if (IsPair(hand))
             {              
-                pokerHands.pokerHand = PokerHands.PokerHand.Pair;
+                pokerHands.CurrentPokerHand = PokerHands.PokerHand.Pair;
                 pokerHands.Score = 5;
                 return true;
             }
-            pokerHands.pokerHand = PokerHands.PokerHand.Nothing;
+            pokerHands.CurrentPokerHand = PokerHands.PokerHand.Nothing;
             pokerHands.Score = 0;
             return false;
 

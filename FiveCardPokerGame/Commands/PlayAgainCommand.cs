@@ -10,14 +10,19 @@ namespace FiveCardPokerGame.Commands
 {
     class PlayAgainCommand : ICommand
     {
-        private EndOfGameViewModel endOfGameViewModel;
+        private readonly EndOfGameViewModel endOfGameViewModel;
 
         public PlayAgainCommand(EndOfGameViewModel endOfGameViewModel)
         {
             this.endOfGameViewModel = endOfGameViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Always returns true. Can always execute.
         /// </summary>
