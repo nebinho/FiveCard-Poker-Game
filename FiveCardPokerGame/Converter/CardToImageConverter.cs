@@ -15,7 +15,7 @@ namespace FiveCardPokerGame.Converter
     public class CardToImageConverter : IValueConverter
     {
         /// <summary>
-        /// Converts the value of a Card to a string and uses the propertys to find the right picture and display that on a CardView.
+        /// Converts the value of a RecreateCardFromCardView to a string and uses the propertys to find the right picture and display that on a CardView.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>

@@ -36,7 +36,7 @@ namespace FiveCardPokerGame.ViewModels
         /// </summary>
         public ObservableCollection<string> HowToPlay { get; set; } = new ObservableCollection<string>
         {
-            "'Five-Card-Poker' is a card game where the goal is to set a 'hand' of as good rank as possible",
+            "'Five-RecreateCardFromCardView-Poker' is a card game where the goal is to set a 'hand' of as good rank as possible",
             "A 'hand' consists of five cards", 
             "The player tries to set the 'hand' by swapping out cards - Throwing undesired and drawing new random cards",
             "The different 'hands' a player can set are ranked - See 'hand'-ranking below",
@@ -49,7 +49,7 @@ namespace FiveCardPokerGame.ViewModels
             "The game starts by dealing 5 random cards from the deck",
             "Current points and 'hand'-rank are shown on top of the screen",
             "You then drag and drop the cards you want to swap out to the 'Throw here'-zone", 
-            "To draw new cards from the deck you click on the upside down card with the writing 'Draw Card'",
+            "To draw new cards from the deck you click on the upside down card with the writing 'Draw RecreateCardFromCardView'",
             "If you´re satisified with the set hand and still have draws left you can click the 'Finish game' button",
             "When the game finishes the score of your 'hand' and place on the highscore-list are shown"
         };

@@ -80,7 +80,7 @@ namespace FiveCardPokerGame.Views
                 {
                     gameViewModel.DeckOfCards.ThrownCards.Remove(cardView);
                     gameViewModel.DeckOfCards.CardViews.Add(cardView);
-                    gameViewModel.DeckOfCards.Hand.Add(GameEngine.Card(cardView));
+                    gameViewModel.DeckOfCards.Hand.Add(GameEngine.RecreateCardFromCardView(cardView));
 
                     gameViewModel.IsButtonEnabled = gameViewModel.DeckOfCards.IsHandFiveOrLess();
                     gameViewModel.IsCardEnabled = gameViewModel.CardEnabler();
