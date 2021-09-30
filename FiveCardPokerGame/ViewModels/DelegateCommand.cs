@@ -4,7 +4,7 @@ namespace FiveCardPokerGame.ViewModels
 {
     internal class DelegateCommand
     {
-        private Func<bool> enableButton;
+        private readonly Func<bool> enableButton;
 
         public DelegateCommand(Func<bool> enableButton)
         {

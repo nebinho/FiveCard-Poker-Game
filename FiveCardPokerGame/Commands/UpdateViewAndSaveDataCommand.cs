@@ -13,7 +13,7 @@ namespace FiveCardPokerGame.Commands
 {
     class UpdateViewAndSaveDataCommand : ICommand
     {
-        private PlayerDbViewModel playerDb;
+        private readonly PlayerDbViewModel playerDb;
 
         public UpdateViewAndSaveDataCommand(PlayerDbViewModel playerDb)
         {

@@ -16,7 +16,7 @@ namespace FiveCardPokerGame.ViewModels
         public string EndScore { get; set; }
         public string EndHand { get; set; }
         public string ShowDifficulty { get { return HighScoreDb.dif; } set { HighScoreDb.dif = value; } }
-        public HighScoreDb highScoreDb = new HighScoreDb();
+        public HighScoreDb highScoreDb = new();
         public static ObservableCollection<Highscore> HighscoreList { get; set; }
         public ICommand PlayAgainCommand { get; set; }        
         public ICommand GoToStartCommand { get; set; }

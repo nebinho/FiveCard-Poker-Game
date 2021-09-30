@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.Commands
 {
     class EndViewCommand : ICommand
     {
-        private GameViewModel gameViewModel;
+        private readonly GameViewModel gameViewModel;
 
         public EndViewCommand(GameViewModel gameViewModel)
         {

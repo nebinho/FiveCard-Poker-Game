@@ -89,7 +89,7 @@ namespace FiveCardPokerGame.Data
                 using var reader = command.ExecuteReader();
 
                 EndOfGameViewModel.HighscoreList = new ObservableCollection<Highscore>();
-                Highscore highscore = new Highscore();
+                Highscore highscore = new();
 
                 while (reader.Read())
                 {
@@ -130,8 +130,8 @@ namespace FiveCardPokerGame.Data
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
 
-                ObservableCollection<Highscore> easyList = new ObservableCollection<Highscore>();
-                Highscore highscore = new Highscore();
+                ObservableCollection<Highscore> easyList = new();
+                Highscore highscore = new();
 
                 while (reader.Read())
                 {
@@ -171,8 +171,8 @@ namespace FiveCardPokerGame.Data
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
 
-                ObservableCollection<Highscore> mediumList = new ObservableCollection<Highscore>();
-                Highscore highscore = new Highscore();
+                ObservableCollection<Highscore> mediumList = new();
+                Highscore highscore = new();
 
                 while (reader.Read())
                 {
@@ -211,8 +211,8 @@ namespace FiveCardPokerGame.Data
                 using var command = new NpgsqlCommand(stmt, conn);
                 using var reader = command.ExecuteReader();
 
-                ObservableCollection<Highscore> hardList = new ObservableCollection<Highscore>();
-                Highscore highscore = new Highscore();
+                ObservableCollection<Highscore> hardList = new();
+                Highscore highscore = new();
 
                 while (reader.Read())
                 {

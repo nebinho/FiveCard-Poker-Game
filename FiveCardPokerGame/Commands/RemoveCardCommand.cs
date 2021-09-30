@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.Commands
 {
     public class RemoveCardCommand : ICommand
     {
-        private GameViewModel gameViewModel;
+        private readonly GameViewModel gameViewModel;
 
         public RemoveCardCommand(GameViewModel gameViewModel)
         {

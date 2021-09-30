@@ -11,8 +11,8 @@ namespace FiveCardPokerGame.Commands
 {
     class HighScoreListsCommand : ICommand
     {
-        private HighScoreViewModel highScoreViewModel;
-        private PlayerDbViewModel playerDb;
+        private readonly HighScoreViewModel highScoreViewModel;
+        private readonly PlayerDbViewModel playerDb;
 
         public HighScoreListsCommand(PlayerDbViewModel playerDb)
         {

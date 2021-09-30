@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.Commands
 {
     class ReturnToStartCommand : ICommand
     {
-        private HighScoreViewModel highScoreViewModel;
+        private readonly HighScoreViewModel highScoreViewModel;
 
         public ReturnToStartCommand(HighScoreViewModel highScoreViewModel)
         {

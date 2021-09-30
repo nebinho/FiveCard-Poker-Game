@@ -11,8 +11,8 @@ namespace FiveCardPokerGame.Commands
 {
     class GoToStartCommand : ICommand
     {
-        private EndOfGameViewModel endOfGameViewModel;
-        private HowToPlayViewModel howToPlayViewModel;
+        private readonly EndOfGameViewModel endOfGameViewModel;
+        
 
         public GoToStartCommand(EndOfGameViewModel endOfGameViewModel)
         {

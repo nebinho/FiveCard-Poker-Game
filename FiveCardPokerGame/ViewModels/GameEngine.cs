@@ -123,7 +123,7 @@ namespace FiveCardPokerGame.ViewModels
             var suit = cardView.GetCard.Cardsuit;
             var value = cardView.GetCard.Cardvalue;
 
-            Card card = new Card
+            Card card = new()
             {
                 Cardsuit = suit,
                 Cardvalue = value

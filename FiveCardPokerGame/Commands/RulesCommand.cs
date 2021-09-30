@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.Commands
 {
     class RulesCommand : ICommand
     {
-        private PlayerDbViewModel playerDb;
+        private readonly PlayerDbViewModel playerDb;
 
         public RulesCommand(PlayerDbViewModel playerDb)
         {

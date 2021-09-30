@@ -11,7 +11,7 @@ namespace FiveCardPokerGame.Commands
 {
     class RestartCommand : ICommand
     {
-        private HowToPlayViewModel howToPlayViewModel;
+        private readonly HowToPlayViewModel howToPlayViewModel;
 
         public RestartCommand(HowToPlayViewModel howToPlayViewModel)
         {

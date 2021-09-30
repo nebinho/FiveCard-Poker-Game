@@ -10,7 +10,7 @@ namespace FiveCardPokerGame.Commands
 {
     class PlayAgainCommand : ICommand
     {
-        private EndOfGameViewModel endOfGameViewModel;
+        private readonly EndOfGameViewModel endOfGameViewModel;
 
         public PlayAgainCommand(EndOfGameViewModel endOfGameViewModel)
         {
