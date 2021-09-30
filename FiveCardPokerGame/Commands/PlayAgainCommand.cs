@@ -17,7 +17,12 @@ namespace FiveCardPokerGame.Commands
             this.endOfGameViewModel = endOfGameViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
         /// <summary>
         /// Always returns true. Can always execute.
         /// </summary>
