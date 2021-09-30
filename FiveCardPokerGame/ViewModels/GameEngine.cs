@@ -71,7 +71,7 @@ namespace FiveCardPokerGame.ViewModels
             CardViews = new();
             foreach (Card card in Hand)
             {
-                var cardView = new CardView();
+                CardView cardView = new();
                 cardView.GetCard = card;
 
                 CardViews.Add(cardView);
@@ -118,7 +118,7 @@ namespace FiveCardPokerGame.ViewModels
         /// </summary>
         /// <param name="cardView"></param>
         /// <returns></returns>
-        public Card Card(CardView cardView)
+        public static Card Card(CardView cardView)
         {
             var suit = cardView.GetCard.Cardsuit;
             var value = cardView.GetCard.Cardvalue;

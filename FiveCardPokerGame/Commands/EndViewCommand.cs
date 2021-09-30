@@ -34,9 +34,9 @@ namespace FiveCardPokerGame.Commands
             Global.PlayClickSound();
             Global.FinalHand = gameViewModel.DeckOfCards.CardViews;
             Global.EndScore = gameViewModel.DeckOfCards.PokerHands.Score;
-            Global.EndHand = gameViewModel.DeckOfCards.PokerHands.pokerHand.ToString();
-            gameViewModel.SelectedViewModel = new EndOfGameViewModel();            
-            gameViewModel.PlaySoundBasedOnScore();
+            Global.EndHand = gameViewModel.DeckOfCards.PokerHands.CurrentPokerHand.ToString();
+            gameViewModel.SelectedViewModel = new EndOfGameViewModel();
+            GameViewModel.PlaySoundBasedOnScore();
         }
 
 

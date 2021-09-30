@@ -24,11 +24,9 @@ namespace FiveCardPokerGame.Converter
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var imageBit = new BitmapImage();
-
             if (value is Card && value != null)
             {
-                return imageBit = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
+                return _ = new BitmapImage(new Uri(@"/Resources/ImagesCards/" + value.ToString() + ".png", UriKind.Relative));
             }
             return null;
         }

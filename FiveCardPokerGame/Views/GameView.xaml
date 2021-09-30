@@ -91,12 +91,12 @@
         <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5">
             <Label Content="Current score:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
             <Label Content="{Binding DeckOfCards.PokerHands.Score}" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
-            <Label Content="{Binding DeckOfCards.PokerHands.pokerHand}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
+            <Label Content="{Binding DeckOfCards.PokerHands.CurrentPokerHand}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" />
         </StackPanel>
 
         <!--BORDER THROW CARD-->
         <Border BorderBrush="#002A30" BorderThickness="5" Grid.Row="2" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="5">
-            <Canvas x:Name="dropZone"  DragOver="card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="ChangeCursorGiveFeedback" Drop="card_Drop">
+            <Canvas x:Name="dropZone"  DragOver="Card_DragOver" AllowDrop="True" Background="Transparent" GiveFeedback="ChangeCursorGiveFeedback" Drop="Card_Drop">
                 <ItemsControl ItemsSource="{Binding DeckOfCards.ThrownCards}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -109,7 +109,7 @@
 
         <!--BORDER MY CARDS-->
         <Border BorderBrush="#002A30" BorderThickness="5" Grid.Column="5" Grid.ColumnSpan="5" Grid.Row="4" Grid.RowSpan="2" Margin="5" GiveFeedback="ChangeCursorGiveFeedback">
-            <Canvas x:Name="myCards" DragOver="myCards_DragOver" Drop="card_Drop" AllowDrop="True">
+            <Canvas x:Name="myCards" DragOver="MyCards_DragOver" Drop="Card_Drop" AllowDrop="True">
                 <ItemsControl ItemsSource="{Binding DeckOfCards.CardViews}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

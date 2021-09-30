@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FiveCardPokerGame.Data
 {
@@ -14,25 +15,25 @@ namespace FiveCardPokerGame.Data
         /// <summary>
         /// String prop to display difficulty
         /// </summary>
-        public static string dif { get; set; }
+        public static string Dif { get; set; }
 
         /// <summary>
         /// Gets the int difficulty and translates to string
         /// </summary>
         /// <param name="difficulty"></param>
-        public static void GetDifficulty(int difficulty)
+        public static void GetDifficulty()
         {
             if (Global.Difficulty == 1)
             {
-                dif = "Hard";
+                Dif = "Hard";
             }
             else if (Global.Difficulty == 2)
             {
-                dif = "Medium";
+                Dif = "Medium";
             }
             else if (Global.Difficulty == 3)
             {
-                dif = "Easy";
+                Dif = "Easy";
             }
         }
 
@@ -40,9 +41,9 @@ namespace FiveCardPokerGame.Data
         /// <summary>
         /// Sets the highscore in database to a player and chosen difficulty
         /// </summary>
-        public void SetHighscore()
+        public static void SetHighscore()
         {
-            GetDifficulty(Global.Difficulty);
+            GetDifficulty();
 
             string stmt = $"INSERT INTO highscore(score, player_id, difficulty) VALUES (@score, @player_id, @difficulty)";
 
@@ -54,7 +55,7 @@ namespace FiveCardPokerGame.Data
                 using var command = new NpgsqlCommand(stmt, conn);
                 command.Parameters.AddWithValue("@score", Global.EndScore);
                 command.Parameters.AddWithValue("@player_id", Global.MyPlayer.PlayerId);
-                command.Parameters.AddWithValue("@difficulty", dif);
+                command.Parameters.AddWithValue("@difficulty", Dif);
 
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -64,7 +65,7 @@ namespace FiveCardPokerGame.Data
             }
             catch (PostgresException ex)
             {
-                string errorcode = ex.SqlState;
+                
                 throw new Exception("Couldn´t add highscore", ex);
             }
         }
@@ -76,9 +77,9 @@ namespace FiveCardPokerGame.Data
         /// Gets an observable collection from database for the EndView based on the difficulty the player has played on
         /// </summary>
         /// <returns>ObservableCollection of Highscores</returns>
-        public ObservableCollection<Highscore> GetHighscores()
+        public static ObservableCollection<Highscore> GetHighscores()
         {            
-            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id, DENSE_RANK () OVER ( ORDER BY score DESC ) score_rank FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{dif}' LIMIT 19";
+            string stmt = $"SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id, DENSE_RANK () OVER ( ORDER BY score DESC ) score_rank FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = '{Dif}' LIMIT 19";
 
             try
             {
@@ -109,7 +110,7 @@ namespace FiveCardPokerGame.Data
             }
             catch (PostgresException ex)
             {
-                string errorcode = ex.SqlState;
+                
                 throw new Exception("Couldn´t retrieve Highscores list", ex);
             }
         }
@@ -118,7 +119,7 @@ namespace FiveCardPokerGame.Data
         /// Gets an observable collection from database for the StartView/HighscoreView with highscores on easy difficulty 
         /// </summary>
         /// <returns>ObservableCollection of Highscores on Easy difficulty</returns>
-        public ObservableCollection<Highscore> GetEasyHighScore()
+        public static ObservableCollection<Highscore> GetEasyHighScore()
         {
             string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id, DENSE_RANK () OVER ( ORDER BY score DESC ) score_rank FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Easy' LIMIT 19";
 
@@ -150,7 +151,7 @@ namespace FiveCardPokerGame.Data
             }
             catch (PostgresException ex)
             {
-                string errorcode = ex.SqlState;
+                
                 throw new Exception("Couldn´t retrieve Highscores list", ex);
             }
         }
@@ -159,7 +160,7 @@ namespace FiveCardPokerGame.Data
         /// Gets an observable collection from database for the StartView/HighscoreView with highscores on medium difficulty
         /// </summary>
         /// <returns>ObservableCollection of Highscores on Medium difficulty</returns>
-        public ObservableCollection<Highscore> GetMediumHighScore()
+        public static ObservableCollection<Highscore> GetMediumHighScore()
         {
             string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id, DENSE_RANK () OVER ( ORDER BY score DESC ) score_rank FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Medium' LIMIT 19";
 
@@ -190,7 +191,7 @@ namespace FiveCardPokerGame.Data
             }
             catch (PostgresException ex)
             {
-                string errorcode = ex.SqlState;
+                
                 throw new Exception("Couldn´t retrieve Highscores list", ex);
             }
         }
@@ -199,7 +200,7 @@ namespace FiveCardPokerGame.Data
         ///Gets an observable collection from database for the StartView/HighscoreView with highscores on hard difficulty  
         /// </summary>
         /// <returns>ObservableCollection of Highscores on Hard difficulty</returns>
-        public ObservableCollection<Highscore> GetHardHighScore()
+        public static ObservableCollection<Highscore> GetHardHighScore()
         {
             string stmt = "SELECT player.name, highscore.score, highscore.difficulty, highscore.player_id, DENSE_RANK () OVER ( ORDER BY score DESC ) score_rank FROM player JOIN highscore on player.id=highscore.player_id and highscore.difficulty = 'Hard' LIMIT 19";
 
@@ -230,7 +231,7 @@ namespace FiveCardPokerGame.Data
             }
             catch (PostgresException ex)
             {
-                string errorcode = ex.SqlState;
+                
                 throw new Exception("Couldn´t retrieve Highscores list", ex);
             }
         }

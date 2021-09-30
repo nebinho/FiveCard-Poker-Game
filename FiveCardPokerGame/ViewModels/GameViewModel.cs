@@ -55,7 +55,7 @@ namespace FiveCardPokerGame.ViewModels
         /// Checks if the players final score is equal or better than any score in the highscorelist.
         /// </summary>
         /// <returns></returns>
-        public bool CheckIfHighScore()
+        public static bool CheckIfHighScore()
         {
             foreach (var item in HighScoreDb.GetHighscores())
             {
@@ -83,7 +83,7 @@ namespace FiveCardPokerGame.ViewModels
         /// Checks if players score is equal to or higher than five (lowest possible score). Plays sound if that is the case
         /// If player has no points it plays a sad trumpet(?) sound.
         /// </summary>
-        public void PlaySoundBasedOnScore()
+        public static void PlaySoundBasedOnScore()
         {
             if (CheckIfHighScore() == true)
             {
